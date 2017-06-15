@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+/*  公用头部区域 */
+.l-h-001{
+	padding-left:5%;
+}
+.l-h-002{
+	padding-right:5%;
+}
+
+
+
+/* 字体大小区域 */
+.l-f24{
+	font-size:24px;
+}
+.l-f20{
+	font-size:20px;
+}
+
+

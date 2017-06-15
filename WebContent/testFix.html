@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>菜单滚动至顶部后固定-柯乐义</title>
+<style type="text/css">
+.wrapper{width:1000px;height:2000px;margin-left:auto;margin-right:auto;} 
+ .header{height:150px;} 
+#nav_keleyi_com{padding:10px;position:relative;top:0;background:#125430;width:1000px;}
+
+</style>
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLE CSS -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="assets/js/custom.js"></script>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" id="topNavbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" ><strong style=""></strong> NSI <small >DATABASE</small></a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+                <ul class="nav navbar-nav navbar-right set-links">
+                    <li><a href="list.jsp" class="active-menu-item">学校</a></li>
+                    <li><a href="null.jsp">机构</a></li>
+                   	<li><a href="/nsi-0.8/people/People_list.jsp">人员</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="login.jsp" >登录</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+<div class="wrapper">
+	<div class="header"></div>
+	<div id="nav_keleyi_com">
+		<h1>111111111111111111111</h1>
+	</div>
+</div>
+<script type="text/javascript" >
+	window.onload = function(){
+		 menuFixed('nav_keleyi_com');
+	 }
+	function menuFixed(id){
+		var obj = document.getElementById(id);
+		var getHeight = obj.offsetTop;
+		
+		window.onscroll = function(){
+		changePos(id,getHeight);
+		}
+	}
+	function changePos(id,height){
+		var obj = document.getElementById(id);
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		if(scrollTop < height){
+		obj.style.position = 'relative';
+		}else{
+		obj.style.position = 'fixed';
+		}
+	}
+</script>
+
+</body>
+</html>
