@@ -28,9 +28,9 @@ public class Verify extends HttpServlet{
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+//		注册用户通过审核 ，标志位置为“1”
 		String verify = request.getParameter("verify");
-		System.out.println("verify:"+verify);
-		
+		System.out.println("verify:"+verify);		
 		String sql="UPDATE nsi_user SET Member_sign='1' WHERE UserName='"+verify+"' and Member_sign<1 ";
 		DB.alter(sql);
 	}

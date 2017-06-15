@@ -27,6 +27,7 @@ import people.DB;
 			String Email=request.getParameter("Email");
 			String Name=request.getParameter("Name");
 			String company=request.getParameter("company");
+			String position=request.getParameter("position");
 			String Passwd01=request.getParameter("Passwd01");
 			String User_phone=request.getParameter("phone");
 			
@@ -52,9 +53,9 @@ import people.DB;
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}			
-//				录入数据库
-				String sql="INSERT INTO nsi_user (UserName,Password,Member_sign,User_TureName,User_Organization,User_phone,User_registerCode)"
-							+ "VALUES ('"+Email+"','"+Passwd01+"','0','"+Name+"','"+company+"','"+User_phone+"','"+code+"')";
+//				录入数据库  ，"-1"为用户状态标志位
+				String sql="INSERT INTO nsi_user (UserName,Password,Member_sign,User_TureName,User_Organization,User_position,User_phone,User_registerCode)"
+							+ "VALUES ('"+Email+"','"+Passwd01+"','-1','"+Name+"','"+company+"','"+position+"','"+User_phone+"','"+code+"')";
 				DB.Insert(sql);
 				
 //			验证邮箱激活码

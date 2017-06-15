@@ -17,7 +17,7 @@
 	    <!-- CUSTOM SCRIPTS  -->
 	    <script src="assets/js/custom.js"></script>
 	    
-<title>登录</title>
+<title>新学说-登录</title>
 <meta charset="UTF-8">
 <!-- 	自适应标签 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

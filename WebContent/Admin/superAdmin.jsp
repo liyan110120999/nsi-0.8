@@ -17,6 +17,14 @@
     <script src="../assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="../assets/js/custom.js"></script>
+    
+	<title>新学说后台管理</title>
+	<meta charset="UTF-8">
+	<!-- 	自适应标签 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+</head>
+
 <body>
 	<script type="text/javascript">		
 // 			jq Ajax

@@ -49,7 +49,7 @@
 			    zoom: 1;
 		}
 		.rightDiv{
-				background-color: #AFAFAF;
+				background-color: #fff;
 				float: left;
 				width: 40%;
 				height:89%;
@@ -201,6 +201,12 @@
 									 <label for="inputEmail3" class="col-sm-4 control-label">所属机构</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" id="companyID" name="company" />
+									</div>			
+								</div>
+								<div class="form-group">
+									 <label for="inputEmail3" class="col-sm-4 control-label">职位</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="positionID" name="position" />
 									</div>			
 								</div>
 								<div class="form-group">

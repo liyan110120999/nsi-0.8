@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 8.5_Tomcat8.5/lib/mysql-connector-java-5.1.41-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VIA/Desktop/阿里邮件api/aliyun-java-sdk-dm/aliyun-java-sdk-core-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VIA/Desktop/阿里邮件api/aliyun-java-sdk-dm/aliyun-java-sdk-dm-3.0.0-rc2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
