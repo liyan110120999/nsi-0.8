@@ -1,6 +1,7 @@
 package user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
@@ -46,6 +47,10 @@ import people.DB;
 					//发送
 					System.out.println("user.get的邮箱地址："+user.getName());
 					Mail.sendMail(user.getName(), code);
+					
+//					smtp远程发送 -----------------------------------------------------------------------------
+//					MailSMTP.sendSmtpMail();
+										
 				} catch (MessagingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -66,11 +71,26 @@ import people.DB;
 				System.out.println("register.java:收到邮箱链接"+registerCode+UserMail);
 				
 //				修改状态码
-				String sql="UPDATE nsi_user SET Member_sign='1' WHERE UserName='"+UserMail+"' ";
+				String sql="UPDATE nsi_user SET Member_sign='0' WHERE UserName='"+UserMail+"' ";
 				DB.alter(sql);
 				
+				request.getRequestDispatcher("/nsi-0.8/User/registerSuccess.jsp");
+				response.sendRedirect("/nsi-0.8/User/registerSuccess.jsp");
+//				跳转到激活成功界面
+			}else if(request.getParameter("checkMail")!=null){
+				String checkMail=request.getParameter("checkMail");
+				String sql="SELECT * FROM nsi_user WHERE UserName='"+checkMail+"' ";
+				System.out.println("检查邮箱是否注册过："+checkMail+sql);
+				int a=DB.count(sql);
+				System.out.println("结果数："+a);
+				
+//				返回数据
+				PrintWriter out = response.getWriter(); 
+				if(a<1){
+					out.print("0");
+				}else{
+					out.print("1");
+				}
 			}
-			
-
 		}
 }

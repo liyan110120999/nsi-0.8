@@ -16,6 +16,9 @@
     <link href="/nsi-0.8/assets/css/style.css" rel="stylesheet" />
     
     <link href="/nsi-0.8/assets/css/pagination.css" rel="stylesheet" />
+    <!--     	自定义css -->
+    <link href="/nsi-0.8/assets/css/MyCss.css" rel="stylesheet" />
+    
     <script src="/nsi-0.8/assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
     <script src="/nsi-0.8/assets/js/bootstrap.js"></script>
@@ -136,40 +139,38 @@
 		}
 
     	%>
-<!-- 		顶栏 -->
-		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
+
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
 	        <div class="container-fluid">  
-	            <div class="navbar-header">  
+	            <div class="navbar-header l-h-001">  
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" 
 	                 data-target="#example-navbar-collapse"> 
-
 	                   	<span class="icon-bar"></span> 
                      	<span class="icon-bar"></span> 
                   	 	<span class="icon-bar"></span> 
 	                </button>  
-	                <a class="navbar-brand" href="#"><strong>新 学 说</strong></a>  
+	                <div>
+	               	 	<img src="/nsi-0.8/assets/img/logo.png" class="img-rounded" width="250" height="60">
+	                </div>
 	            </div>  
-	            <div class="collapse navbar-collapse" id="example-navbar-collapse">  
-	                <ul class="nav navbar-nav navbar-right">  
-		                <li><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
-	                    <li><a href="/nsi-0.8/null.jsp"><b>机 构</b></a></li>
-	                   	<li><a href="#"><b>人 员</b></a></li>
-	                    <li><a href="/nsi-0.8/about.jsp"><b>关 于</b></a></li>
-	                    <li><a href="/nsi-0.8/login.jsp"><b>登 录</b></a></li>
-		                <li></li>
+	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
+	                <ul class="nav navbar-nav navbar-right l-h-002">  
+		                <li style="margin-top:5px;"><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
+	                    <li style="margin-top:5px;"><a href="/nsi-0.8/null.jsp"><b>机 构</b></a></li>
+	                   	<li style="margin-top:5px;"><a href="#"><b>人 员</b></a></li>
+	                    <li style="margin-top:5px;"><a href="/nsi-0.8/about.jsp"><b>关 于</b></a></li>
+	                    <li style="margin-top:5px;"><a href="/nsi-0.8/login.jsp" ><b>登 录</b></a></li>	          
 	                </ul>  
 	            </div>  
 	        </div>  
-	    </nav> 
-
+	    </nav>  
 	    
 		<script>  
 		        $(window).scroll(function () {  
 		            if ($(".navbar").offset().top > 50) {$(".navbar-fixed-top").addClass("top-nav");  
 		            }else {$(".navbar-fixed-top").removeClass("top-nav");}  
 		        })
-	    </script> 
-	
+	    </script> 	
 	
 		<div class="carousel slide" id="carousel-466145">
 				<ol class="carousel-indicators">
@@ -280,13 +281,11 @@
 									<input type="text" class="search-input form-control" style="width:300px" name="People_searchKey" value="<%=People_searchKey_session%>" />
 								<%}else{%>
 									<input type="text" class="search-input form-control" style="width:300px" name="People_searchKey" />
-								<%}%>		
-								
-								
+								<%}%>									
 							</div>			
 								<input type="hidden" name="searchMenu" value="People_name">
 								<input type="hidden" name="whereFrom" value="search">
-						</div> 
+							</div> 
 						<button type="submit" name="submit_Button" class="btn btn-primary" id="searchButton">搜索</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">

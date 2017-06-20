@@ -111,7 +111,7 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">school</i></h2>
+<!--             <h2 class="center brown-text"><i class="material-icons">school</i></h2> -->
             <h4 class="center">学 校</h4>
 
             <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
@@ -120,7 +120,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+<!--             <h2 class="center brown-text"><i class="material-icons">group</i></h2> -->
             <h4 class="center">人 脉</h4>
 
             <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
@@ -129,7 +129,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">account_balance</i></h2>
+<!--             <h2 class="center brown-text"><i class="material-icons">account_balance</i></h2> -->
             <h4 class="center">机 构</h4>
 
             <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>

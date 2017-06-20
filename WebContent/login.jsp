@@ -175,7 +175,7 @@
     }else if(aaa.equals(Codefal)){    	
     	%>
 		<script>
-			confirm("您的账号没有激活，请检查邮箱是否收到激活邮件"); 
+			confirm("您的账号没有激活或暂未通过审核，请检查邮箱是否收到激活邮件"); 
 		</script>
 		<%
     }else {
@@ -212,7 +212,7 @@
 															
 				</form>
 				<div style="float:right;padding-right:20px;">
-					<a href="/nsi-0.8/school/register.jsp">注 册</a>
+					<a href="/nsi-0.8/User/register.jsp">注 册</a>
 <!-- 					<a >注 册</a> -->
 					<span class="dotted">|</span>
 					<a>忘记密码</a>

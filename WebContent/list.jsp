@@ -32,7 +32,7 @@
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
-<!-- 	模块-复选框 -->
+	<!-- 	模块-复选框 -->
 	<link rel="stylesheet" href="assets/Modular/checkbox/jquery-labelauty.css">
 	<script src="assets/Modular/checkbox/jquery-labelauty.js"></script>
 	
@@ -398,12 +398,10 @@
 	            <div class="navbar-header l-h-001">  
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" 
 	                 data-target="#example-navbar-collapse"> 
-<!-- 	                				 data-target="#bs-example-navbar-collapse-1"> -->
 	                   	<span class="icon-bar"></span> 
                      	<span class="icon-bar"></span> 
                   	 	<span class="icon-bar"></span> 
 	                </button>  
-<!-- 	                <a class="navbar-brand l-f24" href="#"><strong>新 学 说</strong></a> -->
 	                <div>
 	               	 	<img src="assets/img/logo.png" class="img-rounded" width="250" height="60">
 	                </div>

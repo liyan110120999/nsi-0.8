@@ -194,21 +194,7 @@ public class People_servlet extends HttpServlet {
 			
 				request.getRequestDispatcher("people/People_list.jsp").forward(request, response);
 			}
-			
-//			不可用，择日删除
-//			else if(whereFrom.equals("AjaxPage")){
-//				
-////				Ajax分页 函数
-//				Integer pageNum=0;			
-//				pageNum = request.getParameter("pageNum") != null && !request.getParameter("pageNum").equals("") ? Integer.parseInt(request.getParameter("pageNum")) : 0;
-//				
-////				测试ab通讯
-//				String ab = request.getParameter("ab");			
-//				System.out.println("bb:收到："+ab);	
-//				
-//				request.setAttribute("ba", "bbaa");	
-//				request.getRequestDispatcher("People_Ajax").forward(request, response);
-//			}
+
 	}
 			
 }

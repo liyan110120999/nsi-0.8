@@ -29,57 +29,92 @@
 	<script type="text/javascript">		
 // 			jq Ajax
  			var pass= function(aa){			    	
-					        $.ajax({
-					            url: '/nsi-0.8/Verify',
-					            type: 'post',
-					            dataType:'json',
-					            data: {verify:aa},
-					            success: function(msg) {
-					            }
-					        });				        
-					      alert('ajax is ok!'+aa)		    	
+			        $.ajax({
+			            url: '/nsi-0.8/Verify',
+			            type: 'post',
+			            dataType:'json',
+			            data: {verify:aa},
+			            success: function(msg) {
+			            }
+			        });				        
+			      alert('ajax is ok!'+aa)		    	
 			    };
 	</script>
 
 
 <!-- 	顶栏 -->
-	<div>
-		<nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
-          <a class="navbar-brand" href="#">新学说后台</a>
-        </div>
-        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
-        <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><a href="#">概况</a></li>
-            <li><a href="#about">注册用户</a></li>
-            <li><a href="#contact">信息审核</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-       
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+<div class="container">
+	<div class="row ">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">新学说后台</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							 <a href="#">概览</a>				 
+						</li>
+						<li>
+							 <a href="#">用户审核</a>				 
+						</li>
+						<li>
+							 <a href="#">信息审核</a>				 
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">菜单<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">功能01</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">功能02</a>
+								</li>
+								<li>
+									<a href="#">功能03</a>
+								</li>						
+								<li>
+									<a href="#">功能04</a>
+								</li>							
+								<li>
+									<a href="#">功能05</a>
+								</li>
+							</ul>
+						</li>
+					</ul>			
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							 <a href="#">用户：</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">菜单<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">Action</a>
+								</li>
+								<li>
+									 <a href="#">action</a>
+								</li>
+								<li>
+									 <a href="#">Something</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">link</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	</div>
-<br><br><br>
+	
+</div>
 	
 	
 	<%  
@@ -102,6 +137,10 @@
 			<th>用户等级</th>
 			<th>真实姓名</th>
 			<th>机构</th>
+			<th>职位</th>
+			<th>手机号码</th>
+			<th>积分</th>
+			
 			<th>操作</th>
 		
 		</tr>
@@ -116,7 +155,10 @@
 			<td><%=rs.getString(3)%></td>
 			<td><%=rs.getString(4)%></td>
 			<td><%=rs.getString(5)%></td>
-<!-- 			<td><button onclick="pass()">通过</button></td> -->
+			<td><%=rs.getString(6)%></td>
+			<td><%=rs.getString(7)%></td>
+			<td><%=rs.getString(9)%></td>
+			
 			<td><button onclick="pass('<%=rs.getString(1)%>')">通过</button></td>
 		</tr>		
 	<%}%>  

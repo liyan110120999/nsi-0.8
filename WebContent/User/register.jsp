@@ -20,12 +20,19 @@
 	    <script src="../assets/js/custom.js"></script>
 </head>
 	<style>
+		label {
+			  display: inline-block;
+			  max-width: 100%;
+			  margin-bottom: 5px;
+			  font-weight: normal;
+		}
 		#registerMainID{
 			background-color: #fff;
 			width:960px;
 			height:708px;
 			margin: 50px auto 120px auto;
 			border: #E0E0E0 1px solid;
+
 		}
 		#headerID{
 			height: 36px;
@@ -59,9 +66,10 @@
 		}
 /* 		提示条 */
 		#infoID01{
-			background-color:#f50057;
+			background-color:#fff;
 			border-radius:5px;
 			margin: 0 20px 0 20px;
+			text-align:center;
 		}
 	</style>
 	
@@ -111,7 +119,7 @@
 			        $.ajax({
 			            url: '/nsi-0.8/register',
 			            type: 'post',
-			            dataType:'json',
+			            dataType:'json',			    
 			            data: $("#registerFormID").serializeArray(),
 			            success: function(msg) {
 			            }
@@ -123,18 +131,60 @@
 		    	} 
 		    });
 		});
-		//表单校验	
-	
-		  function fcheck(){  
-			
-			EmailID=document.getElementById("EmailID").value;  
-		  password01=document.getElementById("PasswdID01").value;  
-		  password02=document.getElementById("PasswdID02").value; 
+		//邮箱重复ajax检测
+ 			var checkMail= function(){	
+ 				var aa=$("#EmailID").val();
+			        $.ajax({
+			            url: '/nsi-0.8/register',
+			            type: 'post',
+			            dataType:'json',
+			            async : false,
+			            data: {checkMail:aa},
+			            success: function(msg) {
+			            	if(msg>0){			            		
+// 			            		alert("邮箱已注册过"+msg);							
+			            		$("#MailDivID").addClass("has-error");
+			            		$("#MailSpanID").removeClass("hide");
+			            		$("#MailSpanID").show(300);
+			            	}else{
+			            		$("#MailDivID").removeClass("has-error");
+			            		$("#MailSpanID").hide(300);
+			            	}
+			            }
+			        });	
+			        return msg;
+			    };
+
+		//表单校验		
+		  function fcheck(){  			
+				EmailID=document.getElementById("EmailID").value;  
+				NameID=document.getElementById("NameID").value;  
+				companyID=document.getElementById("companyID").value; 
+				positionID=document.getElementById("positionID").value; 
+				phoneID=document.getElementById("phoneID").value; 
+				password01=document.getElementById("PasswdID01").value;  
+			  	password02=document.getElementById("PasswdID02").value; 
 			  
 			if(EmailID==""){  
 			document.getElementById("infoDiv").innerHTML="<font color='red'>邮箱不能为空！</font>";  
 			return false;  
 			}  
+			else if(NameID==""){  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>姓名不能为空！</font>";  
+				return false;  
+				} 
+			else if(companyID==""){  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>机构不能为空！</font>";  
+				return false;  
+				} 
+			else if(positionID==""){  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>职位不能为空！</font>";  
+				return false;  
+				} 
+			else if(phoneID==""){  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>手机号码不能为空！</font>";  
+				return false;  
+				} 
 			else if(password01==""){  
 			document.getElementById("infoDiv").innerHTML="<font color='red'>密码不能为空！</font>";  
 			return false;  
@@ -181,15 +231,15 @@
 						<div class="col-md-6 column tab-pane fade in active" id="tab01">
 							<form class="form-horizontal form" role="form" id="registerFormID" name="myform">
 								<div class="form-group" id="infoID01">
-									 <label for="inputEmail3" class="control-label" style="padding-left:20%;">仅对学校机构开放，请使用学校邮箱注册</label>
-									 <label for="inputEmail3" class="control-label" style="padding-left:20%;">163、QQ等个人邮箱不能通过审核。</label>									
+									<div class="alert alert-danger">仅对学校机构开放，请使用学校邮箱注册<br /> 163、QQ等个人邮箱不能通过审核。</div>						
 								</div>
 								<br>
-								<div class="form-group">
+								<div class="form-group" id="MailDivID">
 									 <label for="inputEmail3" class="col-sm-4 control-label">邮箱账号</label>
 									<div class="col-sm-6">
-										<input type="email" class="form-control" id="EmailID" name="Email" />
-									</div>			
+										<input type="email" class="form-control" id="EmailID" onblur="checkMail()" name="Email" />
+									</div>
+									<div class="col-sm-5"> <span id="MailSpanID" class="hide" style="color:#999"><h5>邮箱已被注册</h5></span>  </div>		
 								</div>
 								<div class="form-group">
 									 <label for="inputEmail3" class="col-sm-4 control-label">姓名</label>
@@ -237,13 +287,10 @@
 			
 <!-- 			tab02 -->
 						<div class="col-md-6 column tab-pane fade" id="tab02">
-								<h4>正在审核您的信息，审核通过后将会发送激活邮件到您的信箱</h4>
-								<h4>请注意查收邮件</h4>
-								<h4>完成激活后，您就可以登录了</h4>
-								<div class="col-sm-6">
-<!-- 									<button type="button" class="btn btn-primary form-control" onclick="">登录</button> -->
-									<h4><a href="../login.jsp">登录</a></h4>
-								</div>
+							<div class="alert alert-success">注册成功！已向您发送激活邮件，请检查邮箱<br />完成激活后您的信息需要通过审核,方可登录</div>
+							<div class="col-sm-3">
+								<button type="button" class="btn btn-primary form-control" onclick="window.location.href='http://47.92.84.36:8080/nsi-0.8/'">登 录</button>				
+							</div>
 						</div>		
 					</div>
 				</div>	

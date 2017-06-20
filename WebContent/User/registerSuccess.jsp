@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE>
 <html>
   <head>
@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <script src="assets/js/custom.js"></script>
 
     
-    <title>空页面</title>
+    <title>新学说-激活成功</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -39,19 +39,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-md-12 column">
 					<div class="jumbotron">
 						<h1>
-							此功能正在开发中
+							邮箱激活成功
 						</h1>
 						<p>
-							此功能尚未实现，您可以点击按钮返回到上一页。如有问题请联系管理员.
+							请等待后台审核，审核通过后您就可以登陆了
 						</p>
 						<br><br>
 						<p>
-							 <a class="btn btn-primary btn-large" href="javascript:history.back()">返回</a>
+							 <a class="btn btn-primary btn-large" href="http://47.92.84.36:8080/nsi-0.8/">登 录</a>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
-  
   </body>
 </html>
