@@ -26,7 +26,6 @@
 		   <script src="/nsi-0.8/assets/js/user.js"></script>
 <!-- 		   文件上传 -->
 
-	
 		
 		<title>新增数据</title>
 

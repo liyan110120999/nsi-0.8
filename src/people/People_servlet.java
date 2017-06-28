@@ -81,8 +81,7 @@ public class People_servlet extends HttpServlet {
 				//request.setAttribute("countAllRS", "11");	    //搜索结果数
 				request.setAttribute("insertcount", insertcount);	//新增成功数
 				request.setAttribute("list", list);	
-					
-				
+									
 				request.getRequestDispatcher("people/People_list.jsp").forward(request, response);
 			}
 			else if(whereFrom.equals("detail")){

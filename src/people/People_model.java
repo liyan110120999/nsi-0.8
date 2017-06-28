@@ -37,12 +37,12 @@ public class People_model {
 		public void setPeople_member(String People_member){
 			this.People_member = People_member;
 		}	
-			public String getPeople_dueTime() {
-				return People_dueTime;
-			}
-			public void setPeople_dueTime(String people_dueTime) {
-				this.People_dueTime = people_dueTime;
-			}
+		public String getPeople_dueTime() {
+			return People_dueTime;
+		}
+		public void setPeople_dueTime(String people_dueTime) {
+			this.People_dueTime = people_dueTime;
+		}
 			
 		public String getPeople_work() {
 			return People_work;
@@ -80,18 +80,18 @@ public class People_model {
 		public void setPeople_wechat(String people_wechat) {
 			this.People_wechat = people_wechat;
 		}
-			public String getPeople_loadPeople() {
-				return People_loadPeople;
-			}
-			public void setPeople_loadPeople(String people_loadPeople) {
-				this.People_loadPeople = people_loadPeople;
-			}
-			public String getPeople_loadTime() {
-				return People_loadTime;
-			}
-			public void setPeople_loadTime(String people_loadTime) {
-				this.People_loadTime = people_loadTime;
-			}
+		public String getPeople_loadPeople() {
+			return People_loadPeople;
+		}
+		public void setPeople_loadPeople(String people_loadPeople) {
+			this.People_loadPeople = people_loadPeople;
+		}
+		public String getPeople_loadTime() {
+			return People_loadTime;
+		}
+		public void setPeople_loadTime(String people_loadTime) {
+			this.People_loadTime = people_loadTime;
+		}
 		public String getPeople_address() {
 			return People_address;
 		}
