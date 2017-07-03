@@ -81,17 +81,17 @@
 	    }
 	</script>
 <%
-// 	当前页 
+	// 	当前页 
 	String currentPage="1";
-	if(session.getAttribute("currentPage")!=null){
-	currentPage=session.getAttribute("currentPage").toString(); 
+	if(session.getAttribute("Institution_currentPage")!=null){
+	currentPage=session.getAttribute("Institution_currentPage").toString(); 
 	}
 	//	搜索结果计数
 	String countAllRS = "00";
-	if(session.getAttribute("countAllRS")==null){
+	if(session.getAttribute("Institution_countAllRS")==null){
 		countAllRS = "00";
 	}else{
-		countAllRS = session.getAttribute("countAllRS").toString();
+		countAllRS = session.getAttribute("Institution_countAllRS").toString();
 	}
 %>
 
@@ -159,8 +159,8 @@
 	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right l-h-002">  
 		                <li style="margin-top:5px;"><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
-	                    <li style="margin-top:5px;"><a href="/nsi-0.8/null.jsp"><b>机 构</b></a></li>
-	                   	<li style="margin-top:5px;"><a href="#"><b>人 员</b></a></li>
+	                    <li style="margin-top:5px;"><a href="#"><b>机 构</b></a></li>
+	                   	<li style="margin-top:5px;"><a href="/nsi-0.8/people/People_list.jsp"><b>人 员</b></a></li>
 	                    <li style="margin-top:5px;"><a href="/nsi-0.8/about.jsp"><b>关 于</b></a></li>
 	                    <li style="margin-top:5px;"><a href="/nsi-0.8/login.jsp" ><b>登 录</b></a></li>	          
 	                </ul>  
@@ -339,40 +339,45 @@
 			<table class="table table-hover">		
 				<thead id="tableHeaderID">
 					<tr>
-						<th>ID</th>
 						<th>机构名</th>
 						<th>地区</th>
 						<th>CEO</th>
+						<th>类型</th>
+						<th>业务类型</th>
 						<th>业务</th>
-						<th>电话</th>
-						<th>通讯地址</th>
-						<th>邮箱</th>
-						<th>介绍</th>
-						<th>投资信息</th>
-						<th>备注</th>
+<!-- 						<th>电话</th> -->
+<!-- 						<th>通讯地址</th> -->
+<!-- 						<th>邮箱</th> -->
+<!-- 						<th>介绍</th> -->
+<!-- 						<th>投资信息</th> -->
+<!-- 						<th>备注</th> -->
 						<th>提交者</th>		
 						<th>提交时间</th>						
 					</tr>
 				</thead>
 		<tbody>
 			<%	for(Institution_model institution : list){ %>
-			<tr class="info">
-				<td><a href="javascript:void(0)" onclick="formDetail(<%=institution.getId()%>)"><%=institution.getId()%></a></td>
-				<form id="<%=institution.getId()%>" role="form" action="People_servlet" method="post">						
-					<input type="hidden" name="detail_people_id" value="<%=institution.getId()%>">
+			<tr class="info">	
+				<td><a href="javascript:void(0)" onclick="formDetail(<%=institution.getId()%>)"><%=institution.getName()%></a></td>
+				<form id="<%=institution.getId()%>" role="form" action="/nsi-0.8/Institution_servlet" method="post">			
+					<input type="hidden" name="Insititution_id" value="<%=institution.getId()%>">
 					<input type="hidden" name="whereFrom" value="detail">																						
 				</form>
-				<td><%=institution.getName()%></td>
+				
 				<td><%=institution.getAreas()%></td>			
 				<td><%=institution.getCEO()%></td>
+				<td><%=institution.getType()%></td>
 				<td><%=institution.getService()%></td>
-				<td><%=institution.getTelephone()%></td>
-				<td><%=institution.getAddress()%></td>
-				<td><%=institution.getMail()%></td>
-				<td><%=institution.getIntroduction()%></td>
-				<td><%=institution.getInvestment()%></td>
-				<td><%=institution.getRemark()%></td>
-
+				<td><%=institution.getServiceType()%></td>
+<%-- 				<td><%=institution.getTelephone()%></td> --%>
+<%-- 				<td><%=institution.getAddress()%></td> --%>
+<%-- 				<td><%=institution.getMail()%></td> --%>
+<%-- 				<td><%=institution.getIntroduction()%></td> --%>
+<%-- 				<td><%=institution.getInvestment()%></td> --%>
+<%-- 				<td><%=institution.getRemark()%></td> --%>
+				<td><%=institution.getLoad_people()%></td>
+				<td><%=institution.getLoad_time()%></td>
+	
 			</tr>							
 <!-- 			遍历列表 -->
 		<%}%>

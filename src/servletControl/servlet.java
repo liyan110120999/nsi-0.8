@@ -78,6 +78,7 @@ public class servlet extends HttpServlet {
 					System.out.println("school_servlet:Êý×é03:"+checkbox03[i]);
 				}
 			}	
+			
 //			¼òµ¥²âÊÔ
 			int test01 = 0;
 			for(int i = 0;i<checkbox03.length;i++){

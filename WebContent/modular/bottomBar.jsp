@@ -23,7 +23,7 @@
 	      				<h4>微信公众号</h4>
 	                   	 <div class="social-links">
 	                    	<img alt="微信二维码" height="120" width="120" src="/nsi-0.8/assets/img/wechat_QR.png">
-	                    	<h4>微信关注我们</h4>
+	                    	<h5>微信关注我们</h5>
 <!-- 	                   		 <a href="#" > <i class="fa fa-facebook fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-twitter fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-linkedin fa-2x" ></i></a> -->

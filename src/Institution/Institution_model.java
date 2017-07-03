@@ -6,13 +6,23 @@ public class Institution_model {
 	private String name;
 	private String Areas;	
 	private String CEO;
+	private String LegalPerson;
+	
+	private String Type;	
+	private String ServiceType;	
+	
 	private String Service;
 	private String Telephone;
 	private String Address;
 	private String Mail;
+	private String Website;
+	
 	private String Introduction;
 	private String Investment;
 	private String Remark;
+	private String Load_people;
+	private String Load_time;
+	
 	
 	public int getId() {
 		return id;
@@ -38,6 +48,27 @@ public class Institution_model {
 	public void setCEO(String CEO) {
 		this.CEO = CEO;
 	}
+	
+	public String getLegalPerson() {
+		return LegalPerson;
+	}
+	public void setLegalPerson(String legalPerson) {
+		this.LegalPerson = legalPerson;
+	}
+	
+	public String getType() {
+		return Type;
+	}
+	public void setType(String type) {
+		this.Type = type;
+	}
+	
+	public String getServiceType() {
+		return ServiceType;
+	}
+	public void setServiceType(String serviceType) {
+		this.ServiceType = serviceType;
+	}
 	public String getService() {
 		return Service;
 	}
@@ -62,6 +93,13 @@ public class Institution_model {
 	public void setMail(String mail) {
 		this.Mail = mail;
 	}
+	
+	public String getWebsite() {
+		return Website;
+	}
+	public void setWebsite(String website) {
+		this.Website = website;
+	}
 	public String getIntroduction() {
 		return Introduction;
 	}
@@ -79,6 +117,18 @@ public class Institution_model {
 	}
 	public void setRemark(String remark) {
 		this.Remark = remark;
+	}
+	public String getLoad_people() {
+		return Load_people;
+	}
+	public void setLoad_people(String load_people) {
+		this.Load_people = load_people;
+	}
+	public String getLoad_time() {
+		return Load_time;
+	}
+	public void setLoad_time(String load_time) {
+		this.Load_time = load_time;
 	}
 	
 }

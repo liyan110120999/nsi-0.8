@@ -415,10 +415,10 @@
 						<label for="inputEmail3" class="col-sm-2 control-label"></label>
 		                 <div >
 							<div class="col-sm-5">
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('高中;')" value="高中" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('初中;')" value="初中" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('小学;')" value="小学" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('幼儿园;')" value="幼儿园" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('高中;')" value="高中" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('初中;')" value="初中" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('小学;')" value="小学" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert02('幼儿园;')" value="幼儿园" />
 							</div>
 		                  </div>
 					</div>	

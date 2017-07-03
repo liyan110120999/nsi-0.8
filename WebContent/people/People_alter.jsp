@@ -3,7 +3,7 @@ pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="people.People_model"%>
 <%@ page import="java.util.Date.*" import="java.text.SimpleDateFormat" %>
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,10 +23,8 @@ pageEncoding="UTF-8"%>
 			    <!-- CUSTOM SCRIPTS  -->
 			    <script src="/nsi-0.8/assets/js/custom.js"></script>
 			    
-			   <script src="/nsi-0.8/assets/js/user.js"></script>
-
-			
-	
+			   <script src="/nsi-0.8/assets/js/user.js"></script>	
+			   
 </head>
 	<style>
 		body{background-color:#c7d0d5}
@@ -111,26 +109,22 @@ pageEncoding="UTF-8"%>
 					 <a class="btn btn-primary btn-large" href="people/People_list.jsp">返回查询页面</a>
 				</p>
 			</div>	
-		
-		
+				
 		<%
-		    	//   获取session用户		     		
+		    //   获取session用户		     		
 		String username ="空";
 		if(session.getAttribute("Session_user")==null){
-				//	 登录超时,跳转到login
+			//	 登录超时,跳转到login
 			response.sendRedirect("/nsi-0.8/login.jsp");
 		}else{
 			username = session.getAttribute("Session_user").toString();
-		}
-		
+		}	
 			//   获取当前时间
 		java.util.Date currentTime = new java.util.Date(); 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String SubmitDate = formatter.format(currentTime);					
-
 	
-	List<People_model> list = (List<People_model>)request.getAttribute("list");
-
+		List<People_model> list = (List<People_model>)request.getAttribute("list");
 		if(list == null || list.size() < 1){
 			out.print("没有数据！");
 		}else{
@@ -243,10 +237,7 @@ pageEncoding="UTF-8"%>
 					<div class="col-sm-5">
 						<textarea class="form-control" id="id_remark" name="People_remark" rows="3"><%=people.getPeople_remark()%></textarea>
 					</div>
-				</div>	
-				
-                
-                					
+				</div>	             					
                 	<div class="form-group">
 						<div class="col-sm-offset-6 col-sm-10">															
 							<input type="hidden" name="whereFrom" value="alter">
@@ -256,8 +247,7 @@ pageEncoding="UTF-8"%>
 							<button  type="submit" class="btn btn-primary">提交</button>
 						</div>																											
 					</div>
-			</form>
-			
+			</form>		
 			<br>
 			<!-- 	删除按钮 -->
 			<form class="form-horizontal" role="form" action="People_servlet" id="deleteForm" name="myform02" method="post">
@@ -270,11 +260,9 @@ pageEncoding="UTF-8"%>
 
 						</div>
 					</div>
-			</form>
-			
+			</form>		
 		<%}%>
 			
-
 		</div>
 	</div>
 </div>
@@ -284,15 +272,7 @@ pageEncoding="UTF-8"%>
 	<div>
 		<jsp:include page="/modular/bottomBar.jsp"/>
 	</div>
-    <!-- COPY TEXT SECTION END-->
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY  -->
-<!--     <script src="assets/js/jquery-1.11.1.js"></script> -->
-<!--     BOOTSTRAP SCRIPTS  -->
-<!--     <script src="assets/js/bootstrap.js"></script> -->
-<!--     CUSTOM SCRIPTS  -->
-<!--     <script src="assets/js/custom.js"></script> -->
-    
+
 </body>
 </html>
 																										

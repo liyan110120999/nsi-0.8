@@ -409,7 +409,7 @@
 	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right l-h-002">  
 		                <li style="margin-top:5px;"><a href="list.jsp" class="active-menu-item"><b>学 校</b></a></li>
-	                    <li style="margin-top:5px;"><a href="null.jsp"><b>机 构</b></a></li>
+	                    <li style="margin-top:5px;"><a href="institution/Institution_list.jsp"><b>机 构</b></a></li>
 	                   	<li style="margin-top:5px;"><a href="people/People_list.jsp"><b>人 员</b></a></li>
 	                    <li style="margin-top:5px;"><a href="about.jsp"><b>关 于</b></a></li>
 	                    <li style="margin-top:5px;"><a href="login.jsp" ><b>登 录</b></a></li>	          
@@ -728,24 +728,28 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal -->
 	</div>
+	
 <!-- 高级搜索选择框 -->
 	<div id="AdvancedSearchID" class="container">
 	
 		<form action="servlet" method="post">
-			<div id="AdvanDivID01">
-				<span class="AdvanSpan01">地区:</span>
-				<span class="AdvanSpan02">北京</span>
-				<span class="AdvanSpan02">上海</span>
-				<span class="AdvanSpan02">深圳</span>
-				<span class="AdvanSpan02">广州</span>
+			<div id="AdvanDivID01">	
+				<span class="AdvanSpan01">地区:</span>	
+				<ul class="dowebok">	
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox01" value="1" data-labelauty="北京"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox01" value="2" data-labelauty="上海"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox01" value="3" data-labelauty="广州"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox01" value="4" data-labelauty="深圳"></li>
+				</ul>
+				
 			</div>
 			<div id="AdvanDivID02">
 				<span class="AdvanSpan01">学制:</span>
 				<ul class="dowebok">	
-					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" data-labelauty="高中"></li>
-					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" data-labelauty="初中"></li>
-					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" data-labelauty="小学"></li>
-					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" data-labelauty="幼儿园"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" value="1" data-labelauty="高中"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" value="2" data-labelauty="初中"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" value="3" data-labelauty="小学"></li>
+					<li class="AdvanLi01"><input type="checkbox" name="checkbox02" value="4" data-labelauty="幼儿园"></li>
 				</ul>
 			</div>
 			<div id="AdvanDivID03">	

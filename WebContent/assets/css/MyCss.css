@@ -10,11 +10,23 @@
 
 
 /* 字体大小区域 */
+.l-f28{
+	font-size:28px;
+}
 .l-f24{
 	font-size:24px;
 }
+.l-f22{
+	font-size:22px;
+}
 .l-f20{
 	font-size:20px;
+}
+.l-f18{
+	font-size:18px;
+}
+.l-f16{
+	font-size:16px;
 }
 
 

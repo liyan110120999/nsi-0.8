@@ -22,7 +22,7 @@
     <link href="/nsi-0.8/assets/css/style.css" rel="stylesheet" />
       <!--     	自定义css -->
 	<link href="assets/css/MyCss.css" rel="stylesheet" />
-    
+	   
     <script src="/nsi-0.8/assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
     <script src="/nsi-0.8/assets/js/bootstrap.js"></script>
@@ -112,27 +112,27 @@
         <div class="col s12 m4">
           <div class="icon-block">
 <!--             <h2 class="center brown-text"><i class="material-icons">school</i></h2> -->
-            <h4 class="center">学 校</h4>
+            <h4 class="center l-f28">学 校</h4>
 
-            <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
+            <p class="light l-f20">实时更新的中国国际学校数据库</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
 <!--             <h2 class="center brown-text"><i class="material-icons">group</i></h2> -->
-            <h4 class="center">人 脉</h4>
+            <h4 class="center l-f28">人 脉</h4>
 
-            <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
+            <p class="light l-f20">2000+学校领导和教育行业高管的丰富人脉</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
 <!--             <h2 class="center brown-text"><i class="material-icons">account_balance</i></h2> -->
-            <h4 class="center">机 构</h4>
+            <h4 class="center l-f28">机 构</h4>
 
-            <p class="light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
+            <p class="light l-f20">对接国际学校所需各类机构和资源</p>
           </div>
         </div>
       </div>
@@ -158,8 +158,10 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>联 系 我 们</h4>
-          <p class="left-align light">人生的画卷铺开，简单便是生命的本色，自然更能贴近生活。世间路有千万条，每个人都有不同的活法，你有清风，我有俗世，我在凡尘中看烟火，你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。你在尘世外养静心，或浓或淡，冷暖薄凉，能够活出自我便是灿烂，孤独是灵魂的盛放，喧嚣也是生命的累积。</p>
+          <h4 class="l-f24">数据可视化</h4>
+          <p class="left-align light l-f20" style="text-indent:2em;line-height:40px">挖掘整合中国国际教育行业数据，进行
+深度分析报道。提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。为国际学校之间提供交流平台，对接国际学校所需各类资源。
+</p>
         </div>
       </div>
 

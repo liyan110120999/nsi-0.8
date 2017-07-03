@@ -158,7 +158,7 @@
 						
 <!-- 						<input type="file" name="files"> -->
 					</div>
-					<div> <span id="useridSpan" style=" color:#999"><h5>请输入人员名称</h5></span>  </div>								
+					<div> <span id="useridSpan" style=" color:#999"><h5>请输入人员名称</h5></span></div>								
 				</div>
 				<div>
 					<div class="form-group">

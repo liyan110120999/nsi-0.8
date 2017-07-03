@@ -1,6 +1,12 @@
 ﻿//本业为自定义的js
 //关联：insert、 alter两个页面
 
+
+
+
+//chrome动态加载JS 代码：
+//@ sourceURL=dynamicScript.js 
+
 var setPos=function(o){
         if(o.setSelectionRange){//W3C
             setTimeout(function(){
@@ -36,6 +42,25 @@ function Insert(str) {
 	//学制点击按钮输入
 function Insert02(str) { 
 	var obj = document.getElementById('id_School_system'); 
+	setPos(obj);
+	if(document.selection) { 
+	obj.focus(); 
+	var sel=document.selection.createRange(); 
+	document.selection.empty(); 
+	sel.text = str; 
+	} else { 
+	var prefix, main, suffix; 
+	prefix = obj.value.substring(0, obj.selectionStart); 
+	main = obj.value.substring(obj.selectionStart, obj.selectionEnd); 
+	suffix = obj.value.substring(obj.selectionEnd); 
+	obj.value = prefix + str + suffix; 
+	} 
+	obj.focus(); 
+}  
+
+//	通用--------------------点击按钮输入
+function Insert05(WhichID,str) { 
+	var obj = document.getElementById(WhichID); 
 	setPos(obj);
 	if(document.selection) { 
 	obj.focus(); 
