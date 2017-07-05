@@ -219,9 +219,7 @@
 				}
 	</style>
 <body>					                                    
-	<%	
-	
-	
+	<%		
     	request.setCharacterEncoding("UTF-8");   	
     	//搜索    String 函数
     	String flag01=request.getParameter("School_properties");  											
@@ -1105,9 +1103,7 @@
 		            
 			</script>
 		<%}%>  
-		
-	    
-			
+				
 																			<!--        分页 -->
  <div class="container">
 	<div class="row clearfix">
@@ -1141,6 +1137,15 @@
 </div>
     </section>
    
+   <% 
+//    清除 机构 模块的 空搜索 session
+   	session.removeAttribute("Institution_nullShow");
+   	session.removeAttribute("People_nullShow");
+	//清除搜索 session
+   	session.removeAttribute("Institution_searchKey_session");
+   	session.removeAttribute("People_searchKey_session");
+   	
+   %>
    <!--     导入底栏jsp文件 -->
 	<div>
 		<jsp:include page="modular/bottomBar.jsp"/>

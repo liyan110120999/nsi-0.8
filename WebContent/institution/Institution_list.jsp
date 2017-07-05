@@ -112,9 +112,12 @@
 		        prev_text:"上一页",
 		        num_edge_entries:2, // 连接分页主体，显示的条目数
 		        callback:handlePaginationClick
-			});
-					
+			});				
 		});
+// 		自动提交搜索表单
+// 		window.onload = function(){
+//     		document.getElementById("searchForm").submit();
+// 		}
 	</script>
 	
 <body>
@@ -134,11 +137,11 @@
 		}
 		
 // 		搜索关键字 session保存
-		String People_searchKey_session = null;
-		if(session.getAttribute("People_searchKey_session")!=null)	{    
-			People_searchKey_session = session.getAttribute("People_searchKey_session").toString();
+		String Institution_searchKey_session = null;
+		if(session.getAttribute("Institution_searchKey_session")!=null)	{    
+			Institution_searchKey_session = session.getAttribute("Institution_searchKey_session").toString();
 		}else{
-			People_searchKey_session = null;
+			Institution_searchKey_session = null;
 		}
 
     	%>
@@ -281,8 +284,8 @@
 									</script>								
 								</div>
 								<!-- 								防止搜索框出现null -->
-								<%if(People_searchKey_session!=null){%>
-									<input type="text" class="search-input form-control" style="width:300px" name="Institution_searchKey" value="<%=People_searchKey_session%>" />
+								<%if(Institution_searchKey_session!=null){%>
+									<input type="text" class="search-input form-control" style="width:300px" name="Institution_searchKey" value="<%=Institution_searchKey_session%>" />
 								<%}else{%>
 									<input type="text" class="search-input form-control" style="width:300px" name="Institution_searchKey" />
 								<%}%>									
@@ -324,14 +327,25 @@
 </div>
 	
 	<%	
+// 	测试
+// 	String map =request.getParameter("map");
+	
+// 		判断 空展示
+		if(session.getAttribute("Institution_nullShow")==null){			
+	%>
+		 <script type="text/javascript">
+		 	document.getElementById("searchForm").submit();
+		 </script>	
+	<%
+		}
 		List<Institution_model> list = (List<Institution_model>)request.getAttribute("Institution_list");
-			if(list == null || list.size() < 1){			
+			if(list == null || list.size() <1){			
 				out.println("<br><h4>没有搜索到数据</h4><br>");
 			}else{
 				
 		%>
 			<h5 style="text-align:center">搜索到 <%=countAllRS%> 条结果</h5>
-		
+<%-- 		<h1><%=request.tmp.hangyenews%></h1> --%>
 <div class="container-fluid">
 	<div class="row clearfix">
 		<div class="col-md-12 column table-responsive">
@@ -367,8 +381,9 @@
 				<td><%=institution.getAreas()%></td>			
 				<td><%=institution.getCEO()%></td>
 				<td><%=institution.getType()%></td>
-				<td><%=institution.getService()%></td>
 				<td><%=institution.getServiceType()%></td>
+				<td><%=institution.getService()%></td>
+				
 <%-- 				<td><%=institution.getTelephone()%></td> --%>
 <%-- 				<td><%=institution.getAddress()%></td> --%>
 <%-- 				<td><%=institution.getMail()%></td> --%>
@@ -393,10 +408,19 @@
 	<%}%>
 
 </section>
-<!--     清除指定session -->
+
+	<!--     清除指定session -->
     <%
+ 	// 清除参数：总数、分页
     session.removeAttribute("countAllRS");
     session.removeAttribute("currentPage");  	
+    
+	// 清除 其他 模块的 空搜索 session
+ 	session.removeAttribute("People_nullShow");
+ 	session.removeAttribute("School_nullShow");
+	// 清除 其他  模块的 搜索字 session
+ 	session.removeAttribute("People_searchKey_session");
+ 	session.removeAttribute("School_searchKey_session");
     %>
   	<!--     导入底栏jsp文件 -->
 	<div>

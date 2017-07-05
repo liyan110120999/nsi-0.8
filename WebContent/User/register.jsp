@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date.*" import="java.text.SimpleDateFormat" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -186,17 +187,18 @@
 				return false;  
 				} 
 			else if(password01==""){  
-			document.getElementById("infoDiv").innerHTML="<font color='red'>密码不能为空！</font>";  
-			return false;  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>密码不能为空！</font>";  
+				return false;  
 			}  
 			else if(password01.length<6){  
-			document.getElementById("infoDiv").innerHTML="<font color='red'>密码不能少于6位！</font>";  
-			return false;  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>密码不能少于6位！</font>";  
+				return false;  
 			}  
 			else if(password01!=password02){  
-			document.getElementById("infoDiv").innerHTML="<font color='red'>两次输入的密码不一致！</font>";  
-			return false;  
+				document.getElementById("infoDiv").innerHTML="<font color='red'>两次输入的密码不一致！</font>";  
+				return false;  
 			}  
+			
 			else {  
 	 			clear();  
 				return true;  
@@ -207,6 +209,13 @@
 			  document.getElementById("infoDiv").innerHTML="";  
 		  }		
 	</script>
+		
+		<% 
+			//   获取当前时间
+			java.util.Date currentTime = new java.util.Date(); 
+	    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    	String SubmitDate = formatter.format(currentTime);	
+		%>
 <body>
 <!-- 	主窗体 -->
 	<div id="registerMainID">
@@ -277,6 +286,8 @@
 										<input type="password" class="form-control" id="PasswdID02" name="PasswdID02" />
 									</div>			
 								</div>
+<!-- 								表单提交时间 -->
+								<input type="hidden" class="form-control" id="inputEmail3" name="User_loadTime" value="<%=SubmitDate%>"/>
 									<div id="infoDiv" class="form-group" style="padding-left:40%;"></div>								
 									<div class="col-sm-6" style="margin-left:33%;">
 <!-- 										<button type="button" href="#tab02" data-toggle="tab" id="submitFromID" class="btn btn-primary form-control" >下一步</button> -->

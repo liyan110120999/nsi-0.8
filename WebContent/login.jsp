@@ -86,7 +86,7 @@
 	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right l-h-002">  
 		                <li><a href="#"><b>学 校</b></a></li>
-	                    <li><a href="null.jsp"><b>机 构</b></a></li>
+	                    <li><a href="#"><b>机 构</b></a></li>
 	                   	<li><a href="#"><b>人 员</b></a></li>
 	                    <li><a href="about.jsp"><b>关 于</b></a></li>
 	                    <li><a href="login.jsp" class="active-menu-item"><b>登 录</b></a></li>

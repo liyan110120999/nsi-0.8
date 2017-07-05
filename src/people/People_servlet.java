@@ -81,6 +81,9 @@ public class People_servlet extends HttpServlet {
 				//request.setAttribute("countAllRS", "11");	    //搜索结果数
 				request.setAttribute("insertcount", insertcount);	//新增成功数
 				request.setAttribute("list", list);	
+				
+//				 空展示
+				session.setAttribute("People_nullShow","1");	
 									
 				request.getRequestDispatcher("people/People_list.jsp").forward(request, response);
 			}

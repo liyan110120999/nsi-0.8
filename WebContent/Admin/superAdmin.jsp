@@ -126,7 +126,7 @@
 	//创建Statement  
 	Statement stmt = conn.createStatement();  
 	//执行查询  
-	ResultSet rs = stmt.executeQuery("select * from nsi_user limit 0,10");  
+	ResultSet rs = stmt.executeQuery("select * from nsi_user order by Load_time DESC limit 0,10");  
 	%>  
 	
 	<table class="table">
@@ -140,7 +140,7 @@
 			<th>职位</th>
 			<th>手机号码</th>
 			<th>积分</th>
-			
+			<th>注册时间</th>
 			<th>操作</th>
 		
 		</tr>
@@ -158,6 +158,7 @@
 			<td><%=rs.getString(6)%></td>
 			<td><%=rs.getString(7)%></td>
 			<td><%=rs.getString(9)%></td>
+			<td><%=rs.getString(10)%></td>
 			
 			<td><button onclick="pass('<%=rs.getString(1)%>')">通过</button></td>
 		</tr>		

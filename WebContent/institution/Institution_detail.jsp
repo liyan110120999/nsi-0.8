@@ -31,7 +31,7 @@
 		text-align:center;
 		}
 		.font-title01{ font-size:25px;line-height:120%;}
-		.font-title02{ font-size:22px;line-height:120%;}
+		.font-title02{ font-size:22px;line-height:120%;color: #828282;}
 		.font-title03{ font-size:18px;line-height:120%;}
 		
 	</style>
@@ -168,15 +168,15 @@
 								<span class="font-title01"><a href="javascript:void(0)" ><%=Institution.getName()%></a></span>	 						
 							</div>
 							<div style="width:33%;text-align:center;float:left;border-left:1px dashed #666;">
-								<span class="font-title02"><%=Institution.getAreas()%></span>
+								<span class="font-title03"><%=Institution.getAreas()%></span>
 							</div>						
 						</div>	
 						<div style="height:40%; background-color:#fff;border-top:1px dashed #666;">
 							<div style="width:30%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">业务类型：<%=Institution.getServiceType()%></span></div>						
-							<div style="width:70%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">业务：<%=Institution.getService()%></span></div>						
+							<div style="width:70%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">业务：<%=Institution.getService()%></span></div>															
 						</div>
-						<div style="height:40%; background-color:#fff;border-top:1px dashed #666;">
-							<div style="width:80%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">介绍：<%=Institution.getIntroduction()%></span></div>									
+						<div style="height:50%; background-color:#fff;border-top:1px dashed #666;">
+						
 						</div>	
 				</div>
 			</div>
@@ -204,7 +204,7 @@
 				</div>
 				<div style="height:10%; background-color:#fff;border-top:1px dashed #666;">
 					<div style="width:50%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">法人：<%=Institution.getLegalPerson()%></span></div>
-					<div style="width:50%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">官网：<%=Institution.getWebsite()%></span></div>
+					<div style="width:50%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">官网：<a href="http:\\<%=Institution.getWebsite()%>" target="_blank"><%=Institution.getWebsite()%></a></span></div>
 				</div>
 				<div style="height:10%; background-color:#fff;border-top:1px dashed #666;">
 					<div style="width:50%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">提交者：<%=Institution.getLoad_people()%></span></div>
@@ -277,7 +277,10 @@
 	<div style="clear:both;">
 		<br><br>
 	</div>
-	
+	<%
+	//    清除 机构 模块的 空搜索 session
+   	session.removeAttribute("Institution_nullShow");
+	 %>
 	<!--     导入底栏jsp文件 -->
 	<div class="noprint" style="clear:both;">
 		<jsp:include page="/modular/bottomBar.jsp"/>

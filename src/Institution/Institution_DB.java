@@ -3,6 +3,8 @@ import java.sql.*;
 import java.util.*;
 import javax.sql.*;
 
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
+
 import people.People_model;
 		
 	public class Institution_DB {	
@@ -68,21 +70,46 @@ import people.People_model;
 				List<Institution_model> list = new ArrayList<Institution_model>();
 				try
 				{	
-					Class.forName("com.mysql.jdbc.Driver");
+			//					Class.forName("com.mysql.jdbc.Driver");
+			//					String url = "jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true";
+			//					String username = "root";
+			//					String password = "123456";
+			//					boolean i=false;
+			//					Connection conn = DriverManager.getConnection(url,username,password);
+			//					Statement stmt = conn.createStatement();
+			//	//				ResultSet rs = stmt.executeQuery(sql);
+			//					i=stmt.execute(sql);
+			//					
+			//					System.out.println("Institution DB.java:插入：插入动作已执行");	
+			//		            //关闭结果集,语句
+			//		           
+			//		            stmt.close();
+			//		            conn.close();
+		            
+//		          插入后返回主键ID
+		            Class.forName("com.mysql.jdbc.Driver");
 					String url = "jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true";
 					String username = "root";
 					String password = "123456";
-					boolean i=false;
-					Connection conn = DriverManager.getConnection(url,username,password);
-					Statement stmt = conn.createStatement();
-	//				ResultSet rs = stmt.executeQuery(sql);
-					i=stmt.execute(sql);
 					
-					System.out.println("Institution DB.java:插入：插入动作已执行");	
-		            //关闭结果集,语句
-		           
-		            stmt.close();
-		            conn.close();
+					int insert_id=00;
+					
+					Connection conn = DriverManager.getConnection(url,username,password);
+					Statement stmt = conn.createStatement();	
+					
+					stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+					ResultSet rs = stmt.getGeneratedKeys();
+					if(rs.next()){
+					    insert_id = rs.getInt(1);
+						System.out.println("Institution_DB:insert_id:"+insert_id);
+					}									
+					 rs.close();
+					stmt.close();
+		            conn.close();	            
+//		            根据主键 查询新增条目，返回list
+		            String SearchSql="select * from nsi_Institution_data where Id ='"+insert_id+"' limit 0,1";
+					list =Institution_DB.Search(SearchSql);	
+								
 				}
 				catch(Exception e)
 				{

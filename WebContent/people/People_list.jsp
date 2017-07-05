@@ -121,10 +121,10 @@
 	<input type="hidden" id="countAllRS_id" value="<%=countAllRS%>">
 	
 	<%
-		    	//   获取session用户		     		
+		//   获取session用户		     		
 		String username ="空";
 		if(session.getAttribute("Session_user")==null){
-				//	 登录超时,跳转到login
+		//	 登录超时,跳转到login
 			response.sendRedirect("/nsi-0.8/login.jsp");
 		}else{
 			username = session.getAttribute("Session_user").toString();
@@ -156,7 +156,7 @@
 	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right l-h-002">  
 		                <li style="margin-top:5px;"><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
-	                    <li style="margin-top:5px;"><a href="/nsi-0.8/null.jsp"><b>机 构</b></a></li>
+	                    <li style="margin-top:5px;"><a href="/nsi-0.8/institution/Institution_list.jsp"><b>机 构</b></a></li>
 	                   	<li style="margin-top:5px;"><a href="#"><b>人 员</b></a></li>
 	                    <li style="margin-top:5px;"><a href="/nsi-0.8/about.jsp"><b>关 于</b></a></li>
 	                    <li style="margin-top:5px;"><a href="/nsi-0.8/login.jsp" ><b>登 录</b></a></li>	          
@@ -320,6 +320,15 @@
 </div>
 	
 	<%	
+	//		判断 空展示
+		if(session.getAttribute("People_nullShow")==null){			
+	%>
+		 <script type="text/javascript">
+		 	document.getElementById("searchForm").submit();
+		 </script>	
+	<%
+		}
+
 		List<People_model> list = (List<People_model>)request.getAttribute("list");
 			if(list == null || list.size() < 1){			
 				out.println("<br><h4>没有搜索到数据</h4><br>");
@@ -377,8 +386,16 @@
 </section>
 <!--     清除指定session -->
     <%
+	// 清除参数：总数、分页
     session.removeAttribute("countAllRS");
-    session.removeAttribute("currentPage");  	
+    session.removeAttribute("currentPage"); 
+
+	// 清除 其他 模块的 空搜索 session
+ 	session.removeAttribute("Institution_nullShow");
+ 	session.removeAttribute("School_nullShow");
+	// 清除 其他  模块的 搜索字 session
+ 	session.removeAttribute("Institution_searchKey_session");
+ 	session.removeAttribute("School_searchKey_session");
     %>
   	<!--     导入底栏jsp文件 -->
 	<div>

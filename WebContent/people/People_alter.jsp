@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 	            <div class="collapse navbar-collapse" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right">  
 		                <li><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
-	                    <li><a href="/nsi-0.8/null.jsp"><b>机 构</b></a></li>
+	                    <li><a href="/nsi-0.8/institution/Institution_list.jsp"><b>机 构</b></a></li>
 	                   	<li><a href="/nsi-0.8/people/People_list.jsp"><b>人 员</b></a></li>
 	                    <li><a href="/nsi-0.8/about.jsp"><b>关 于</b></a></li>
 	                    <li><a href="/nsi-0.8/login.jsp" class="active-menu-item"><b>登 录</b></a></li>

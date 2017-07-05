@@ -102,7 +102,7 @@
 	            <div class="collapse navbar-collapse l-f20" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right l-h-002">  
 		                <li><a href="/nsi-0.8/list.jsp"><b>学校</b></a></li>
-	                    <li><a href="/nsi-0.8/null.jsp"><b>机构</b></a></li>
+	                    <li><a href="/nsi-0.8/institution/Institution_list.jsp"><b>机构</b></a></li>
 	                   	<li><a href="/nsi-0.8/people/People_list.jsp"><b>人员</b></a></li>
 	                    <li><a href="/nsi-0.8/about.jsp"><b>关于</b></a></li>
 	                    <li><a href="/nsi-0.8/login.jsp" class="active-menu-item"><b>登录</b></a></li>

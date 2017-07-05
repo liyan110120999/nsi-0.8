@@ -31,6 +31,7 @@ import people.DB;
 			String position=request.getParameter("position");
 			String Passwd01=request.getParameter("Passwd01");
 			String User_phone=request.getParameter("phone");
+			String User_loadTime=request.getParameter("User_loadTime");
 			
 			System.out.println("register.java:"+Email+Name+company+Passwd01);
 			
@@ -59,8 +60,8 @@ import people.DB;
 					e.printStackTrace();
 				}			
 //				录入数据库  ，"-1"为用户状态标志位
-				String sql="INSERT INTO nsi_user (UserName,Password,Member_sign,User_TureName,User_Organization,User_position,User_phone,User_registerCode)"
-							+ "VALUES ('"+Email+"','"+Passwd01+"','-1','"+Name+"','"+company+"','"+position+"','"+User_phone+"','"+code+"')";
+				String sql="INSERT INTO nsi_user (UserName,Password,Member_sign,User_TureName,User_Organization,User_position,User_phone,User_registerCode,Load_time)"
+							+ "VALUES ('"+Email+"','"+Passwd01+"','-1','"+Name+"','"+company+"','"+position+"','"+User_phone+"','"+code+"','"+User_loadTime+"')";
 				DB.Insert(sql);
 				
 //			验证邮箱激活码
