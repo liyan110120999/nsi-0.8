@@ -289,6 +289,8 @@
     	String delete="delete";
     	String search="search";
     	String UserChangePassWord="UserChangePassWord";
+    	String MySubmit="MySubmit";
+    	
     								//测试内容标记位
     	String flag ="空";
 
@@ -332,9 +334,7 @@
 				<sql:query dataSource="${snapshot}" var="result">			
 					SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312) limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
 				</sql:query>
-				<%	
-			} 
-			%>
+			<%}%>
 			
 			<!-- 		搜索计数 -->
 			<sql:query dataSource="${snapshot}" var="resultCount">
@@ -374,22 +374,31 @@
 				</sql:query>
 				
 		<% }else if(whereFrom.equals(delete)){ %> 
-							<%flag ="delete节点";%>								<!-- 			标记 -->
-			
+					<%flag ="delete节点";%>											
 				<sql:update dataSource="${snapshot}" var="result">						
 						  DELETE FROM NSI_SCHOOL_data WHERE School_name ='<%=alter_old_Schoolname%>';		
 				</sql:update>
 				<sql:query dataSource="${snapshot}" var="result">
 					 SELECT * from NSI_SCHOOL_data limit <%=pageNum%>,20;	
 				</sql:query>
-				
+						
 		<% }else if(whereFrom.equals(UserChangePassWord)){ %> 
-							<%flag ="用户修改密码节点";%>								<!-- 			标记 -->
-			
+					<%flag ="用户修改密码节点";%>										
 				<sql:update dataSource="${snapshot}" var="resultChange">	
 						UPDATE NSI_user SET Password ='<%=UserPassWD01%>' WHERE UserName='<%=username%>';							
 				</sql:update>
+						
+		<% }else if(whereFrom.equals(MySubmit)){ %> 
+					<%flag ="我的贡献节点";%>											
+				<sql:query dataSource="${snapshot}" var="result">
+ 						SELECT * from NSI_SCHOOL_data WHERE load_people ='<%=username%>' order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
+				</sql:query>
+				<!-- 		搜索计数 -->
+				<sql:query dataSource="${snapshot}" var="resultCount">
+					SELECT * from NSI_SCHOOL_data WHERE load_people ='<%=username%>' order by load_time DESC;
+				</sql:query>
 		 <% }%>
+		 
 
  		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
 	        <div class="container-fluid">  
@@ -568,7 +577,7 @@
 								<li class="divider">
 								</li>
 								<li>
-									 <a href="#">null</a>
+									 <a href="/nsi-0.8/servlet?whereFrom=MySubmit&School_properties=00">我的贡献</a>
 								</li>
 								<li class="divider">
 								</li>
@@ -1136,7 +1145,6 @@
 	</div>
 </div>
     </section>
-   
    <% 
 //    清除 机构 模块的 空搜索 session
    	session.removeAttribute("Institution_nullShow");

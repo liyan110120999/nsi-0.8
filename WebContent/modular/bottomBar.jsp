@@ -10,20 +10,19 @@
 			    	</p>
 				</div>
 	       <div class="col-md-4">
-	       			<h4>地址 </h4>
-	                    <h5>北京市西城区,</h5>
-	                    <h5>新风街2号天成科技大厦,</h5>
-	                    <h5>A座1006.</h5>
-	                    <br />
-	                    <h5><strong>微信号:</strong> NSI-cm</h5>
-	                    <h5><strong>联系电话:</strong> 15010927730</h5>
-	                   
+       			<h4>地址 </h4>
+                    <h5>北京市西城区,</h5>
+                    <h5>新风街2号天成科技大厦,</h5>
+                    <h5>A座1006.</h5>
+                    <br />
+                    <h5><strong>微信号:</strong> NSI-cm</h5>
+                    <h5><strong>联系电话:</strong> 15010927730</h5>	                   
 			</div>
-	                <div class="col-md-4">
-	      				<h4>微信公众号</h4>
-	                   	 <div class="social-links">
-	                    	<img alt="微信二维码" height="120" width="120" src="/nsi-0.8/assets/img/wechat_QR.png">
-	                    	<h5>微信关注我们</h5>
+                <div class="col-md-4">
+      				<h4>微信公众号</h4>
+                   	 <div class="social-links">
+                    	<img alt="微信二维码" height="120" width="120" src="/nsi-0.8/assets/img/wechat_QR.png">
+                    	<h5>微信关注我们</h5>
 <!-- 	                   		 <a href="#" > <i class="fa fa-facebook fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-twitter fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-linkedin fa-2x" ></i></a> -->
@@ -31,23 +30,22 @@
 <!-- 	                         <a href="#" > <i class="fa fa-github fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-digg fa-2x" ></i></a> -->
 <!-- 	                         <a href="#" > <i class="fa fa-dropbox fa-2x" ></i></a> -->
-	                  	 </div>
-					</div>  
-            </div>
-               
+                  	 </div>
+				</div>  
+            </div>          
         </div>
-    </section>
+</section>
      <!--FOOTER SECTION END-->
     <div class="copy-txt">
-         <div class="container">
-        <div class="row">
-		<div class="col-md-12 set-foot" >
-		       <h5 class="text-center">
-		    Copyright © 2017 |  数据来源 <a href="http://www.xinxueshuo.cn/" target="_blank" title="新学说">新学说</a> All rights reserved.  
-		</h5>
-		</div>
-            </div>
-              </div>
+        <div class="container">
+	        <div class="row">
+				<div class="col-md-12 set-foot" >
+				    <h5 class="text-center">
+				    Copyright © 2017 |  数据来源 <a href="http://www.xinxueshuo.cn/" target="_blank" title="新学说">新学说</a> All rights reserved.  
+					</h5>
+				</div>
+	        </div>
+        </div>
     </div>
     
   

@@ -92,8 +92,7 @@
 			out.print("没有数据！");
 		}else{
 			Institution_model Institution=list.get(0);
-		 %>
-	
+	%>
 	
 <!-- 		顶栏 -->
 		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
@@ -111,7 +110,7 @@
 	            <div class="collapse navbar-collapse" id="example-navbar-collapse">  
 	                <ul class="nav navbar-nav navbar-right">  
 		                <li><a href="/nsi-0.8/list.jsp"><b>学 校</b></a></li>
-	                    <li><a href="null.jsp"><b>机 构</b></a></li>
+	                    <li><a href="/nsi-0.8/institution/Institution_list.jsp"><b>机 构</b></a></li>
 	                   	<li><a href="/nsi-0.8/people/People_list.jsp"><b>人 员</b></a></li>
 	                    <li><a href="about.jsp"><b>关 于</b></a></li>
 	                    <li><a href="login.jsp" class="active-menu-item"><b>登 录</b></a></li>
@@ -175,8 +174,7 @@
 							<div style="width:30%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">业务类型：<%=Institution.getServiceType()%></span></div>						
 							<div style="width:70%;text-align:center;margin-top:1%;float:left;"><span class="font-title03">业务：<%=Institution.getService()%></span></div>															
 						</div>
-						<div style="height:50%; background-color:#fff;border-top:1px dashed #666;">
-						
+						<div style="height:50%; background-color:#fff;border-top:1px dashed #666;">						
 						</div>	
 				</div>
 			</div>
@@ -226,7 +224,6 @@
 				</div>			
 			</div>	
 			
-			
 			<div>
 					<!-- 	修改按钮的表单 -->
 					<form class="" role="form" action="Institution_servlet" id="alterForm" name="myform01" method="post">
@@ -246,7 +243,7 @@
 								</div>
 							</div>
 					</form>
-<!-- 					上传图片按钮	 -->
+					<!-- 	上传图片按钮	 -->
 					<form class="" role="form" action="/nsi-0.8/people/People_UpImage.jsp" id="UpImageForm" name="myform03" method="post">
 							<div class="form-group">
 								<div class="col-sm-offset-6 col-sm-10 ">													
@@ -259,7 +256,7 @@
 		</div>
 		
 		
-	<%}%>
+	<%}%>  <!--else循环-->
 <!-- 		右侧工具栏 -->
 		<div class="col-xs-6 col-sm-3 sidebar-offcanvas noprint" id="sidebar" style="float:left; width:200px;margin-left:5%;">
           <div class="list-group">

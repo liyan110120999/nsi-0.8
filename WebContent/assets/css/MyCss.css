@@ -29,4 +29,23 @@
 	font-size:16px;
 }
 
+/* 详情表 */ /* detail-table */  /*DT*/
+.font-title01{ font-size:25px;line-height:120%;color: #428bca;}
+.font-title02{ font-size:20px;line-height:120%;color: #828282;}
+.font-title03{ font-size:18px;line-height:100%;}
 
+
+/* 页眉 */
+.DT-header{
+	font-size:18px;line-height:100%;
+	text-align:left;
+	float:left;
+}
+/* 小标题 */
+.DT-title{
+	
+}
+/* 内容文字 */
+.DT-content{
+	
+}

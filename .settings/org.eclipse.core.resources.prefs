@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/assets/css/index.css=UTF-8
 encoding//WebContent/modular/bottomBar.jsp=UTF-8
 encoding//src/bean/FindServlet.java=UTF-8
 encoding//src/bean/Pager.java=UTF-8

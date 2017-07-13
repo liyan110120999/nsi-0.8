@@ -54,13 +54,13 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li>
-							 <a href="#">概览</a>				 
+							 <a href="/nsi-0.8/Admin/count.jsp">概览</a>				 
 						</li>
 						<li>
 							 <a href="/nsi-0.8/Admin/UserCheck.jsp">用户审核</a>				 
 						</li>
 						<li>
-							 <a href="/nsi-0.8/Admin/SchoolCheck.jsp">信息审核</a>				 
+							 <a href="#">信息审核</a>				 
 						</li>
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">菜单<strong class="caret"></strong></a>
@@ -130,13 +130,22 @@
 	%>  
 	
 	<table class="table">
-	<caption><h3>统计信息</h3></caption>
+	<caption><h3>学校</h3></caption>
 	<thead>
 		<tr>
+			<th>学校名</th>
+			<th>性质</th>
+			<th>地区</th>
+			<th>成立时间</th>
+			<th>学制</th>
+			<th>课程</th>
+			<th>校长</th>
+			<th>待定</th>
+			<th>注册时间</th>
 			<th>用户</th>
+			<th>提交时间</th>
 			<th>操作</th>
-			<th>时间</th>
-	
+		
 		</tr>
 	</thead>
 	<tbody>
@@ -148,7 +157,16 @@
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
 			<td><%=rs.getString(3)%></td>
-						
+			<td><%=rs.getString(4)%></td>
+			<td><%=rs.getString(5)%></td>
+			<td><%=rs.getString(6)%></td>
+			<td><%=rs.getString(7)%></td>
+			<td><%=rs.getString(9)%></td>
+			<td><%=rs.getString(10)%></td>
+			<td><%=rs.getString(19)%></td>
+			<td><%=rs.getString(20)%></td>
+			
+			<td><button>通过</button></td>
 		</tr>		
 	<%}%>  
 	</tbody>
