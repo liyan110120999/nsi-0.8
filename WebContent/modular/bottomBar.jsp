@@ -35,6 +35,18 @@
             </div>          
         </div>
 </section>
+<!-- 	百度统计代码 -->
+	<script>
+		var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?e898a1b6e73616a0c84313f55a47efd6";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+	</script>
+
+
      <!--FOOTER SECTION END-->
     <div class="copy-txt">
         <div class="container">

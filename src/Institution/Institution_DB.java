@@ -70,21 +70,7 @@ import people.People_model;
 				List<Institution_model> list = new ArrayList<Institution_model>();
 				try
 				{	
-			//					Class.forName("com.mysql.jdbc.Driver");
-			//					String url = "jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true";
-			//					String username = "root";
-			//					String password = "123456";
-			//					boolean i=false;
-			//					Connection conn = DriverManager.getConnection(url,username,password);
-			//					Statement stmt = conn.createStatement();
-			//	//				ResultSet rs = stmt.executeQuery(sql);
-			//					i=stmt.execute(sql);
-			//					
-			//					System.out.println("Institution DB.java:插入：插入动作已执行");	
-			//		            //关闭结果集,语句
-			//		           
-			//		            stmt.close();
-			//		            conn.close();
+
 		            
 //		          插入后返回主键ID
 		            Class.forName("com.mysql.jdbc.Driver");

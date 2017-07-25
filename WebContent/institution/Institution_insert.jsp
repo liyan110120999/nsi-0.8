@@ -274,7 +274,10 @@
 	</div>
 </div>
 </section>
-    
+    <%
+	//    清除 机构 模块的 空搜索 session
+   	session.removeAttribute("Institution_nullShow");
+	 %>
   <!--     导入底栏jsp文件 -->
 <div>
 	<jsp:include page="/modular/bottomBar.jsp"/>

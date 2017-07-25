@@ -66,9 +66,9 @@ public class Institution_servlet extends HttpServlet{
 			countAllRS=DB.count(sqlcount);
 			
 			session.setAttribute("Institution_searchKey_session",Institution_searchKey);		
-			session.setAttribute("Institution_countAllRS",countAllRS);		
-			session.setAttribute("Institution_currentPage",pageNum);	//当前页
-			//request.setAttribute("countAllRS", "11");	    //搜索结果数
+			session.setAttribute("Institution_countAllRS",countAllRS);		//搜索结果数
+			
+			session.setAttribute("Institution_currentPage",pageNum);	//当前页	
 			request.setAttribute("insertcount", insertcount);	//新增成功数
 			request.setAttribute("Institution_list", list);		
 			
@@ -79,7 +79,7 @@ public class Institution_servlet extends HttpServlet{
 			
 		}else if(whereFrom.equals("insert")){
 			
-			int countAllRS = 0;
+			int countAllRS = 1;
 			String Institution_name = request.getParameter("Institution_name");	
 			String Institution_Areas = request.getParameter("Institution_Areas");		
 			String Institution_CEO = request.getParameter("Institution_CEO");
@@ -102,16 +102,17 @@ public class Institution_servlet extends HttpServlet{
 		
 			String sql="INSERT INTO nsi_institution_data (Name,Areas,CEO,LegalPerson,Type,ServiceType,Service,Telephone,Address,Mail,Website,Introduction,Investment,Remark,Load_people,Load_time) "
 					+ "VALUES ('"+Institution_name+"','"+Institution_Areas+"','"+Institution_CEO+"','"+Institution_LegalPerson+"','"+Institution_Type+"','"+Institution_ServiceType+"','"+Institution_Service+"','"+Institution_Telephone+"','"+Institution_Address+"','"+Institution_Mail+"','"+Institution_Website+"','"+Institution_Introduction+"','"+Institution_Investment+"','"+Institution_Remark+"','"+Institution_loadPeople+"','"+Institution_loadTime+"')";
-
-		
-			request.setAttribute("countAllRS", countAllRS);	    //搜索结果数	
+					
+//			request.setAttribute("countAllRS", countAllRS);	    //搜索结果数	
+			session.setAttribute("Institution_countAllRS",countAllRS);		//搜索结果数
 			
 //			搜索修改结果返回给list
 			List<Institution_model> list = new ArrayList<Institution_model>();
 //			插入数据后 返回该数据的 list
-			list=Institution_DB.Insert(sql);		
-
+			list=Institution_DB.Insert(sql);				
 			System.out.println("Ins_insert:"+list);
+			
+			session.setAttribute("Institution_countAllRS",countAllRS);
 			request.setAttribute("Institution_list", list);	
 			request.getRequestDispatcher("institution/Institution_list.jsp").forward(request, response);	
 			
@@ -173,18 +174,9 @@ public class Institution_servlet extends HttpServlet{
 //			搜索修改结果返回给list
 			String SearchSql="select * from nsi_Institution_data where Id ='"+Institution_id+"' limit 0,1";
 			list =Institution_DB.Search(SearchSql);
+						
+			session.setAttribute("Institution_countAllRS","1");//搜索结果
 			
-//			收不到
-//			request.setAttribute("Institution_id", Institution_id);	 
-			
-	
-//			测试 Map 传多值
-//			Map map = new HashMap();
-//			map.put("Institution_id", Institution_id);
-//			map.put("Institution_list", list);
-//			ServletActionContext.getRequest().setAttribute("tmp", map);
-//			request.setAttribute("map", map);	
-//			request.getRequestDispatcher("institution/Institution_list.jsp").forward(request, response);
 			request.setAttribute("Institution_list", list);	
 			request.getRequestDispatcher("institution/Institution_list.jsp").forward(request, response);	
 		

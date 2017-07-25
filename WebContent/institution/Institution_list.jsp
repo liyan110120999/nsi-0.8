@@ -33,15 +33,22 @@
 <title>机构数据</title>
 </head>
 	<style>
-		body{ text-align:center} 
-		body{background-color:#c7d0d5}
+		body{
+			text-align:center;
+			background-color:#c7d0d5;
+		} 
+/* 		疑问？table */
+		table{
+			text-align:center;
+		}
+		
 		th { text-align:center;	background-color:#73afb6;}	
 		td {height:40px}    /* 	表高度 */	
 		
 		.font-title01{ font-size:25px;line-height:120%;}
 		.font-title02{ font-size:25px;line-height:120%;}
 		.font-title03{ font-size:20px;line-height:120%;}
-	
+
 	</style>
 	
 		<!-- 	顶栏滚动透明 -->
@@ -99,7 +106,8 @@
 	 <script type="text/javascript">	
 	 // 点击分页按钮以后触发的动作
 		function handlePaginationClick(new_page_index, pagination_container) {
-		    $("#searchForm").attr("action", "/nsi-0.8/People_servlet?pageNum=" + (new_page_index+1));
+// 		    $("#searchForm").attr("action", "/nsi-0.8/People_servlet?pageNum=" + (new_page_index+1));
+ 			$("#searchForm").attr("action", "/nsi-0.8/Institution_servlet?pageNum=" + (new_page_index+1));
 		    $("#searchForm").submit();
 		    return false;
 		}

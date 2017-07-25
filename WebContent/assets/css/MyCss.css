@@ -49,3 +49,12 @@
 .DT-content{
 	
 }
+
+
+/* 会员权限 7级管理员*/
+.userMember07{
+	visibility:hidden;
+}
+.userMember07-show{
+	visibility:visible;
+}

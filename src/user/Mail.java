@@ -25,12 +25,7 @@ public class Mail {
 		 // 表示SMTP发送邮件，需要进行身份验证
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.host", ALIDM_SMTP_HOST);
-        //props.put("mail.smtp.port", ALIDM_SMTP_PORT);   
-        // 如果使用ssl，则去掉使用25端口的配置，进行如下配置, 
-        // props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        // props.put("mail.smtp.socketFactory.port", "465");
-        // props.put("mail.smtp.port", "465");
-//        实验465端口区 0616
+
          props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
          props.put("mail.smtp.socketFactory.port", "465");
          props.put("mail.smtp.port", "465");

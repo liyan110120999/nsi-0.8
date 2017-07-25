@@ -33,20 +33,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </script>
   <% 
   	Integer pageNum = request.getParameter("PassPage") != null && !request.getParameter("PassPage").equals("") ? Integer.parseInt(request.getParameter("PassPage")) : null;
-
+  	
+// 	获取上一页链接
+  	String url=request.getHeader("Referer");
   %>
-  
+ 
   <body onload="pageSearch()">
     		<br>
-   			 <form role="form" action="list.jsp" method="post">
+<!--    			 <form role="form" action="list.jsp" method="post"> -->
+			<form role="form" action="<%=url%>" method="post">
    			 		<input type="hidden" class="form-control" name="School_name"/>									
-					<input name="PassPage" type="hidden" value="<%=pageNum%>"/>
-				
+					<input name="PassPage" type="hidden" value="<%=pageNum%>"/>			
 					<button type="submit" class="btn btn-default" style="display:none" id="searchButton" >bus</button>											
 			</form>
 			<br><br><br><br><br><br><br><br><br><br>
-			<h3>第<%=pageNum%>页 加载中。。。</h3>
-			
-			
+			<h3>第<%=pageNum%>页 加载中。。。</h3>		
   </body>
 </html>

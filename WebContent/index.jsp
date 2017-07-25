@@ -52,14 +52,14 @@
                 <div class="hotContent">
                     <a href="/nsi-0.8/servlet?School_name=北京王府学校&whereFrom=search">北京王府学校</a>
                     <a href="/nsi-0.8/servlet?School_name=北京京西学校&whereFrom=search">北京京西学校</a>
-                    <a href="http://www.tianyancha.com">北京乐成国际学校</a>
-                    <a href="http://www.tianyancha.com">北京王府学校</a>
-                    <a href="http://www.tianyancha.com">北京王府学校</a>
+                    <a href="/nsi-0.8/servlet?School_name=北京乐成国际学校&whereFrom=search">北京乐成国际学校</a>
+                    <a href="/nsi-0.8/servlet?School_name=上海哈罗国际学校&whereFrom=search">上海哈罗国际学校</a>
+                    <a href="/nsi-0.8/servlet?School_name=上海培佳双语学校国际班&whereFrom=search">上海培佳双语学校国际班</a>
                     <br>
-                    <a href="http://www.tianyancha.com">北京王府学校</a>
-                    <a href="http://www.tianyancha.com">北京王府学校</a>
-                    <a href="http://www.tianyancha.com">北京哈罗英国学校</a>
-                    <a href="http://www.tianyancha.com">北京王府学校</a>
+                    <a href="/nsi-0.8/servlet?School_name=上海世界外国语中学&whereFrom=search">上海世界外国语中学</a>
+                    <a href="/nsi-0.8/servlet?School_name=上海中学国际部&whereFrom=search">上海中学国际部</a>
+                    <a href="/nsi-0.8/servlet?School_name=成都美视国际学校&whereFrom=search">成都美视国际学校</a>
+                    <a href="/nsi-0.8/servlet?School_name=深圳国际交流学院&whereFrom=search">深圳国际交流学院</a>
                 </div>
             </div>
         </div>
