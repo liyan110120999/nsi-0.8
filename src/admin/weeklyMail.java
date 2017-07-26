@@ -79,7 +79,18 @@ import javax.swing.JComboBox.KeySelectionManager;
 //			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  a{text-decoration:none;  }  h2{color: #1F538F;padding-bottom:20px;text-align: left; border-bottom:1px solid #1F538F;  }</style><h5>感谢您注册本网站</h5><div style=\"height: 1100px;width: 800px;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail02.jpg);\"><div style=\"text-align: center;width: 500px;margin:0 auto;padding-top: 420px;\"><div ><h2 ><a style=\"color: red\">●</a><a href=\""+link01+"\" >"+title01+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link03+"\" >"+title03+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link04+"\" >"+title04+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link05+"\" >"+title05+"</a></h2></div><button style=\"background-color: #1F538F; border: 5px; color: white; padding: 15px 50px; border-radius: 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px;\">查看</button></div></div></div>", "text/html;charset=UTF-8");
 			
 			
-			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  a{text-decoration:none; color: #1F538F;font-size: 24px;}  h2{font-size:1.3em;color: #1F538F;padding-bottom:20px;text-align: left; border-bottom:1px solid #1F538F;  }</style><h5>感谢您注册新学说期刊</h5><div style=\"height: 1100px;width: 800px;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail02.jpg);\"><div style=\"text-align: center;width: 500px;margin:0 auto;padding-top: 420px;\"><div ><h2 ><a style=\"color: red\">●</a> <a href=\""+link01+"\" >"+title01+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link03+"\" >"+title03+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link04+"\" >"+title04+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link05+"\" >"+title05+"</a></h2></div>  <a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\">查看更多</a> </div></div></div>", "text/html;charset=UTF-8");
+			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  "
+					+ "a{text-decoration:none; color: #1F538F;font-size: 14px;}"
+					+ "h2{font-size:1.3em;color: #1F538F;padding-bottom:10px;text-align: left;margin: 5px 0 5px 0;}"
+					+ "</style>"
+					+ "<div style=\"height: 825px;width:600px;border:1px solid #cccccc;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail04.jpg);\">"
+					+ "<div style=\"text-align: center;width: 350px;margin:0 auto;padding-top: 340px;\">"
+					+ "<div ><h2 ><a style=\"color: red\">●</a> <a href=\""+link01+"\" >"+title01+"</a></h2></div>"
+							+ "<div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2>"
+							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link03+"\" >"+title03+"</a></h2>"
+							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link04+"\" >"+title04+"</a></h2>"
+							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link05+"\" >"+title05+"</a></h2>"
+							+ "</div>  <a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\"><b>查看更多</b></a> </div></div></div>", "text/html;charset=UTF-8");
 					
 			//			3、发送激活邮件
 			Transport.send(message);

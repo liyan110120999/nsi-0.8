@@ -57,29 +57,29 @@
 	%>  
 	
 	<table class="table">
-	<caption><h3>统计信息</h3></caption>
-	<thead>
-		<tr>
-			<th>用户</th>
-			<th>操作</th>
-			<th>时间</th>
-	
-		</tr>
-	</thead>
-	<tbody>
-	<%  	//遍历结果集  
-		while(rs.next())  
-	{%>  
-	
-		<tr class="active">
-			<td><%=rs.getString(1)%></td>
-			<td><%=rs.getString(2)%></td>
-			<td><%=rs.getString(3)%></td>
-						
-		</tr>		
-	<%}%>  
-	</tbody>
-</table>
+		<caption><h3>统计信息</h3></caption>
+		<thead>
+			<tr>
+				<th>用户</th>
+				<th>操作</th>
+				<th>时间</th>
+		
+			</tr>
+		</thead>
+		<tbody>
+		<%  	//遍历结果集  
+			while(rs.next())  
+		{%>  
+		
+			<tr class="active">
+				<td><%=rs.getString(1)%></td>
+				<td><%=rs.getString(2)%></td>
+				<td><%=rs.getString(3)%></td>
+							
+			</tr>		
+		<%}%>  
+		</tbody>
+	</table>
 <% 
 	rs.close();	
 	stmt.close();	

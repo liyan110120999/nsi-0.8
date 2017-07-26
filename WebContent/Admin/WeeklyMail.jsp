@@ -62,10 +62,11 @@
 %>	
 
 <!-- 	邮件内容 -->
-	<div style="margin: 0 auto;width: 900px;height: 500px;">
+	<div style="margin: 0 auto;width: 900px;height: 500px;text-align:center;">
+			<h3>邮件期刊内容</h3>
             <form class="bs-example bs-example-form" action="/nsi-0.8/MailSender" method="post" role="form">
                 <div>
-                    <div style="padding: 100px 100px 10px;float: left;">
+                    <div style="padding: 50px 130px 10px;float: left;">
 
                             <div class="input-group">
                                 <input type="text" class="form-control" name="title01" placeholder="标题1">
@@ -84,7 +85,7 @@
                             </div><br>
                     </div>
                     <!--右侧-->
-                    <div style="padding: 100px 100px 10px;float: left;">
+                    <div style="padding: 50px 100px 10px;float: left;margin-left:10px;">
 
                             <div class="input-group">
                                 <input type="text" class="form-control" name="link01" placeholder="链接1">
@@ -113,7 +114,6 @@
                             data-loading-text="Loading...">发送
                     </button>
                 </div>
-
             </form>
         </div>
 

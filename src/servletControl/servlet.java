@@ -93,6 +93,7 @@ public class servlet extends HttpServlet {
 			}
 			request.getRequestDispatcher("list.jsp").forward(request, response);
 			
+//			普通搜索模式
 		}else{		
 //				为school模块的搜索功能服务
 			session.setAttribute("School_name",School_name);

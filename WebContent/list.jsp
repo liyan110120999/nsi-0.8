@@ -280,28 +280,26 @@
 	 	
 	 	
 // 	 	权限管理
-		int userMember_sign=Integer.parseInt(session.getAttribute("Session_userMember_sign").toString());
-		if(userMember_sign>=7)
-	 	{	
-			%>
-			<script type="text/javascript">
-// 			 var userMember_sign07=document.getElementsByClassName("userMember07");
-// 			 userMember_sign07.style.visibility="visible";	
-			 
-// 			 userMember_sign07.setAttribute("class", "userMember07-show");
-// 			 	for (var i = 0; i<userMember_sign07.length;i++) {
-// 			 		userMember_sign07[i].style.visibility="visible";
-// 			 	 };
-// 				$(".userMember07").removeClass("userMember07");
-// 				visible
-			
-// 				$("li.userMember000").addClass('userMember07-show');
-
-			</script>	
-			<%
-			
+		if(session.getAttribute("Session_userMember_sign")!=null&&session.getAttribute("Session_userMember_sign")!=""){
+			int userMember_sign=Integer.parseInt(session.getAttribute("Session_userMember_sign").toString());
+			if(userMember_sign>=7)
+		 	{	
+				%>		
+				<script type="text/javascript">
+	// 			 var userMember_sign07=document.getElementsByClassName("userMember07");
+	// 			 userMember_sign07.style.visibility="visible";				 
+	// 			 userMember_sign07.setAttribute("class", "userMember07-show");
+	// 			 	for (var i = 0; i<userMember_sign07.length;i++) {
+	// 			 		userMember_sign07[i].style.visibility="visible";
+	// 			 	 };
+	// 				$(".userMember07").removeClass("userMember07");
+	// 				visible		
+	// 				$("li.userMember000").addClass('userMember07-show');
+				</script>	
+				<%
+				
+			}
 		}
-	 	
 	 	
 //     	用户密码修改
 	 	String UserPassWD01=request.getParameter("UserPassWD01");

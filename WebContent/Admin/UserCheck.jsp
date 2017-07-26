@@ -37,7 +37,7 @@
 			            success: function(msg) {
 			            }
 			        });				        
-			      alert('ajax is ok!'+aa)		    	
+			      alert(aa+' 审核通过，用户等级设为：1级')		    	
 			    };
 	</script>
 
