@@ -30,7 +30,7 @@
 		#registerMainID{
 			background-color: #fff;
 			width:960px;
-			height:708px;
+			height:728px;
 			margin: 50px auto 120px auto;
 			border: #E0E0E0 1px solid;
 
@@ -61,6 +61,7 @@
 				float: left;
 				width: 40%;
 				height:89%;
+				background-image:url(../assets/img/register/bg01.jpg);
 		}
 		.form{
 				padding-top:0;
@@ -309,7 +310,11 @@
 				
 <!-- 		右侧条幅区域 -->
 		<div class="rightDiv">
-			
+			<div style="margin-top: 420px;text-align: left;padding-left:80px;">
+	            <h5 style="font-size: 16px;color: darkgrey">● 实时更新版中国国际学校数据库</h5>
+	            <h5 style="font-size: 16px;color: darkgrey">● 丰富的教育机构平台信息</h5>
+	            <h5 style="font-size: 16px;color: darkgrey">● 专业的行业研究/市场研究数据分析</h5>
+	        </div>
 		</div>
 		
 	</div>

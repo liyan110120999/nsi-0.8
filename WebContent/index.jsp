@@ -69,15 +69,15 @@
             <!--最新活动-->  
                 <div class="Carousel">
                     <a class="article-top" href="http://xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy" target="_blank" style="font-size: 20px;"><b>会议活动</b></a>
-                    <!--资讯内容-->
+                    <!--会议内容-->
                     <div class="article-title">
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">民办国际学校行业高速发展，国际双语教师需要掌握哪些技能？</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">吴越：学校素质教育项目的开展趋向学术与活动的“统筹平衡”</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">《国际素质教育发展报告》</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">欢迎在喜马拉雅平台关注“新学说传媒”</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">2017 VIS国际学校发展大会</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/home/article/detail/id/53.html">2017 ICE国际学校投融资峰会</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">2016国际学校市场招生研讨会</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">《国际素质教育发展报告》</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">2016国际学校校园环境建设研讨会</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">2016 ICE国际学校投融资峰会</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy">2015 ICE国际学校投融资峰会</a></li>
                     </div>
             	</div>
 
@@ -87,13 +87,13 @@
                     <a class="article-top" href="http://xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt" target="_blank" style="font-size: 20px;"><b>资讯文章</b></a>
                     <!--资讯内容-->
                     <div class="article-title">
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">民办国际学校行业高速发展，国际双语教师需要掌握哪些技能？</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">吴越：学校素质教育项目的开展趋向学术与活动的“统筹平衡”</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">《国际素质教育发展报告》</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">欢迎在喜马拉雅平台关注“新学说传媒”</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
-                        <li> <a target="_blank" href="www.xinxueshuo.cn">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/home/article/detail/id/61.html">民办国际学校行业高速发展，国际双语教师需要掌握哪些技能？</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/home/article/detail/id/60.html">前沿预测|上海将加强民办学校设立流程监管，引导非营利性办学</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/home/article/detail/id/5.html">吴越：学校素质教育项目的开展趋向学术与活动的“统筹平衡”</a></li>
+                        <li> <a target="_blank" href="http://www.xinxueshuo.cn/index.php?s=/home/article/detail/id/58.html">新学说《国际素质教育发展报告》</a></li>
+                        <li> <a target="_blank" href="http://www.ximalaya.com/search/%E6%96%B0%E5%AD%A6%E8%AF%B4">“新学说传媒”喜马拉雅开播啦！</a></li>
+                        <li> <a target="_blank" href="http://www.ximalaya.com/84004550/album/8870724">“新学说传媒”喜马拉雅FM 国际素质教育大会实录</a></li>
+                        <li> <a target="_blank" href="http://www.ximalaya.com/84004550/album/8655210">“新学说传媒”喜马拉雅FM 国际学校大咖说</a></li>
                     </div>
                 </div>
         </div>

@@ -165,3 +165,49 @@ function Insert04(str) {
 	obj.focus(); 
 	} 
 
+//权限控制
+//学校模块 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+	//用户提示
+	$(function () {
+	    $("[data-toggle='popover']").popover();
+	});
+	// 测试用 弹窗
+	function display_alert()
+	{
+	    alert("我是弹窗")
+	}
+	
+	
+	// 类选择器.p00   //未登录用户- 00级
+	var AccessControl00=function(){
+	
+	    $(".p00").css("background-color","#eeae4d");
+//	    按钮封锁
+	    $(".p00").attr({
+	        "data-container":"body",
+	        "data-toggle":"popover",
+	        "data-placement":"top",
+	        "data-content":"您的权限不够，请登录查看用户等级",
+	        "onclick":"",
+	        "type":"button"
+	    });
+//	  li标签 隐藏
+	    $("li.p00 ").hide();
+//	  div标签 隐藏
+	    $("div.p00 ").hide();
+	    
+//	  提示信息显示
+	    $("div.A-p00 ").show();
+//	权限提示
+	    $("[data-toggle='popover']").popover();
+	};
+
+
+
+
+
+
+
+

@@ -224,18 +224,18 @@
 		<div style="background-color:#ccc;height:200px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
 			 
-			<div style="background-color:#4fada1;height:20%;text-align:center;">
+			<div class="color01" style="height:20%;text-align:center;">
 				<span class="font-title01">
 					基本信息			
 				</span>			
 			</div>
 				
-			<div style="background-color:#75a3d1;height:80%;width:20%;float:left;">
+			<div class="color03" style="height:80%;width:20%;float:left;">
 				<img src="assets/img/school-icon.png" alt="Pulpit rock" width="160" height="160">				
 			</div>	
 
 			<div style="height:80%;width:80%;float:left;border-radius:5px;">
-				<div style="background-color:#b2dfdb;height:20%;width:100%;text-align:center;">
+				<div class="color02" style="height:20%;width:100%;text-align:center;">
 					<span class="font-title01">				
 						<b><%=School_name%></b>
 					</span>			
@@ -285,17 +285,17 @@
 				
 			</div>	
 		</div>
-		<br><br>
+		<br>
 
 			
-		<div style="background-color:#eee;height:240px;width:800px;margin-left:auto;
+		<div style="background-color:#ccc;height:240px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
-				<div style="background-color:#4fada1;height:20%;text-align:center;">
+				<div class="color01" style="height:20%;text-align:center;">
 					<span class="font-title01">
 						课程与认证			
 					</span>			
 				</div>
-				<div class="font-title03" style="background-color:#b2dfdb;height:80%;width:250px;float:left;text-align:center;">
+				<div class="font-title03 color02" style="height:80%;width:250px;float:left;text-align:center;">
 					<div  style="height:25%;width:100%;">
 						课程体系
 					</div>
@@ -309,7 +309,7 @@
 						认证与组织
 					</div>
 				</div>
-				<div class="font-title03" style="background-color:#eee;height:80%;width:550px;float:left;">
+				<div class="font-title03" style="background-color:#eee;height:80%;width:550px;float:left;padding-left:10px;">
 					<div  style="height:25%;width:100%;">
 						<%=Course%>
 					</div>
@@ -324,17 +324,17 @@
 					</div>
 				</div>		
 		</div>
-		<br><br><br>
+		<br>
 		
 	
-		<div style="background-color:#F5EACD;height:200px;width:800px;margin-left:auto;
+		<div style="background-color:#ccc;height:200px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
-				<div style="background-color:#4fada1;height:20%;text-align:center;">
+				<div class="color01" style="height:20%;text-align:center;">
 					<span class="font-title01">
 						学生与师资			
 					</span>			
 				</div>
-				<div class="font-title03" style="background-color:#b2dfdb;height:80%;width:200px;float:left;text-align:center;">
+				<div class="font-title03 color02" style="height:80%;width:200px;float:left;text-align:center;">
 					<div  style="height:33%;width:100%;">
 						在校生
 					</div>
@@ -358,7 +358,7 @@
 					</div>
 			
 				</div>
-				<div class="font-title03" style="background-color:#b2dfdb;height:80%;width:200px;float:left;text-align:center;">
+				<div class="font-title03 color02" style="height:80%;width:200px;float:left;text-align:center;">
 					<div  style="height:33%;width:100%;">
 						师生比
 					</div>
@@ -382,16 +382,16 @@
 					</div>		
 				</div>			
 		</div>
-		<br><br><br>
+		<br>
 		
-		<div style="background-color:#F5EACD;height:200px;width:800px;margin-left:auto;
+		<div style="background-color:#ccc;height:200px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
-				<div style="background-color:#4fada1;height:20%;text-align:center;">
+				<div class="color01" style="height:20%;text-align:center;">
 					<span class="font-title01">
 						基建信息			
 					</span>			
 				</div>
-				<div class="font-title03" style="background-color:#b2dfdb;height:80%;width:250px;float:left;text-align:center;">
+				<div class="font-title03 color02" style="height:80%;width:250px;float:left;text-align:center;">
 					<div  style="height:25%;width:100%;">
 						占地面积
 					</div>
@@ -416,18 +416,18 @@
 
 				</div>		
 		</div>
-		<br><br><br>
+		<br>
 
 		<div style="background-color:#ccc;height:200px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
 			<div style="background-color:#eee;height:200px;width:800px;float:left;">
-				<div style="background-color:#4fada1;height:20%;text-align:center;">
+				<div class="color01" style="height:20%;text-align:center;">
 					<span class="font-title01">
 						投资者信息		
 					</span>			
 				</div>	
-				<div class="font-title03" style="background-color:#eee">
-					<%=Investment%>
+				<div class="font-title03" style="background-color:#eee">				
+					<textarea class="form-control" id="" name="" rows="7"><%=Investment%></textarea>
 				</div>	
 			</div>	
 
@@ -437,13 +437,13 @@
 		<div style="background-color:#ccc;height:200px;width:800px;margin-left:auto;
  					 margin-right:auto;box-shadow:3px 3px 10px #333333;">
 			<div style="background-color:#eee;height:200px;width:800px;float:left;">
-				<div style="background-color:#4fada1;height:20%;text-align:center;">
+				<div class="color01" style="height:20%;text-align:center;">
 					<span class="font-title01">
 						备注			
 					</span>			
 				</div>	
-				<div class="font-title03" style="background-color:#eee">
-					<%=remark%>
+				<div class="font-title03" style="background-color:#eee">			
+					<textarea class="form-control" id="" name="" rows="7"><%=remark%></textarea>
 				</div>	
 			</div>	
 
@@ -453,7 +453,7 @@
 	</div>
     
     
-     <br> <br> <br>
+     <br>
     
     	</div>
 	</div>

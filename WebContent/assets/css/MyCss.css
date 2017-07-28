@@ -28,6 +28,25 @@
 .l-f16{
 	font-size:16px;
 }
+/* ------------------------------------------------------- */
+/* 色彩空间 */
+
+	/* 灰色系 */
+	.color01{
+		background-color:rgba(158, 158, 158, 0.50);
+	}
+	.color02{
+		background-color:rgba(158, 158, 158, 0.10);
+	}
+	
+/* 	蓝色系 */
+/* 	图片用 浅蓝色 */
+	.color03{
+		background-color:rgba(117, 163, 209, 0.39);
+	}
+
+
+
 
 /* 详情表 */ /* detail-table */  /*DT*/
 .font-title01{ font-size:25px;line-height:120%;color: #428bca;}

@@ -57,8 +57,7 @@ public class servlet extends HttpServlet {
 		Integer pageNum = request.getParameter("PassPage") != null && !request.getParameter("PassPage").equals("") ? Integer.parseInt(request.getParameter("PassPage")) : null;
 		String num_order=request.getParameter("num_order");
 			
-		
-		
+//高级搜索		
 		if(whereFrom.equals("AdvancedSearch")){
 			
 			String[] checkbox02 = request.getParameterValues("checkbox02");
@@ -95,11 +94,13 @@ public class servlet extends HttpServlet {
 			
 //			普通搜索模式
 		}else{		
-//				为school模块的搜索功能服务
+//			为school模块的搜索功能服务
 			session.setAttribute("School_name",School_name);
 			session.setAttribute("pageNum",pageNum);
 			session.setAttribute("num_order",num_order);
-			request.getRequestDispatcher("list.jsp").forward(request, response);
+			
+//			request.getRequestDispatcher("list.jsp").forward(request, response);
+			request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
 	    	//判断动作类型
 			}
 		}	
