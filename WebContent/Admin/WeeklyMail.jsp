@@ -95,7 +95,7 @@
 
 <!-- 	邮件内容 -->
 	<div style="margin: 0 auto;width: 1100px;height: 500px;text-align:center;">
-	
+		<h5>图片尺寸：宽*高：120*170；格式：.jpg</h5>
 		<!-- 图片上传 -->
 		<div style="width:100%;height:200px; margin:auto;text-align:center;">
 			<form class="form-horizontal" action="/nsi-0.8/MailUpImg" method="post" enctype="multipart/form-data">
@@ -113,6 +113,8 @@
 		
 		<br>
 			<h3>邮件期刊内容</h3>
+			<h5>标题：12个字以内 摘要：52个字以内。</h5>
+			<h5>标题：24-36字， 不写摘要。</h5>
             <form class="bs-example bs-example-form" action="/nsi-0.8/MailSender" method="post" role="form">
                 <div>
 					<!--标题 -->

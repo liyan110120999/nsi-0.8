@@ -115,25 +115,29 @@ import javax.swing.JComboBox.KeySelectionManager;
 			message.setContent("<style>a:link{color:#1F538F;text-decoration:none}a:hover{color:red}a{text-decoration:none;color:#1F538F;font-size:14px}"
 					+ "h2{font-size:1.3em;color:#1F538F;padding-bottom:10px;text-align:left;margin:5px 0 5px 0}.headerdiv{margin-top:330px;text-align:center}"
 					+ ".bigdiv{width:580px;height:460px;margin-top:155px;margin-left:110px}.smalldiv{width:170px;height:200px;padding:5px;float:left;margin-right:20px;margin-bottom:35px}"
-					+ ".headerText{font-size:14px;margin-top:5px;margin-bottom:2px}.text{font-size:10px;margin-top:2px;font-weight:400;color:#aaa}.header02{color:#fff;padding:0 62px}</style>"
+					+ ".headerText{font-size:14px;margin-top:0;margin-bottom:2px}.text{font-size:10px;margin-top:2px;font-weight:400;color:#aaa}.header02{color:#fff;padding:0 62px}</style>"
 					+ "<body><div style=\"height:1069px;width:800px;border:1px solid #ccc;margin:0 auto;background-image:url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail06.jpg)\"><div class=\"headerdiv\">"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/index/category/gywm\" class=\"header02\">关于我们</a>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\" class=\"header02\">资讯动态</a>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy\" class=\"header02\">行业活动</a>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/yjcg\" class=\"header02\">研究成果</a>"
-					+ "</div><div class=\"bigdiv\"><div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link01+"\">"+title01+"</a></h3><h5 class=\"text\">"+content01+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link02+"\">"+title02+"</a></h3><h5 class=\"text\">"+content02+"</h5></div>"
-					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link03+"\">"+title03+"</a></h3><h5 class=\"text\">"+content03+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link04+"\">"+title04+"</a></h3><h5 class=\"text\">"+content04+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link05+"\">"+title05+"</a></h3><h5 class=\"text\">"+content05+"</h5></div>"
-					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
-					+ "<h3 class=\"headerText\"><a herf=\""+link06+"\">"+title06+"</a></h3><h5 class=\"text\">"+content06+"</h5></div>"
-					+ "<a href=\"http://www.baidu.com\" style=\"float:right;margin-right:30px;margin-top:10px\">更多</a></div></div></body>", "text/html;charset=UTF-8");	
+					+ "</div><div class=\"bigdiv\">"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail001.jpg\"height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link01+"\">"+title01+"</a></h3><h5 class=\"text\">"+content01+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail002.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link02+"\">"+title02+"</a></h3><h5 class=\"text\">"+content02+"</h5></div>"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail003.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link03+"\">"+title03+"</a></h3><h5 class=\"text\">"+content03+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail004.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link04+"\">"+title04+"</a></h3><h5 class=\"text\">"+content04+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail005.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link05+"\">"+title05+"</a></h3><h5 class=\"text\">"+content05+"</h5></div>"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail006.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a href=\""+link06+"\">"+title06+"</a></h3><h5 class=\"text\">"+content06+"</h5></div>"
+					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\" style=\"float:right;margin-right:30px;margin-top:10px\">更多</a></div></div></body>", "text/html;charset=UTF-8");	
+			
+//			test
+			System.out.println("测试连接："+link01);
 			//			3、发送激活邮件
 			Transport.send(message);
 			
