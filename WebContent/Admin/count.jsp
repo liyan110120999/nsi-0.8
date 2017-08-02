@@ -55,7 +55,8 @@
 	//执行查询  
 	ResultSet rs = stmt.executeQuery("select * from nsi_school_data order by load_time DESC limit 0,10");  
 	%>  
-	
+	<a href="https://tongji.baidu.com/web/welcome/ico?s=e898a1b6e73616a0c84313f55a47efd6">统计</a>
+		
 	<table class="table">
 		<caption><h3>统计信息</h3></caption>
 		<thead>

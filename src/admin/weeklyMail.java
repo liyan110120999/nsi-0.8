@@ -19,7 +19,11 @@ import javax.swing.JComboBox.KeySelectionManager;
 		private static final String ALIDM_SMTP_HOST = "smtpdm.aliyun.com";
 		private static final int ALIDM_SMTP_PORT = 25;
 		
-		public static void sendMail(String toWho, String title01,String title02,String title03,String title04,String title05, String link01,String link02,String link03,String link04,String link05) throws Exception, MessagingException {
+		public static void sendMail(String toWho,
+									String title01,String title02,String title03,String title04,String title05,String title06, 
+									String content01,String content02,String content03,String content04,String content05,String content06,
+									String link01,String link02,String link03,String link04,String link05,String link06
+				) throws Exception, MessagingException {
 		
 			Properties props= new Properties();	
 			 // 表示SMTP发送邮件，需要进行身份验证
@@ -67,29 +71,69 @@ import javax.swing.JComboBox.KeySelectionManager;
 			//主题
 			message.setSubject("新学说资讯期刊 第1期");
 			//正文
-//			message.setContent("<blockquote class=\"quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex\">\n<div style=\"font-size:14px; color:#666;border:1px solid #d9d9d9; border-top:4px solid #20a56e; height:auto; padding:12px 35px 28px ;width:600px;margin:40px auto;font-family:microsoft yahei;word-wrap:break-word\">\n<p style=\"line-height:20px;\">\n<span style=\"color:#000;font-size:1.2em;font-weight:bold;\">"+toWho+"</span>\uFF0C\u6B22\u8FCE\u60A8\u6CE8\u518C\u65B0\u5B66\u8BF4\u6570\u636E\u7CFB\u7EDF\u3002\n</p>\n<p style=\"line-height:20px;\">\u8BF7\u8BBF\u95EE\u4EE5\u4E0B\u94FE\u63A5\u5B8C\u6210\u60A8\u7684\u90AE\u7BB1\u6FC0\u6D3B\u9A8C\u8BC1\u3002</p>\n<p style=\"line-height:20px;\">"
-//					+"<h3><br /><a href=\"http://47.92.84.36:8080/nsi-0.8/register?registerCode=&UserMail="+toWho+"\">http://47.92.84.36:8080/nsi-0.8/register?registerCode=&UserMail="+toWho+"</a></h3>"
-//					+"</p>\n<p style=\"line-height:20px;\">\u5982\u679C\u65E0\u6CD5\u6253\u5F00\u94FE\u63A5\uFF0C\u8BF7\u590D\u5236\u4E0A\u9762\u7684\u94FE\u63A5\u7C98\u8D34\u5230\u6D4F\u89C8\u5668\u7684\u5730\u5740\u680F\u3002 </p>\n<dl style=\"background:#f9f9f9; border:1px solid #dcdcdc; padding:12px; color:#8a6d3b; margin:25px 0;\">\n<dt style=\"line-height:30px; font-weight:bold; margin-left:12px\">\u65B0\u5B66\u8BF4\u53EF\u4EE5\u5E2E\u60A8\u505A\u4EC0\u4E48\uFF1F</dt>\n<dd style=\"line-height:30px; margin-left:12px \">\u6559\u80B2\u5708\u7684\u54A8\u8BE2\u52A8\u6001</dd>\n<dd style=\"line-height:30px; margin-left:12px \">\u4E13\u4E1A\u7684\u7814\u7A76\u6210\u679C</dd>\n<dd style=\"line-height:30px;  margin-left:12px\">\u56FD\u9645\u5B66\u6821\u54A8\u8BE2\u670D\u52A1</dd></dl>\n<p style=\"color:#999; font-size:12px; line-height:12px; padding-top:24px; border-top:1px solid #dcdcdc;\">\u672C\u90AE\u4EF6\u7531\u7CFB\u7EDF\u81EA\u52A8\u53D1\u9001\uFF0C\u8BF7\u52FF\u76F4\u63A5\u56DE\u590D\uFF01\u5982\u6709\u4EFB\u4F55\u7591\u95EE\uFF0C\u8BF7\u8054\u7CFB\u6211\u4EEC\u7684\u5BA2\u670D\u4EBA\u5458\u3002</p>\n<p style=\"color:#999; font-size:12px; line-height:12px;\">\u8054\u7CFB\u7535\u8BDD\uFF1A<span style=\"border-bottom:1px dashed #ccc;z-index:1\" t=\"7\" onclick=\"return false;\" >010-52468286</span>\n</p></div>\n</blockquote>", "text/html;charset=UTF-8");
 
 //			message.setContent("", "text/html;charset=UTF-8");		
 			
-//			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  a{text-decoration:none;  }  h2{color: #1F538F;padding-bottom:20px;text-align: left; border-bottom:1px solid #1F538F;  }</style><h5>感谢您注册本网站</h5><div style=\"height: 1100px;width: 800px;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail02.jpg);\"><div style=\"text-align: center;width: 500px;margin:0 auto;padding-top: 420px;\"><div ><h2 ><a style=\"color: red\">●</a><a href=\""+link01+"\" >"+title01+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> 上海将加强民办学校设立流程监管，引导非营利性办学</h2></div><div><h2 ><a style=\"color: red\">●</a>点击激活注册</h2></div><div><h2 ><a style=\"color: red\">●</a> 国际素质教育概况</h2></div><div><h2 ><a style=\"color: red\">●</a> 学校素质教育项目的开展趋向学术与的“统筹平衡”</h2></div><button style=\"background-color: #1F538F; border: 5px; color: white; padding: 15px 50px; border-radius: 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px;\">查看</button></div></div></div>", "text/html;charset=UTF-8");
+			
+//			第一版
+//			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  "
+//					+ "a{text-decoration:none; color: #1F538F;font-size: 14px;}"
+//					+ "h2{font-size:1.3em;color: #1F538F;padding-bottom:10px;text-align: left;margin: 5px 0 5px 0;}"
+//					+ "</style>"
+//					+ "<div style=\"height: 825px;width:600px;border:1px solid #cccccc;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail05.jpg);\">"
+//					+ "<div style=\"text-align: center;width: 350px;margin:0 auto;padding-top: 340px;\">"
+//					+ "<div ><h2 ><a style=\"color: red\">●</a> <a href=\""+link01+"\" >"+title01+"</a></h2></div>"
+//							+ "<div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2>"
+//							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link03+"\" >"+title03+"</a></h2>"
+//							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link04+"\" >"+title04+"</a></h2>"
+//							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link05+"\" >"+title05+"</a></h2>"
+//							+ "</div>  <a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\"><b>查看更多</b></a> </div></div></div>", "text/html;charset=UTF-8");
+//			第二版01
+//			message.setContent("<style>a:link{color:#1F538F;text-decoration:none}a:hover{color:red}"
+//					+ "a{text-decoration:none;color:#1F538F;font-size:14px}h2{font-size:1.3em;color:#1F538F;padding-bottom:10px;text-align:left;margin:5px 0 5px 0}"
+//					+ ".bigdiv{width:580px;height:460px;margin-top:510px;margin-left:110px}"
+//					+ ".smalldiv{width:170px;height:200px;padding:5px;float:left;margin-right:20px;margin-bottom:35px}"
+//					+ ".headerText{font-size:12px;margin-top:2px;margin-bottom:2px}"
+//					+ ".text{font-size:8px;margin-top:2px;font-weight:400}"
+//					+ "</style>"
+//					+ "<div style=\"height:1069px;width:800px;border:1px solid #ccc;margin:0 auto;background-image:url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail06.jpg)\">"
+//					+ "<div class=\"bigdiv\"><div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">江南可采莲，莲叶何田田，英国素质发展认证中小新学说，英国素质发展认证中小</h5></div>"
+//					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">由新学说，英国素质发展认江南可采莲，莲叶何田田</h5></div>"
+//					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">由江南可采莲，莲叶何田田说，英国素质发展认证中小新学说，英国素质发展认证中小</h5></div>"
+//					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">由新学说，英国素质发展认证中心新学说，英国江南可采莲，莲叶何田田证中小</h5></div>"
+//					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">由新学说，英国素江南可采莲，莲叶何田田中小新学说，英国素质发展认证中小</h5></div>"
+//					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+//					+ "<h3 class=\"headerText\">国际素质注册</h3><h5 class=\"text\">由江南可采莲，莲叶何田田，英国素质发展认证中小新学说，英国素质发展认证中</h5></div>"
+//					+ "<a href=\"http://www.baidu.com\" style=\"float:right;margin-right:25px;margin-top:10px\">更多</a></div></div>", "text/html;charset=UTF-8");		
 
-//			可用
-//			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  a{text-decoration:none;  }  h2{color: #1F538F;padding-bottom:20px;text-align: left; border-bottom:1px solid #1F538F;  }</style><h5>感谢您注册本网站</h5><div style=\"height: 1100px;width: 800px;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail02.jpg);\"><div style=\"text-align: center;width: 500px;margin:0 auto;padding-top: 420px;\"><div ><h2 ><a style=\"color: red\">●</a><a href=\""+link01+"\" >"+title01+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link03+"\" >"+title03+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link04+"\" >"+title04+"</a></h2></div><div><h2 ><a style=\"color: red\">●</a><a href=\""+link05+"\" >"+title05+"</a></h2></div><button style=\"background-color: #1F538F; border: 5px; color: white; padding: 15px 50px; border-radius: 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px;\">查看</button></div></div></div>", "text/html;charset=UTF-8");			
-			message.setContent("<div><style type=\"text/css\">  a:link{color:#1F538F;text-decoration:none;  }  a:hover{color:red;  }  "
-					+ "a{text-decoration:none; color: #1F538F;font-size: 14px;}"
-					+ "h2{font-size:1.3em;color: #1F538F;padding-bottom:10px;text-align: left;margin: 5px 0 5px 0;}"
-					+ "</style>"
-					+ "<div style=\"height: 825px;width:600px;border:1px solid #cccccc;margin: 0 auto; background-image: url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail05.jpg);\">"
-					+ "<div style=\"text-align: center;width: 350px;margin:0 auto;padding-top: 340px;\">"
-					+ "<div ><h2 ><a style=\"color: red\">●</a> <a href=\""+link01+"\" >"+title01+"</a></h2></div>"
-							+ "<div><h2 ><a style=\"color: red\">●</a> <a href=\""+link02+"\" >"+title02+"</a></h2>"
-							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link03+"\" >"+title03+"</a></h2>"
-							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link04+"\" >"+title04+"</a></h2>"
-							+ "</div><div><h2 ><a style=\"color: red\">●</a> <a href=\""+link05+"\" >"+title05+"</a></h2>"
-							+ "</div>  <a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\"><b>查看更多</b></a> </div></div></div>", "text/html;charset=UTF-8");
-					
+			
+			message.setContent("<style>a:link{color:#1F538F;text-decoration:none}a:hover{color:red}a{text-decoration:none;color:#1F538F;font-size:14px}"
+					+ "h2{font-size:1.3em;color:#1F538F;padding-bottom:10px;text-align:left;margin:5px 0 5px 0}.headerdiv{margin-top:330px;text-align:center}"
+					+ ".bigdiv{width:580px;height:460px;margin-top:155px;margin-left:110px}.smalldiv{width:170px;height:200px;padding:5px;float:left;margin-right:20px;margin-bottom:35px}"
+					+ ".headerText{font-size:14px;margin-top:5px;margin-bottom:2px}.text{font-size:10px;margin-top:2px;font-weight:400;color:#aaa}.header02{color:#fff;padding:0 62px}</style>"
+					+ "<body><div style=\"height:1069px;width:800px;border:1px solid #ccc;margin:0 auto;background-image:url(http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/mail06.jpg)\"><div class=\"headerdiv\">"
+					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/index/category/gywm\" class=\"header02\">关于我们</a>"
+					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\" class=\"header02\">资讯动态</a>"
+					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy\" class=\"header02\">行业活动</a>"
+					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/yjcg\" class=\"header02\">研究成果</a>"
+					+ "</div><div class=\"bigdiv\"><div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link01+"\">"+title01+"</a></h3><h5 class=\"text\">"+content01+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link02+"\">"+title02+"</a></h3><h5 class=\"text\">"+content02+"</h5></div>"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link03+"\">"+title03+"</a></h3><h5 class=\"text\">"+content03+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link04+"\">"+title04+"</a></h3><h5 class=\"text\">"+content04+"</h5></div>"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link05+"\">"+title05+"</a></h3><h5 class=\"text\">"+content05+"</h5></div>"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/nsi-0.8/assets/img/weeklyMail/context.jpg\" height=\"120\" width=\"170\">"
+					+ "<h3 class=\"headerText\"><a herf=\""+link06+"\">"+title06+"</a></h3><h5 class=\"text\">"+content06+"</h5></div>"
+					+ "<a href=\"http://www.baidu.com\" style=\"float:right;margin-right:30px;margin-top:10px\">更多</a></div></div></body>", "text/html;charset=UTF-8");	
 			//			3、发送激活邮件
 			Transport.send(message);
 			
