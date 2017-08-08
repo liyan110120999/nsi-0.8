@@ -26,6 +26,7 @@
 </head>
 
 <body>
+
 	<script type="text/javascript">		
 // 			jq Ajax
  			var pass= function(aa){			    	
@@ -39,6 +40,27 @@
 			        });				        
 			      alert('ajax is ok!'+aa)		    	
 			    };
+	</script>
+
+	<script>  
+// 	测出发送
+			function testSend()  
+				{  		
+					document.getElementById("whereFromID").value="testSend";//设置whereFrom值  为 测试
+					document.getElementById("formID").submit();	
+				}  
+// 			正式发送前确认
+			function ConfirmSend(){
+				var x;
+				var r=confirm("确定要正式发送邮件了吗？建议先测试发送！！！");
+				if (r==true){
+					document.getElementById("whereFromID").value="sendMail";//设置whereFrom值  为 正式发送
+					document.getElementById("formID").submit();	
+				}
+				else{
+					x="你按下了\"取消\"按钮!";
+				}			
+			}
 	</script>
 <!-- 	上传图片 -->
 	<script type="text/javascript">
@@ -115,7 +137,7 @@
 			<h3>邮件期刊内容</h3>
 			<h5>标题：12个字以内 摘要：52个字以内。</h5>
 			<h5>标题：24-36字， 不写摘要。</h5>
-            <form class="bs-example bs-example-form" action="/nsi-0.8/MailSender" method="post" role="form">
+            <form class="bs-example bs-example-form" action="/nsi-0.8/MailSender" name="form1" id="formID" method="post" role="form">
                 <div>
 					<!--标题 -->
                     <div style="padding: 50px 30px 10px;float: left;">
@@ -184,16 +206,17 @@
                             </div><br>
                     </div>
                                        
-                    <input type="hidden" name="whereFrom" value="sendMail">
+                    <input id="whereFromID" type="hidden" name="whereFrom" value="sendMail">
                 </div>
                 <div class="clearfix"></div>
                 <!--按钮功能组-->
                 <div id="myButtons2" class="bs-example">
-                    <button type="submit" class="btn btn-primary"
-                            data-loading-text="Loading...">发送
-                    </button>
+                	<button type="button" class="btn btn-primary" onclick="testSend()">测试发送</button>
+                    <button type="button" class="btn btn-warning" onclick="ConfirmSend()">正式发送</button>
                 </div>
             </form>
+            
+            
         </div>
 
 

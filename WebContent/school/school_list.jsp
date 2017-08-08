@@ -201,7 +201,7 @@
 					float:left;
 					margin-left:20px;
 				}
-/* 				li标签 */
+		/* 	li标签 */
 				.AdvanLi01{
 				 	display: inline-block;
 			 		float:left;margin-left:5px;
@@ -778,7 +778,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column table-responsive">
 		
-			<table class="table table-hover">		
+			<table class="table table-striped table-hover">		
 				<thead id="tableHeaderID">
 
 					<tr>
@@ -1000,13 +1000,13 @@
 							<td>
 								<form role="form" action="alter.jsp" method="post">															
 									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="btn btn-default">修改</button>											
+									<button type="submit" class="p00 btn btn-default">修改</button>											
 								</form>	
 							</td>	
 							<td>
 								<form id="submit_from" role="form" action="detail.jsp" method="post">									
 									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="btn btn-default">详细</button>									
+									<button type="submit" class="p00 btn btn-default">详细</button>									
 								</form>	
 							</td>				
 						</tr>
@@ -1075,13 +1075,13 @@
 							<td>
 								<form role="form" action="alter.jsp" method="post">									
 									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="btn btn-default">修改</button>											
+									<button type="submit" class="p00 btn btn-default">修改</button>											
 								</form>	
 							</td>	
 							<td>
 								<form id="submit_from" role="form" action="detail.jsp" method="post">									
 									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="btn btn-default">详细</button>									
+									<button type="submit" class="p00 btn btn-default">详细</button>									
 								</form>	
 							</td>				
 						</tr>
@@ -1146,32 +1146,32 @@
 <!-- 分页不可用时 提示信息 -->
  <div class="A-p00 container" style="display:none;">
 	<div class="row clearfix">
-		<div class="col-md-12 column">		
+		<div class="col-md-12 column">			
 			<ul class="pagination">
 				<li>
-					 <a href="#">上一页</a>
+					 <a href="javascript:void(0);">上一页</a>
 				</li>
 				<li>
-					 <a href="#">1</a>
+					 <a href="javascript:void(0);">1</a>
 				</li>
 				<li>
-					 <a href="#">2</a>
+					 <a href="javascript:void(0);">2</a>
 				</li>
 				<li>
-					 <a href="#">3</a>
+					 <a href="javascript:void(0);">3</a>
 				</li>
 				<li>
-					 <a href="#">4</a>
+					 <a href="javascript:void(0);">4</a>
 				</li>
 				<li>
-					 <a href="#">5</a>
+					 <a href="javascript:void(0);">5</a>
 				</li>
 				<li>
-					 <a href="#">下一页</a>
+					 <a href="javascript:void(0);">下一页</a>
 				</li>
 			</ul>
 		</div>
-		<h5>权限不够,分页不可用</h5>
+		<h5 style="color:red;">权限不够,不可查看下一页</h5>
 	</div>
 </div>
 

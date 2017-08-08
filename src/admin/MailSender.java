@@ -93,10 +93,53 @@ import people.DB;
 						DB.Insert(sql);
 						
 						response.sendRedirect("/nsi-0.8/Admin/Mailuser_list.jsp");
-//						不可用
-//						request.setAttribute("msg", "success");
-//						request.getRequestDispatcher("/nsi-0.8/Admin/Mailuser_list.jsp").forward(request, response);
-//						
+//				测试发送
+				}else if (whereFrom.equals("testSend")) {
+					
+					try
+					{		
+						
+//						获取内容
+						String title01=request.getParameter("title01");
+						String title02=request.getParameter("title02");
+						String title03=request.getParameter("title03");
+						String title04=request.getParameter("title04");
+						String title05=request.getParameter("title05");
+						String title06=request.getParameter("title06");
+											
+						String content01=request.getParameter("content01");
+						String content02=request.getParameter("content02");
+						String content03=request.getParameter("content03");
+						String content04=request.getParameter("content04");
+						String content05=request.getParameter("content05");
+						String content06=request.getParameter("content06");
+											
+						String link01=request.getParameter("link01");
+						String link02=request.getParameter("link02");
+						String link03=request.getParameter("link03");
+						String link04=request.getParameter("link04");
+						String link05=request.getParameter("link05");
+						String link06=request.getParameter("link06");
+						
+						
+			
+							weeklyMail.sendMail("1453485414@qq.com",title01,title02,title03,title04,title05,title06,
+																	content01,content02,content03,content04,content05,content06,
+																	link01,link02,link03,link04,link05,link06);
+							
+							weeklyMail.sendMail("hemiao@xinxueshuo.cn",title01,title02,title03,title04,title05,title06,
+									content01,content02,content03,content04,content05,content06,
+									link01,link02,link03,link04,link05,link06);
+							System.out.println("测试发送1453485414@qq.com");
+
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+						System.out.println("MailSender.java:sql异常或发送Mail异常");	
+					}
+
+				
 				}
 
 			}

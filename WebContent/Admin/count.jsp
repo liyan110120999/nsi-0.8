@@ -55,32 +55,30 @@
 	//执行查询  
 	ResultSet rs = stmt.executeQuery("select * from nsi_school_data order by load_time DESC limit 0,10");  
 	%>  
-	<a href="https://tongji.baidu.com/web/welcome/ico?s=e898a1b6e73616a0c84313f55a47efd6">统计</a>
-		
-	<table class="table">
-		<caption><h3>统计信息</h3></caption>
-		<thead>
-			<tr>
-				<th>用户</th>
-				<th>操作</th>
-				<th>时间</th>
-		
-			</tr>
-		</thead>
-		<tbody>
-		<%  	//遍历结果集  
-			while(rs.next())  
-		{%>  
-		
-			<tr class="active">
-				<td><%=rs.getString(1)%></td>
-				<td><%=rs.getString(2)%></td>
-				<td><%=rs.getString(3)%></td>
-							
-			</tr>		
-		<%}%>  
-		</tbody>
-	</table>
+	<div style="text-align:center;">
+		<a href="https://tongji.baidu.com/web/welcome/ico?s=e898a1b6e73616a0c84313f55a47efd6" target="_blank"><h4>官网访问统计</h4></a>
+	</div>
+		<table class="table">
+			<caption><h3>统计信息</h3></caption>
+			<thead>
+				<tr>
+					<th>用户</th>
+					<th>操作</th>
+					<th>时间</th>		
+				</tr>
+			</thead>
+			<tbody>
+			<%  	//遍历结果集  
+				while(rs.next())  
+			{%>  	
+				<tr class="active">
+					<td><%=rs.getString(1)%></td>
+					<td><%=rs.getString(2)%></td>
+					<td><%=rs.getString(3)%></td>							
+				</tr>		
+			<%}%>  
+			</tbody>
+		</table>
 <% 
 	rs.close();	
 	stmt.close();	

@@ -196,9 +196,8 @@ function Insert04(str) {
 //	  li标签 隐藏
 	    $("li.p00 ").hide();
 //	  div标签 隐藏
-	    $("div.p00 ").hide();
-	    
-//	  提示信息显示
+	    $("div.p00 ").hide();	    
+//	  替换提示信息显示
 	    $("div.A-p00 ").show();
 //	权限提示
 	    $("[data-toggle='popover']").popover();

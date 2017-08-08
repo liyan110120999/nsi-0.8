@@ -1,5 +1,6 @@
 package admin;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -64,12 +65,26 @@ import javax.swing.JComboBox.KeySelectionManager;
 	        mailSession.setDebug(true);
 //			2、创建邮件对象
 			Message message = new MimeMessage(mailSession);
+		
+			
+	        //设置自定义发件人昵称  
+	        String nick="";  
+	        try {  
+	            nick=javax.mail.internet.MimeUtility.encodeText("新学说");  
+	        } catch (UnsupportedEncodingException e) {  
+	            e.printStackTrace();  
+	        }   
+			
+	        
+//			//发件人
+//			message.setFrom(new InternetAddress("service@mail.html9.top"));
+			
 			//发件人
-			message.setFrom(new InternetAddress("service@mail.html9.top"));
+			message.setFrom(new InternetAddress(nick+"<"+"service@mail.html9.top"+">"));
 			//收件人
 			message.setRecipient(RecipientType.TO, new InternetAddress(toWho));
 			//主题
-			message.setSubject("新学说资讯期刊 第1期");
+			message.setSubject("新学说资讯期刊");
 			//正文
 
 //			message.setContent("", "text/html;charset=UTF-8");		
@@ -136,8 +151,6 @@ import javax.swing.JComboBox.KeySelectionManager;
 					+ "<h3 class=\"headerText\"><a href=\""+link06+"\">"+title06+"</a></h3><h5 class=\"text\">"+content06+"</h5></div>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\" style=\"float:right;margin-right:30px;margin-top:10px\">更多</a></div></div></body>", "text/html;charset=UTF-8");	
 			
-//			test
-			System.out.println("测试连接："+link01);
 			//			3、发送激活邮件
 			Transport.send(message);
 			

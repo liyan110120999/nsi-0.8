@@ -56,18 +56,18 @@ public class People_servlet extends HttpServlet {
 								
 				String sql=null;		
 				String sqlcount=null;
-				List<People_model> list = new ArrayList<People_model>();
-		
+				List<People_model> list = new ArrayList<People_model>();	
+				
 //				选项搜索
 				if(searchMenu.equals("人脉")){				
-					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%'limit "+pageNumX+","+(pageNumX+OnePageNum)+"";	
-					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' ";
+					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%'order by People_loadTime DESC limit "+pageNumX+","+OnePageNum+"";	
+					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' order by People_loadTime DESC";
 				}else if(searchMenu.equals("会员")){
-					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' AND People_member IS NOT NULL AND People_member !='' limit "+pageNumX+","+(pageNumX+OnePageNum)+"";
-					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' AND People_member IS NOT NULL AND People_member !='' ";
+					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' AND People_member IS NOT NULL AND People_member !='' AND People_member !='NULL' limit "+pageNumX+","+OnePageNum+"";
+					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' AND People_member IS NOT NULL AND People_member !='' AND People_member !='NULL' ";
 				}else {
-					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%'limit 0,20";
-					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' ";
+					 sql="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%'order by People_loadTime DESC limit 0,20";
+					 sqlcount="select * from nsi_people_data where CONCAT(IFNULL(`People_name`,''),IFNULL(`People_work`,''),IFNULL(`People_introduction`,''),IFNULL(`People_remark`,'')) like '%"+People_searchKey+"%' order by People_loadTime DESC";
 				}
 		
 				System.out.println("搜索语句："+searchMenu+sql);
@@ -170,13 +170,18 @@ public class People_servlet extends HttpServlet {
 
 				
 				List<People_model> list = new ArrayList<People_model>();
-						
+//				修改操作	
 				String sql="UPDATE nsi_people_data SET People_name='"+People_name+"',People_member='"+People_member+"',People_dueTime='"+People_dueTime+"',People_work='"+People_work+"',People_position='"+People_position+"',People_phone='"+People_phone+"',People_mail='"+People_mail+"',People_telephone='"+People_telephone+"',People_wechat='"+People_wechat+"',People_loadPeople='"+People_loadPeople+"',People_loadTime='"+People_loadTime+"',People_address='"+People_address+"',People_introduction='"+People_introduction+"',People_remark='"+People_remark+"'"
 						+ "WHERE People_id='"+People_id+"' ";
-			
 				DB.alter(sql);
+//				查询返回给list		
+				String sql02="select * from nsi_people_data where People_id='"+People_id+"' limit 0,1";
+
+				list=DB.Search(sql02);
 				
-				request.setAttribute("People_id", People_id);	  		
+				request.setAttribute("People_id", People_id);	
+				session.setAttribute("countAllRS","1");
+				request.setAttribute("list", list); 
 				request.getRequestDispatcher("people/People_list.jsp").forward(request, response);				
 			}
 			else if(whereFrom.equals("delete")){
