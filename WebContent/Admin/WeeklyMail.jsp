@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>  
+<!-- 读取Properties 依赖  -->
+<%@ page import="java.util.*,java.io.*" %>  
 <!DOCTYPE>
 <html>
 <head>
@@ -61,6 +63,7 @@
 					x="你按下了\"取消\"按钮!";
 				}			
 			}
+
 	</script>
 <!-- 	上传图片 -->
 	<script type="text/javascript">
@@ -113,11 +116,43 @@
 	rs.close();	
 	stmt.close();	
 	conn.close();	
+	
 %>	
+
+<%
+	 String path = "/WeeklyMail.properties";  
+	 Properties prop = new Properties();  
+// 	 注意：绝对路径问题
+	 String realpath = request.getRealPath("/properties"); 
+	 try{  
+		 //读取配置文件
+		 FileInputStream in = new FileInputStream(realpath+path);  
+		 prop.load(in);  
+	 }  
+	 catch(FileNotFoundException e){  
+	     out.println(e);  
+	 }  
+	 catch(IOException e){out.println(e);} 
+	//通过key获取配置文件
+	 String MailNum = prop.getProperty("MailNum"); 
+
+%>
 
 <!-- 	邮件内容 -->
 	<div style="margin: 0 auto;width: 1100px;height: 500px;text-align:center;">
-		<h5>图片尺寸：宽*高：120*170；格式：.jpg</h5>
+<!-- 		预览图片 -->
+<!-- 	临时改变图片地址 -->
+
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>1.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>2.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>3.jpg" class="img-thumbnail">
+		<br>
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>4.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>5.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>6.jpg" class="img-thumbnail">
+		
+		
+		<h5>图片尺寸：宽*高：120*170；格式：.jpg</h5>期刊号：<%=MailNum%>
 		<!-- 图片上传 -->
 		<div style="width:100%;height:200px; margin:auto;text-align:center;">
 			<form class="form-horizontal" action="/nsi-0.8/MailUpImg" method="post" enctype="multipart/form-data">
@@ -213,6 +248,7 @@
                 <div id="myButtons2" class="bs-example">
                 	<button type="button" class="btn btn-primary" onclick="testSend()">测试发送</button>
                     <button type="button" class="btn btn-warning" onclick="ConfirmSend()">正式发送</button>
+                 
                 </div>
             </form>
             

@@ -2,8 +2,11 @@ package admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Properties;
+
 //文件上传
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -20,10 +23,15 @@ import javax.servlet.http.HttpServletResponse;
 	/**
 	 * Servlet implementation class UploadServlet
 	 */
+
 	@WebServlet("/MailUpImg")
 	public class MailUpImg extends HttpServlet {
 	    private static final long serialVersionUID = 1L;
-
+	    
+//		Properties配置文件
+		private static String propFileName = "/nsi-0.8/properties/WeeklyMail.properties"; // 指定资源文件保存的位置
+		private static Properties prop = new Properties(); // 创建并实例化Properties对象的实例
+		
 	    // 上传文件存储目录
 	    private static final String UPLOAD_DIRECTORY = "upload";
 	 
@@ -90,8 +98,15 @@ import javax.servlet.http.HttpServletResponse;
 	                	
 	                    // 处理不在表单中的字段
 	                    if (!item.isFormField()) {
-                	
-	                        String filePath = uploadPath + File.separator +"mail00"+i+".jpg";
+	                    	
+	                    	
+	                    	// 将Properties文件读取到InputStream对象中
+							InputStream in = getClass().getResourceAsStream(propFileName);
+							prop.load(in); // 通过输入流对象加载Properties文件
+							String MailNum = prop.getProperty("MailNum"); // 获取prop期刊号
+							
+//	                    	注意：mail001代表图片的资源名，前两位数代表期刊号。每次发送需 期刊号+1，来解决：浏览器图片缓存问题。i代表图片的次序
+	                        String filePath = uploadPath + File.separator +"mail"+MailNum+i+".jpg";
 	                        File storeFile = new File(filePath);                        
 //	                        //	                        上传图片地址至数据库
 //	                        String sql="UPDATE nsi_people_data SET People_ImgUrl='/upImage/upPeopleImg/upload/"+people_id+".jpg' WHERE People_id='"+people_id+"' ";    			

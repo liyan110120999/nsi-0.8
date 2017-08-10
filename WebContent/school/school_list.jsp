@@ -271,7 +271,9 @@
 		if(session.getAttribute("Session_userMember_sign")==null){
 		%>
 		<script>
-			window.onload = AccessControl00;
+// 			document.ready = AccessControl00;
+			$(document).ready(AccessControl00(){				
+				});
 		</script>
 		<%
 		}

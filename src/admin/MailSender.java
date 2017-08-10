@@ -1,11 +1,12 @@
 package admin;
 
 import java.io.IOException;
-
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,10 @@ import people.DB;
 @WebServlet("/MailSender")
 	public class MailSender extends HttpServlet {
 			public static final long serialVersionUID = 2L;
+			
+//			Properties配置文件
+			private static String propFileName = "../properties/WeeklyMail.properties"; // 指定资源文件保存的位置
+			private static Properties prop = new Properties(); // 创建并实例化Properties对象的实例
 	
 			protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
@@ -138,7 +143,21 @@ import people.DB;
 						e.printStackTrace();
 						System.out.println("MailSender.java:sql异常或发送Mail异常");	
 					}
-
+				
+//				测试Properties
+				}else if (whereFrom.equals("testP")) {
+					try { // 捕捉异常
+						System.out.println("测试：Properties执行");
+						// 将Properties文件读取到InputStream对象中
+						InputStream in = getClass().getResourceAsStream(propFileName);
+						prop.load(in); // 通过输入流对象加载Properties文件
+						String dbClassName = prop.getProperty("MailNum"); // 获取数据库驱动
+						System.out.println("Properties文件:"+dbClassName);
+					} catch (Exception e) {
+						e.printStackTrace(); // 输出异常信息
+					} 
+					
+					
 				
 				}
 

@@ -1,5 +1,6 @@
 package admin;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
@@ -14,12 +15,18 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JComboBox.KeySelectionManager;
 
+import jdk.internal.dynalink.beans.StaticClass;
+
 //发送周刊
 	public class weeklyMail {
 		
 		private static final String ALIDM_SMTP_HOST = "smtpdm.aliyun.com";
 		private static final int ALIDM_SMTP_PORT = 25;
 		
+//		Properties配置文件
+		private static String propFileName = "../properties/WeeklyMail.properties"; // 指定资源文件保存的位置
+		private static Properties prop = new Properties(); // 创建并实例化Properties对象的实例
+//			8月10日 去掉了 static
 		public static void sendMail(String toWho,
 									String title01,String title02,String title03,String title04,String title05,String title06, 
 									String content01,String content02,String content03,String content04,String content05,String content06,
@@ -34,13 +41,21 @@ import javax.swing.JComboBox.KeySelectionManager;
 	         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 	         props.put("mail.smtp.socketFactory.port", "465");
 	         props.put("mail.smtp.port", "465");
-	        
-	        
+	                 
 	        // 发件人的账号
 	        props.put("mail.user", "service@mail.html9.top");
 	        // 访问SMTP服务时需要提供的密码
 	        props.put("mail.password", "Xinxueshuo123Mail");
 			
+	    	// 将Properties文件读取到InputStream对象中
+//	        Static 中不能使用this 方法
+//			InputStream in = .getClass().getResourceAsStream(propFileName);
+			InputStream in = weeklyMail.class.getResourceAsStream(propFileName);
+			
+			prop.load(in); // 通过输入流对象加载Properties文件
+			String MailNum = prop.getProperty("MailNum"); // 获取prop期刊号
+			
+	        
 	     // 构建授权信息，用于进行SMTP进行身份验证
 	        Authenticator authenticator = new Authenticator() {
 	            @Override
@@ -137,17 +152,17 @@ import javax.swing.JComboBox.KeySelectionManager;
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/hyhy\" class=\"header02\">行业活动</a>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/yjcg\" class=\"header02\">研究成果</a>"
 					+ "</div><div class=\"bigdiv\">"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail001.jpg\"height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"1.jpg\"height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link01+"\">"+title01+"</a></h3><h5 class=\"text\">"+content01+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail002.jpg\" height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"2.jpg\" height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link02+"\">"+title02+"</a></h3><h5 class=\"text\">"+content02+"</h5></div>"
-					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail003.jpg\" height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"3.jpg\" height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link03+"\">"+title03+"</a></h3><h5 class=\"text\">"+content03+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail004.jpg\" height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"4.jpg\" height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link04+"\">"+title04+"</a></h3><h5 class=\"text\">"+content04+"</h5></div>"
-					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail005.jpg\" height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"5.jpg\" height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link05+"\">"+title05+"</a></h3><h5 class=\"text\">"+content05+"</h5></div>"
-					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail006.jpg\" height=\"120\" width=\"170\">"
+					+ "<div class=\"smalldiv\" style=\"margin-right:0\"><img src=\"http://47.92.84.36:8080/upImage/upMailImg/upload/mail"+MailNum+"6.jpg\" height=\"120\" width=\"170\">"
 					+ "<h3 class=\"headerText\"><a href=\""+link06+"\">"+title06+"</a></h3><h5 class=\"text\">"+content06+"</h5></div>"
 					+ "<a href=\"http://www.xinxueshuo.cn/index.php?s=/Home/Article/lists/category/zxdt\" style=\"float:right;margin-right:30px;margin-top:10px\">更多</a></div></div></body>", "text/html;charset=UTF-8");	
 			
