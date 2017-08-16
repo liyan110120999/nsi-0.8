@@ -201,6 +201,35 @@ function Insert04(str) {
 	    $("div.A-p00 ").show();
 //	权限提示
 	    $("[data-toggle='popover']").popover();
+	    
+//	    列表遮挡 保留3条*5
+	    
+	};
+	
+	
+	// 类选择器.p01   //登录用户- 01级
+	var AccessControl01=function(){
+	
+	    $(".p01").css("background-color","#eeae4d");
+////	    按钮封锁
+//	    $(".p01").attr({
+//	        "data-container":"body",
+//	        "data-toggle":"popover",
+//	        "data-placement":"top",
+//	        "data-content":"您的权限不够，请登录查看用户等级说明",
+//	        "onclick":"",
+//	        "type":"button"
+//	    });
+//	  li标签 隐藏
+	    $("li.p00 ").hide();
+//	  div标签 隐藏
+	    $("div.p00 ").hide();	    
+//	  替换提示信息显示
+	    $("div.A-p00 ").show();
+//	权限提示
+	    $("[data-toggle='popover']").popover();
+	    
+//	    列表遮挡 保留20条 不可翻页   
 	};
 
 

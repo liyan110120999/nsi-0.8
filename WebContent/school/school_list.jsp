@@ -1,3 +1,4 @@
+<%@page import="school.School_model"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
@@ -207,59 +208,55 @@
 			 		float:left;margin-left:5px;
 				}
 	</style>
+	
+	
+	<!-- 	点击名字进入详情页 -->
+	<script type="text/javascript">
+		  function formDetail(Detail_id)
+			 {
+			  document.getElementById(Detail_id).submit();
+			}
+    </script>
+    
+	<!-- 	分页配置 -->
+	 <script type="text/javascript">	
+	 // 点击分页按钮以后触发的动作
+		function handlePaginationClick(new_page_index, pagination_container) {
+		    $("#searchForm").attr("action", "/nsi-0.8/People_servlet?pageNum=" + (new_page_index+1));
+		    $("#searchForm").submit();
+		    return false;
+		}
+		$(function(){
+			$("#paper-Pagination").pagination($("#countAllRS_id").val(), { //总条数
+		        items_per_page:20, // 每页显示多少条记录
+		        current_page:$("#currentPage_id").val()-1, // 当前显示第几页数据
+		        num_display_entries:4, // 分页显示的条目数
+		        next_text:"下一页",
+		        prev_text:"上一页",
+		        num_edge_entries:2, // 连接分页主体，显示的条目数
+		        callback:handlePaginationClick
+			});
+					
+		});
+	</script>
+	
 <body>					                                    
 	<%		
-    	request.setCharacterEncoding("UTF-8");   	
-    	//搜索    String 函数
-    	String flag01=request.getParameter("School_properties");  											
-   		String School_name=null;
-   										//判断是否来自insert 或  alert
-    	if(flag01== null || flag01.length() <= 0){
-//     		来自搜索或空跳转，获取session中的数据
-	    	 if(session.getAttribute("School_name")==null)	{
-	    		 School_name=null;   		
-    		}else{
-    			School_name = session.getAttribute("School_name").toString();
-    		}
-    	}else{
-//     		来自 插入或修改，获取表单数据
-    		School_name=request.getParameter("School_name");
-    	}  											
-
-		String School_properties=request.getParameter("School_properties");
-// 		修改用途 和 省市两级联动
-		String Areas=request.getParameter("Areas");
-		String Areas01=request.getParameter("Areas01");
-		String Areas02=request.getParameter("Areas02");
-		
-		String Founded_time=request.getParameter("Founded_time");
-		String School_system=request.getParameter("School_system");
-		String Course=request.getParameter("Course");
-		String President=request.getParameter("President");
-		String President_country=request.getParameter("President_country");
-		String Teacher_number=request.getParameter("Teacher_number");
-		String Foreign_teacher_num=request.getParameter("Foreign_teacher_num");
-		String Teacher_salary=request.getParameter("Teacher_salary");
-		String Num_students=request.getParameter("Num_students");
-		String Graduating_stu_num=request.getParameter("Graduating_stu_num");
-		String Extra_curricular_edu=request.getParameter("Extra_curricular_edu");
-		String Covered_area=request.getParameter("Covered_area");
-		String Built_area=request.getParameter("Built_area");
-		String Tuition=request.getParameter("Tuition");
-		String website=request.getParameter("website");	
-		String load_people=request.getParameter("load_people");
-		String load_time=request.getParameter("load_time");
-		String Investment=request.getParameter("Investment");
-		String remark=request.getParameter("remark");
-																					// 标记位
-		String whereFrom=request.getParameter("whereFrom");
-		String alter_old_Schoolname=request.getParameter("alter_old_Schoolname");
-																					// 获取时间
-    	java.util.Date currentTime = new java.util.Date(); 
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    	String SubmitDate = formatter.format(currentTime);																		
-    																				// 	获取session用户
-    	String username=null;
+		// 	当前页  
+		String currentPage="1";
+		if(session.getAttribute("currentPage")!=null){
+		currentPage=session.getAttribute("currentPage").toString(); 
+		}
+		//	搜索结果计数
+		String countAllRS = "00";
+		if(session.getAttribute("countAllRS")==null){
+			countAllRS = "00";
+		}else{
+			countAllRS = session.getAttribute("countAllRS").toString();
+		}
+// 		分页配置 
+// 		用户相关
+		String username ="空";
 	 	if(session.getAttribute("Session_user")==null)
 	 	{
 // 		 	response.sendRedirect("/nsi-0.8/login.jsp");	
@@ -267,137 +264,42 @@
 		}else{
 			username = session.getAttribute("Session_user").toString();
 		}
+	 	
 // 	 	权限控制Session_userMember_sign
 		if(session.getAttribute("Session_userMember_sign")==null){
 		%>
 		<script>
-// 			document.ready = AccessControl00;
-			$(document).ready(AccessControl00(){				
-				});
+			$(function(){
+				AccessControl00()
+			})
 		</script>
 		<%
+		}else if(session.getAttribute("Session_userMember_sign").toString()=="1"){
+			%>
+			<script>
+ 				window.onload = AccessControl01;
+			</script>
+			<%
+		
 		}
 	 	
-//     	用户密码修改
-	 	String UserPassWD01=request.getParameter("UserPassWD01");
-// 	 	String UserPassWD02=request.getParameter("UserPassWD02");
-//     	count:本业计数 、countAll:所有结果计数
-    	int count=0;	//搜索结果计数标记位
-    	//页面来源标记位
-    	String insert="insert";
-    	String alter="alter";
-    	String delete="delete";
-    	String search="search";
-    	String UserChangePassWord="UserChangePassWord";
-    	String MySubmit="MySubmit";	
-		//测试内容标记位
-    	String flag ="空";
 
-    	String num_order=request.getParameter("num_order");
+    	
+// 		搜索关键字 session保存
+		String School_searchKey_session = null;
+		if(session.getAttribute("School_searchKey_session")!=null)	{    
+			School_searchKey_session = session.getAttribute("School_searchKey_session").toString();
+		}else{
+			School_searchKey_session = null;
+		}
+	%>
 
-// 		当前页、跳转页
-		int countAll=0;//总结果数
-		int OnePageNum=20;//每页显示个数
-		int pageCount = (countAll%OnePageNum==0)?(countAll/OnePageNum):(countAll/OnePageNum+1); //显示分页页数
 		
- 		Integer pageNum = request.getParameter("PassPage") != null && !request.getParameter("PassPage").equals("") ? Integer.parseInt(request.getParameter("PassPage")) : null;
-		String num0="0";
-			if(pageNum==null||pageNum<1){
-				pageNum=1;	
-			}else{
-				System.out.println(pageNum);
-			}		
-    %>
-	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/NSI_DATABASE"
-     user="root"  password="123456"/>
-<!--      用户信息模块 -->
-		<sql:query dataSource="${snapshot}" var="resultUser">			
-			SELECT * from NSI_user WHERE username ='<%=username%>';
-		</sql:query>
+		<!-- 	隐式传值 -->
+	<input type="hidden" id="currentPage_id" value="<%=currentPage%>">
+	<input type="hidden" id="countAllRS_id" value="<%=countAllRS%>"> 
 
-<!--          搜索模块 -->
-<%  if(School_properties== null || School_properties.length() <= 0){ %>
-								<%flag ="search节点";%>	
-			<%
-			if(School_name==null|| School_name.length() <= 0){	
-			%>
-	<!-- 			空搜索时 排序方式为 “录入时间排序” -->
-				<sql:query dataSource="${snapshot}" var="result">			
-					SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
-				</sql:query>
-			<%
-			}else{
-				%>
-<!-- 			非空搜索时 排序方式为 “校名排序” -->
-				<sql:query dataSource="${snapshot}" var="result">			
-					SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312) limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
-				</sql:query>
-			<%}%>
-			
-			<!-- 		搜索计数 -->
-			<sql:query dataSource="${snapshot}" var="resultCount">
-				SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
-			</sql:query>
-		
-		<% }else if(whereFrom.equals(insert)){ %> 		
-																								<!--    新增 并 搜索		 -->
-				<sql:update dataSource="${snapshot}" var="result">
-					INSERT INTO NSI_SCHOOL_data (School_name,School_properties,Areas,Founded_time,School_system,Course,President,President_country,Teacher_number,Foreign_teacher_num,Teacher_salary,Num_students,Graduating_stu_num,Extra_curricular_edu,Covered_area,Built_area,Tuition,website,load_people,load_time,Investment,remark) 
-					VALUES ('<%=School_name%>','<%=School_properties%>','<%=Areas01+Areas02%>','<%=Founded_time%>','<%=School_system%>','<%=Course%>','<%=President%>','<%=President_country%>','<%=Teacher_number%>','<%=Foreign_teacher_num%>','<%=Teacher_salary%>','<%=Num_students%>','<%=Graduating_stu_num%>','<%=Extra_curricular_edu%>','<%=Covered_area%>','<%=Built_area%>','<%=Tuition%>','<%=website%>','<%=username%>','<%=SubmitDate%>','<%=Investment%>','<%=remark%>');
-				</sql:update>
-								
-				<sql:query dataSource="${snapshot}" var="result">
-					 SELECT * from NSI_SCHOOL_data WHERE School_name like'%<%=School_name%>%';	
-				</sql:query>		
-					<!-- 							搜索计数 -->
-				<sql:query dataSource="${snapshot}" var="resultCount">
-					SELECT * from NSI_SCHOOL_data WHERE School_name like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
-				</sql:query>
-		<% }else if(whereFrom.equals(alter)){ %> 
-							<%flag ="alter节点";%>								<!-- 			标记 -->
-			
-				<sql:update dataSource="${snapshot}" var="result">		
-					UPDATE NSI_SCHOOL_data SET 
-						School_name='<%=School_name%>',School_properties='<%=School_properties%>',Areas='<%=Areas%>',Founded_time='<%=Founded_time%>',School_system='<%=School_system%>',
-						Course='<%=Course%>',President='<%=President%>',President_country='<%=President_country%>',Teacher_number='<%=Teacher_number%>',Foreign_teacher_num='<%=Foreign_teacher_num%>',
-						Teacher_salary='<%=Teacher_salary%>',Num_students='<%=Num_students%>',Graduating_stu_num='<%=Graduating_stu_num%>',Extra_curricular_edu='<%=Extra_curricular_edu%>',Covered_area='<%=Covered_area%>',Built_area='<%=Built_area%>',Tuition='<%=Tuition%>',website='<%=website%>',load_people='<%=username%>',load_time='<%=SubmitDate%>',Investment='<%=Investment%>',remark='<%=remark%>'
-						WHERE School_name ='<%=alter_old_Schoolname%>';
-				</sql:update>							
-				<sql:query dataSource="${snapshot}" var="result">
-					 SELECT * from NSI_SCHOOL_data WHERE School_name like'%<%=School_name%>%';	
-				</sql:query>
-					<!-- 							搜索计数 -->
-				<sql:query dataSource="${snapshot}" var="resultCount">
-					SELECT * from NSI_SCHOOL_data WHERE School_name like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
-				</sql:query>
-				
-		<% }else if(whereFrom.equals(delete)){ %> 
-					<%flag ="delete节点";%>											
-				<sql:update dataSource="${snapshot}" var="result">						
-						  DELETE FROM NSI_SCHOOL_data WHERE School_name ='<%=alter_old_Schoolname%>';		
-				</sql:update>
-				<sql:query dataSource="${snapshot}" var="result">
-					 SELECT * from NSI_SCHOOL_data limit <%=pageNum%>,20;	
-				</sql:query>
-						
-		<% }else if(whereFrom.equals(UserChangePassWord)){ %> 
-					<%flag ="用户修改密码节点";%>										
-				<sql:update dataSource="${snapshot}" var="resultChange">	
-						UPDATE NSI_user SET Password ='<%=UserPassWD01%>' WHERE UserName='<%=username%>';							
-				</sql:update>
-						
-		<% }else if(whereFrom.equals(MySubmit)){ %> 
-					<%flag ="我的贡献节点";%>											
-				<sql:query dataSource="${snapshot}" var="result">
- 						SELECT * from NSI_SCHOOL_data WHERE load_people ='<%=username%>' order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
-				</sql:query>
-				<!-- 		搜索计数 -->
-				<sql:query dataSource="${snapshot}" var="resultCount">
-					SELECT * from NSI_SCHOOL_data WHERE load_people ='<%=username%>' order by load_time DESC;
-				</sql:query>
-		 <% }%>
-		 
+
 
  		<nav class="navbar navbar-fixed-top my-navbar" role="navigation">  
 	        <div class="container-fluid">  
@@ -432,7 +334,7 @@
 		        )
 	        </script>  
 
-
+<!-- 轮播 -->
 			<div class="carousel slide" id="carousel-466145" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li class="active" data-slide-to="0" data-target="#carousel-466145">
@@ -532,13 +434,13 @@
 							</ul>
 						</li>
 					</ul>
-						<form class="navbar-form navbar-left" role="search" action="/nsi-0.8/servlet" name="myform" method="post">
+						<form class="navbar-form navbar-left" role="search" action="/nsi-0.8/School_servlet" name="myform" method="post">
 							<div class="form-group">
 <!-- 								防止搜索框出现null -->
-								<%if(School_name!=null){%>
-									<input type="text" value="<%=School_name%>" style="width:300px" class="form-control" name="School_name" />
+								<%if(School_searchKey_session!=null){%>
+									<input type="text" value="<%=School_searchKey_session%>" style="width:300px" class="form-control" name="School_searchKey" />
 								<%}else{%>
-									<input type="text" class="form-control" style="width:300px" name="School_name" />
+									<input type="text" class="form-control" style="width:300px" name="School_searchKey" />
 									<%}%>							
 								<input type="hidden" name="whereFrom" value="search">
 							</div> 
@@ -546,7 +448,8 @@
 						</form>
 						
 <!-- 						高级搜索 -->
-						<form class="navbar-form navbar-left" style="padding:0;" role="search" action="servlet" name="myform" method="post">
+<!-- 						<form class="navbar-form navbar-left" style="padding:0;" role="search" action="servlet" name="myform" method="post"> -->
+						<form class="navbar-form navbar-left" style="padding:0;" role="search" action="School_servlet" name="myform" method="post">
 							<div class="form-group">
 <!-- 								<input type="text" class="form-control" style="width:300px" name="School_name" />												 -->
 								<input type="hidden" name="whereFrom" value="search">
@@ -775,24 +678,37 @@
 		</form>
 	</div>
 
-	<!-- 	显示表格区			 -->
-<div class="container-fluid" id="tableID">
+
+
+
+	<%	
+	//		判断 空展示
+		if(session.getAttribute("People_nullShow")==null){			
+	%>
+		 <script type="text/javascript">
+		 	document.getElementById("searchForm").submit();
+		 </script>	
+	<%
+		}
+
+		List<School_model> list = (List<School_model>)request.getAttribute("list");
+			if(list == null || list.size() < 1){			
+				out.println("<br><h4>没有搜索到数据</h4><br>");
+			}else{
+				
+		%>
+			<h5 style="text-align:center">搜索到 <%=countAllRS%> 条结果</h5>
+		
+<div class="container-fluid">
 	<div class="row clearfix">
 		<div class="col-md-12 column table-responsive">
 		
-			<table class="table table-striped table-hover">		
+			<table class="table table-hover">		
 				<thead id="tableHeaderID">
-
 					<tr>
-						<th>
-							序号
-						</th>
-						<th>
-							学校名
-						</th>
-						<th>
-							学校性质
-						</th>
+						<th>序号</th>
+						<th>学校名</th>
+						<th>学校性质</th>
 						<th>
 							地区
 						</th>						
@@ -849,333 +765,63 @@
 						</th>
 						<th>
 							详细
-						</th>
+						</th>		
 					</tr>
 				</thead>
-			
-										<%-- 				<%if(count%3==0){%>为列表三色循环 --%>
-				<tbody>
-					<c:forEach var="rowCount" items="${resultCount.rows}">
-					<%countAll=countAll+1;%>
-					</c:forEach>
-					<c:forEach var="row" items="${result.rows}">
-						<%count=count+1;%>
-						<%if(count%3==0){%>
-						<tr class="info">
-							<td>
-								<%=count+(pageNum-1)*OnePageNum%>
-							</td>
-							<td>							
-								<c:out value="${row.School_name}"/>						
-							</td>
-							<td>
-								<c:out value="${row.School_properties}"/>
-							</td>
-							<td>
-								<c:out value="${row.Areas}"/>
-							</td>
-							<td>
-								<c:out value="${row.Founded_time}"/>
-							</td>
-							<td>
-								<c:out value="${row.School_system}"/>
-							</td>
-							<td>
-								<c:out value="${row.Course}"/>
-							</td>
-							<td>
-								<c:out value="${row.President}"/>
-							</td>
-							<td>
-								<c:out value="${row.President_country}"/>
-							</td>								
-							<td>
-								<c:out value="${row.Teacher_number}"/>
-							</td>
-							<td>
-								<c:out value="${row.Foreign_teacher_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Teacher_salary}"/>
-							</td>
-							<td>
-								<c:out value="${row.Num_students}"/>
-							</td>
-							<td>
-								<c:out value="${row.Graduating_stu_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Extra_curricular_edu}"/>
-							</td>
-							<td>
-								<c:out value="${row.Covered_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Built_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Tuition}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_people}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_time}"/>
-							</td>
-							<td>
-<!--权限控制 -->
-								<form role="form" action="alter.jsp" method="post">									
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">修改</button>											
-								</form>		
-							</td>
-							<td>
-<!--权限控制 -->
-								<form id="submit_from" role="form" action="detail.jsp" method="post">									
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">详细</button>									
-								</form>	
-							</td>				
-						</tr>
-						<%}else if(count%3==1){%>
-						<tr class="success">
-							<td>
-								<%=count+(pageNum-1)*OnePageNum%>
-							</td>
-							<td>						
-								<c:out value="${row.School_name}"/>				
-							</td>
-							<td>
-								<c:out value="${row.School_properties}"/>
-							</td>
-							<td>
-								<c:out value="${row.Areas}"/>
-							</td>
-							<td>
-								<c:out value="${row.Founded_time}"/>
-							</td>
-							<td>
-								<c:out value="${row.School_system}"/>
-							</td>
-							<td>
-								<c:out value="${row.Course}"/>
-							</td>
-							<td>
-								<c:out value="${row.President}"/>
-							</td>
-							<td>
-								<c:out value="${row.President_country}"/>
-							</td>			
-							<td>
-								<c:out value="${row.Teacher_number}"/>
-							</td>
-							<td>
-								<c:out value="${row.Foreign_teacher_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Teacher_salary}"/>
-							</td>
-							<td>
-								<c:out value="${row.Num_students}"/>
-							</td>
-							<td>
-								<c:out value="${row.Graduating_stu_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Extra_curricular_edu}"/>
-							</td>
-							<td>
-								<c:out value="${row.Covered_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Built_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Tuition}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_people}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_time}"/>
-							</td>
-							<td>
-								<form role="form" action="alter.jsp" method="post">															
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">修改</button>											
-								</form>	
-							</td>	
-							<td>
-								<form id="submit_from" role="form" action="detail.jsp" method="post">									
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">详细</button>									
-								</form>	
-							</td>				
-						</tr>
-						<%}else if(count%3==2){%>
-						<tr class="warning">
-							<td>
-								<%=count+(pageNum-1)*OnePageNum%>
-							</td>
-							<td>
-								<c:out value="${row.School_name}"/>		
-							</td>
-							<td>
-								<c:out value="${row.School_properties}"/>
-							</td>
-							<td>
-								<c:out value="${row.Areas}"/>
-							</td>
-							<td>
-								<c:out value="${row.Founded_time}"/>
-							</td>
-							<td>
-								<c:out value="${row.School_system}"/>
-							</td>
-							<td>
-								<c:out value="${row.Course}"/>
-							</td>
-							<td>
-								<c:out value="${row.President}"/>
-							</td>
-							<td>
-								<c:out value="${row.President_country}"/>
-							</td>				
-							<td>
-								<c:out value="${row.Teacher_number}"/>
-							</td>
-							<td>
-								<c:out value="${row.Foreign_teacher_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Teacher_salary}"/>
-							</td>
-							<td>
-								<c:out value="${row.Num_students}"/>
-							</td>
-							<td>
-								<c:out value="${row.Graduating_stu_num}"/>
-							</td>
-							<td>
-								<c:out value="${row.Extra_curricular_edu}"/>
-							</td>
-							<td>
-								<c:out value="${row.Covered_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Built_area}"/>
-							</td>
-							<td>
-								<c:out value="${row.Tuition}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_people}"/>
-							</td>
-							<td>
-								<c:out value="${row.load_time}"/>
-							</td>
-							<td>
-								<form role="form" action="alter.jsp" method="post">									
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">修改</button>											
-								</form>	
-							</td>	
-							<td>
-								<form id="submit_from" role="form" action="detail.jsp" method="post">									
-									<input name="SearchKey" type="hidden" value="${row.School_name}"/>
-									<button type="submit" class="p00 btn btn-default">详细</button>									
-								</form>	
-							</td>				
-						</tr>
-						<%}%>
-					</c:forEach>
-				</tbody>
-			</table>
+		<tbody>
+			<%	for(School_model school : list){ %>
+			<tr class="info">
+				<td><a href="javascript:void(0)" onclick="formDetail(<%=school.getSchool_name()%>)"><%=school.getSchool_name()%></a></td>
+					<form id="<%=school.getSchool_name()%>" role="form" action="/nsi-0.8/School_servlet" method="post">						
+						<input type="hidden" name="detail_school_id" value="<%=school.getSchool_name()%>">
+						<input type="hidden" name="whereFrom" value="detail">																						
+					</form>
+				<td><%=school.getSchool_name()%></td>
+				<td><%=school.getSchool_properties()%></td>
+				<td><%=school.getAreas()%></td>
+				<td><%=school.getFounded_time()%></td>
+				<td><%=school.getSchool_system()%></td>
+				<td><%=school.getCourse()%></td>
+				<td><%=school.getPresident()%></td>
+				<td><%=school.getPresident_country()%></td>
+				<td><%=school.getTeacher_number()%></td>
+				<td><%=school.getForeign_teacher_num()%></td>
+				<td><%=school.getTeacher_salary()%></td>
+				<td><%=school.getNum_students()%></td>
+				<td><%=school.getGraduating_stu_num()%></td>
+				<td><%=school.getExtra_curricular_edu()%></td>
+				<td><%=school.getCovered_area()%></td>
+				<td><%=school.getBuilt_area()%></td>
+				<td><%=school.getTuition()%></td>
+				<td><%=school.getLoad_people()%></td>
+				<td><%=school.getLoad_time()%></td>
+				<td> 
+					<form role="form" action="alter.jsp" method="post">									
+						<input name="SearchKey" type="hidden" value="${row.School_name}"/>
+						<button type="submit" class="btn btn-default">修改</button>											
+					</form>		
+				</td>
+				<td>
+					<form id="submit_from" role="form" action="detail.jsp" method="post">									
+						<input name="SearchKey" type="hidden" value="${row.School_name}"/>
+						<button type="submit" class="btn btn-default">详细</button>									
+					</form>	
+				</td>
+			</tr>							
+<!-- 			遍历列表 -->
+		<%}%>
+		</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+	
+		<br>
+			<!-- 	分页显示区 div -->
+			<div style="line-height:20px;" id="paper-Pagination" class="flickr"></div>			
+	<%}%>
+	
 
-
-		</div>
-	</div>
-</div>
-  	 
-		<!--      	 搜索结果为空时，显示的内容 -->
-     	 <div id="showTargetID" class="none" style="display:none">
-			<br><br>
-				<h4>没有搜索到内容，请重新输入关键字</h4>
-			<br><br>
-		</div>		
-     	 <%if(countAll!=0){%>	
-			<h5>已搜索到 <%=countAll%> 条结果</h5>
-		<%}else{%>
-			<script>
-				 var target=document.getElementById("tableID");
-			     var showTarget=document.getElementById("showTargetID")	           
-			          	target.style.display="none";
-			        	showTarget.style.display="block";	            
-			</script>
-		<%}%>  
-				
-																			<!--        分页 -->
- <div class="p00 container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			
-			<ul class="pagination">
-				<li>
-					 <a href="bus.jsp?PassPage=<%=pageNum-1%>">上一页</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=1">1</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=2">2</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=3">3</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=4">4</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=5">5</a>
-				</li>
-				<li>
-					 <a href="bus.jsp?PassPage=<%=pageNum+1%>">下一页</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-<!-- 分页不可用时 提示信息 -->
- <div class="A-p00 container" style="display:none;">
-	<div class="row clearfix">
-		<div class="col-md-12 column">			
-			<ul class="pagination">
-				<li>
-					 <a href="javascript:void(0);">上一页</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">1</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">2</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">3</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">4</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">5</a>
-				</li>
-				<li>
-					 <a href="javascript:void(0);">下一页</a>
-				</li>
-			</ul>
-		</div>
-		<h5 style="color:red;">权限不够,不可查看下一页</h5>
-	</div>
-</div>
 
     </section>
    <% 

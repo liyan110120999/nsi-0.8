@@ -77,20 +77,20 @@
 	        return unescape(arr[2]);
 	    }
 	</script>
-<%
-// 	当前页 
-	String currentPage="1";
-	if(session.getAttribute("currentPage")!=null){
-	currentPage=session.getAttribute("currentPage").toString(); 
-	}
-	//	搜索结果计数
-	String countAllRS = "00";
-	if(session.getAttribute("countAllRS")==null){
-		countAllRS = "00";
-	}else{
-		countAllRS = session.getAttribute("countAllRS").toString();
-	}
-%>
+	<%
+	// 	当前页 
+		String currentPage="1";
+		if(session.getAttribute("currentPage")!=null){
+		currentPage=session.getAttribute("currentPage").toString(); 
+		}
+		//	搜索结果计数
+		String countAllRS = "00";
+		if(session.getAttribute("countAllRS")==null){
+			countAllRS = "00";
+		}else{
+			countAllRS = session.getAttribute("countAllRS").toString();
+		}
+	%>
 
 <!-- 	分页配置 -->
 	 <script type="text/javascript">	

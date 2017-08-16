@@ -561,7 +561,7 @@
 <!-- 								<input type="text" class="form-control" style="width:300px" name="School_name" />												 -->
 								<input type="hidden" name="whereFrom" value="search">
 							</div> 
-<!-- 							<button type="button" name="submit" class="btn btn-primary" onclick="showAdvancedSearch()">高级搜索</button> -->
+							<button type="button" name="submit" class="btn btn-primary" onclick="showAdvancedSearch()">高级搜索</button>
 <!-- 							<button type="button" name="submit" class="btn btn-primary">高级搜索</button> -->
 						</form>
 						

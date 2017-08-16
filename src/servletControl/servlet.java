@@ -60,12 +60,21 @@ public class servlet extends HttpServlet {
 //高级搜索		
 		if(whereFrom.equals("AdvancedSearch")){
 			
+			String[] checkbox01 = request.getParameterValues("checkbox01");
+			if(checkbox01==null){
+				System.out.println("school_servlet:数组 空");
+			}else{
+				for(int i = 0;i<checkbox01.length;i++){
+					System.out.println("school_servlet:数组01:"+i+checkbox01[i]);
+				}
+			}	
+			
 			String[] checkbox02 = request.getParameterValues("checkbox02");
 			if(checkbox02==null){
 				System.out.println("school_servlet:数组 空");
 			}else{
 				for(int i = 0;i<checkbox02.length;i++){
-					System.out.println("school_servlet:数组02:"+checkbox02[i]);
+					System.out.println("school_servlet:数组02:"+i+checkbox02[i]);
 				}
 			}	
 			
@@ -74,22 +83,10 @@ public class servlet extends HttpServlet {
 				System.out.println("school_servlet:数组 空");
 			}else{
 				for(int i = 0;i<checkbox03.length;i++){
-					System.out.println("school_servlet:数组03:"+checkbox03[i]);
+					System.out.println("school_servlet:数组03:"+i+checkbox03[i]);
 				}
 			}	
-			
-//			简单测试
-			int test01 = 0;
-			for(int i = 0;i<checkbox03.length;i++){
-				switch(Integer.parseInt(checkbox03[i])){
-				case 1:
-					session.setAttribute("School_name","AP");
-					break;
-				case 2:
-					session.setAttribute("School_name","PYP");	
-					break;
-				}
-			}
+
 			request.getRequestDispatcher("list.jsp").forward(request, response);
 			
 //			普通搜索模式
@@ -99,8 +96,9 @@ public class servlet extends HttpServlet {
 			session.setAttribute("pageNum",pageNum);
 			session.setAttribute("num_order",num_order);
 			
-//			request.getRequestDispatcher("list.jsp").forward(request, response);
-			request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
+			request.getRequestDispatcher("list.jsp").forward(request, response);
+//			测试入口
+//			request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
 	    	//判断动作类型
 			}
 		}	

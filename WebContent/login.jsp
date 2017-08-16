@@ -175,7 +175,7 @@
     }else if(aaa.equals(Codefal)){    	
     	%>
 		<script>
-			confirm("您的账号没有激活或暂未通过审核，请检查邮箱是否收到激活邮件"); 
+			confirm("您的账号没有激活或暂未通过审核，请检查邮箱是否收到激活邮件，若已激活请耐心等待审核。"); 
 		</script>
 		<%
     }else {
