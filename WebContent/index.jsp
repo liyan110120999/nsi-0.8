@@ -29,7 +29,6 @@
                     </div>
                 </div>
             </div>
-
             <!--头部内容-->
             <div class="text-center">
                 <!--大标题-->

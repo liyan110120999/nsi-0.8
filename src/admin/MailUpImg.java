@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 	    private static final long serialVersionUID = 1L;
 	    
 //		Properties配置文件
-		private static String propFileName = "/nsi-0.8/properties/WeeklyMail.properties"; // 指定资源文件保存的位置
+		private static String propFileName = "../properties/WeeklyMail.properties"; // 指定资源文件保存的位置
 		private static Properties prop = new Properties(); // 创建并实例化Properties对象的实例
 		
 	    // 上传文件存储目录
@@ -46,7 +46,7 @@ import javax.servlet.http.HttpServletResponse;
 	    protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 			// 检测是否为多媒体上传
-	    	
+	    	System.out.println("mailUpImg.java:开始执行");
 			if (!ServletFileUpload.isMultipartContent(request)) {
 			    // 如果不是则停止
 			    PrintWriter writer = response.getWriter();
@@ -84,7 +84,7 @@ import javax.servlet.http.HttpServletResponse;
 	        if (!uploadDir.exists()) {
 	            uploadDir.mkdir();
 	        }
-	 
+
 	        try {
 	            // 解析请求的内容提取文件数据
 //	        	忽略警告或错误信息
@@ -93,18 +93,19 @@ import javax.servlet.http.HttpServletResponse;
 	 
 	            if (formItems != null && formItems.size() > 0) {
 	                // 迭代表单数据
+
 	            	int i=1;
 	                for (FileItem item : formItems) {
 	                	
 	                    // 处理不在表单中的字段
 	                    if (!item.isFormField()) {
 	                    	
-	                    	
 	                    	// 将Properties文件读取到InputStream对象中
-							InputStream in = getClass().getResourceAsStream(propFileName);
+//							InputStream in = getClass().getResourceAsStream(propFileName);
+							InputStream in = MailUpImg.class.getResourceAsStream(propFileName);
 							prop.load(in); // 通过输入流对象加载Properties文件
 							String MailNum = prop.getProperty("MailNum"); // 获取prop期刊号
-							
+	    					
 //	                    	注意：mail001代表图片的资源名，前两位数代表期刊号。每次发送需 期刊号+1，来解决：浏览器图片缓存问题。i代表图片的次序
 	                        String filePath = uploadPath + File.separator +"mail"+MailNum+i+".jpg";
 	                        File storeFile = new File(filePath);                        
@@ -123,6 +124,8 @@ import javax.servlet.http.HttpServletResponse;
 	                    i=i+1;
 	                }
 	            }
+	       System.out.println("mailUpImg.java:跳出if formitem");
+	       System.out.println("mailUpImg.java:开始执行");
 	        } catch (Exception ex) {
 	            request.setAttribute("message",
 	                    "错误信息: " + ex.getMessage());
