@@ -12,8 +12,12 @@
 //      $(this).css('background','red')
       $.ajax({
           type: 'get',//提交方式 post 或者get
-          url: "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&School_searchKey=北京",//提交到那里 后他的服务
+          url: "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&School_searchKey=天津",//提交到那里 后他的服务
           contentType: 'text/json,charset=utf-8',
+          
+          dataType : "jsonp",//数据类型为jsonp  
+          jsonp: "Callback",//服务端用于接收callback调用的function名的参数 
+          
           success:function(msg){
               alert(msg);//弹出窗口，这里的msg 参数 就是访问aaaa.action 后 后台给的参数
 //               console.log(msg);//弹出窗口，这里的msg 参数 就是访问aaaa.action 后 后台给的参数

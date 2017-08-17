@@ -19,7 +19,7 @@ public class testapi extends HttpServlet{
 	
 		String whereFrom = null;
 		whereFrom = request.getParameter("whereFrom");
-		if(whereFrom.equals("aaa")){
+		if(whereFrom.equals("test")){
 			String back="{\"name\":\"Brett\"}";
 			System.out.println(back);
 			

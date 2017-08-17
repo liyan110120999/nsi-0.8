@@ -35,6 +35,41 @@ public class School_api extends HttpServlet{
 			
 		}else if(whereFrom.equals("search")){
 			
+//	    	1、获取关键字 分页参数
+//	    	2、拼装sql
+//	    	3、返回list
+//	    	4、转换json
+//	    	5、加上跨域头callback
+//	    	6、发送信息	
+			System.out.println("school api:WF=test");
+			
+	    	Gson gson = new Gson();   	
+
+	    	String School_searchKey=request.getParameter("School_searchKey");
+	    	String sql=null;		
+			String sqlcount=null;
+			int countAllRS = 0;
+			
+//			分页参数 ：第几页、每页几个。默认值：1、20；
+			Integer pageNum = request.getParameter("pageNum") != null && !request.getParameter("pageNum").equals("") ? Integer.parseInt(request.getParameter("pageNum")) : 1;
+			Integer OnePageNum = request.getParameter("OnePageNum") != null && !request.getParameter("OnePageNum").equals("") ? Integer.parseInt(request.getParameter("OnePageNum")) : 20;
+
+			int pageNumX=(pageNum-1)*OnePageNum;
+			
+			List<School_model> list = new ArrayList<School_model>();			
+			 sql="SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like '%"+School_searchKey+"%' order by CONVERT(School_name USING gb2312) limit "+pageNumX+","+OnePageNum+"";
+			 sqlcount="SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like '%"+School_searchKey+"%' order by CONVERT(School_name USING gb2312)";
+			System.out.println("school：搜索语句："+sql);
+			
+			list=School_DB.Search(sql);
+			countAllRS=DB.count(sqlcount);
+	    	String jsonList =gson.toJson(list);
+
+	    	String Callback = request.getParameter("Callback");//客户端请求参数
+	    	response.setContentType("text/html;charset=UTF-8");  
+	    	response.getWriter().write(Callback+"("+jsonList+")");
+	    	System.out.println(Callback+jsonList);
+			
 		}else if(whereFrom.equals("delete")){
 			
 		}else if(whereFrom.equals("detail")){
@@ -72,7 +107,7 @@ public class School_api extends HttpServlet{
 
 	    	String Callback = request.getParameter("Callback");//客户端请求参数
 	    	response.setContentType("text/html;charset=UTF-8");  
-	    	response.getWriter().write(Callback+jsonList);
+	    	response.getWriter().write(Callback+"("+jsonList+")");
 	    	System.out.println(Callback+jsonList);
 	    	
 		}else{

@@ -224,51 +224,61 @@
     	//搜索    String 函数
     	String flag01=request.getParameter("School_properties");  											
    		String School_name=null;
-   										//判断是否来自insert 或  alert
+   		//判断是否来自insert 或  alter
     	if(flag01== null || flag01.length() <= 0){
-//     		来自搜索或空跳转，获取session中的数据
+//     		不来自insert和alter;
+// 			来自搜索或空跳转 或分页，获取session中的数据
+// 			获取session 中的值
 	    	 if(session.getAttribute("School_name")==null)	{
-	    		 School_name=null;   		
+// 	    		 0817修改
+	    		 School_name="";   		
+
     		}else{
+    			
+
+//     			null
     			School_name = session.getAttribute("School_name").toString();
+    			
+
     		}
+			System.out.println("School_name的值 01位置："+School_name+"<");
     	}else{
 //     		来自 插入或修改，获取表单数据
     		School_name=request.getParameter("School_name");
     	}  											
 
-		String School_properties=request.getParameter("School_properties");
-// 		修改用途 和 省市两级联动
-		String Areas=request.getParameter("Areas");
-		String Areas01=request.getParameter("Areas01");
-		String Areas02=request.getParameter("Areas02");
-		
-		String Founded_time=request.getParameter("Founded_time");
-		String School_system=request.getParameter("School_system");
-		String Course=request.getParameter("Course");
-		String President=request.getParameter("President");
-		String President_country=request.getParameter("President_country");
-		String Teacher_number=request.getParameter("Teacher_number");
-		String Foreign_teacher_num=request.getParameter("Foreign_teacher_num");
-		String Teacher_salary=request.getParameter("Teacher_salary");
-		String Num_students=request.getParameter("Num_students");
-		String Graduating_stu_num=request.getParameter("Graduating_stu_num");
-		String Extra_curricular_edu=request.getParameter("Extra_curricular_edu");
-		String Covered_area=request.getParameter("Covered_area");
-		String Built_area=request.getParameter("Built_area");
-		String Tuition=request.getParameter("Tuition");
-		String website=request.getParameter("website");	
-		String load_people=request.getParameter("load_people");
-		String load_time=request.getParameter("load_time");
-		String Investment=request.getParameter("Investment");
-		String remark=request.getParameter("remark");
-																	// 				标记位
-		String whereFrom=request.getParameter("whereFrom");
-		String alter_old_Schoolname=request.getParameter("alter_old_Schoolname");
-																					// 获取时间
-    	java.util.Date currentTime = new java.util.Date(); 
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    	String SubmitDate = formatter.format(currentTime);																		
+			String School_properties=request.getParameter("School_properties");
+	// 		修改用途 和 省市两级联动
+			String Areas=request.getParameter("Areas");
+			String Areas01=request.getParameter("Areas01");
+			String Areas02=request.getParameter("Areas02");
+			
+			String Founded_time=request.getParameter("Founded_time");
+			String School_system=request.getParameter("School_system");
+			String Course=request.getParameter("Course");
+			String President=request.getParameter("President");
+			String President_country=request.getParameter("President_country");
+			String Teacher_number=request.getParameter("Teacher_number");
+			String Foreign_teacher_num=request.getParameter("Foreign_teacher_num");
+			String Teacher_salary=request.getParameter("Teacher_salary");
+			String Num_students=request.getParameter("Num_students");
+			String Graduating_stu_num=request.getParameter("Graduating_stu_num");
+			String Extra_curricular_edu=request.getParameter("Extra_curricular_edu");
+			String Covered_area=request.getParameter("Covered_area");
+			String Built_area=request.getParameter("Built_area");
+			String Tuition=request.getParameter("Tuition");
+			String website=request.getParameter("website");	
+			String load_people=request.getParameter("load_people");
+			String load_time=request.getParameter("load_time");
+			String Investment=request.getParameter("Investment");
+			String remark=request.getParameter("remark");
+																		// 				标记位
+			String whereFrom=request.getParameter("whereFrom");
+			String alter_old_Schoolname=request.getParameter("alter_old_Schoolname");
+																						// 获取时间
+	    	java.util.Date currentTime = new java.util.Date(); 
+	    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    	String SubmitDate = formatter.format(currentTime);																		
     																			//     	获取session用户
     	String username=null;
 	 	if(session.getAttribute("Session_user")==null)
@@ -316,7 +326,7 @@
 			if(pageNum==null||pageNum<1){
 				pageNum=1;	
 			}else{
-				System.out.println(pageNum);
+				System.out.println("分页参数："+pageNum);
 			}		
     %>
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
@@ -328,14 +338,18 @@
 		</sql:query>
 
 <!--          搜索模块 -->
+<!-- 判断是否来自 新增 或 修改 -->
 <%  if(School_properties== null || School_properties.length() <= 0){ %>
-								<%flag ="search节点";%>	
+			<!-- 		不来自新增 或 修改		 -->
+				<%flag ="search节点";%>	
 			<%
 			if(School_name==null|| School_name.length() <= 0){	
 			%>
 	<!-- 			空搜索时 排序方式为 “录入时间排序” -->
+<!-- 				逻辑不执行 -->
 				<sql:query dataSource="${snapshot}" var="result">			
-					SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
+					SELECT * from NSI_SCHOOL_data order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>;
+<%-- 					SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by load_time DESC limit <%=(pageNum-1)*OnePageNum%>,<%=OnePageNum%>; --%>
 				</sql:query>
 			<%
 			}else{
@@ -350,6 +364,7 @@
 			<sql:query dataSource="${snapshot}" var="resultCount">
 				SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
 			</sql:query>
+		
 		
 		<% }else if(whereFrom.equals(insert)){ %> 		
 																								<!--    新增 并 搜索		 -->
@@ -1118,8 +1133,7 @@
 				 var target=document.getElementById("tableID");
 			     var showTarget=document.getElementById("showTargetID")	           
 			          	target.style.display="none";
-			        	showTarget.style.display="block";
-		            
+			        	showTarget.style.display="block";	            
 			</script>
 		<%}%>  
 				
@@ -1164,6 +1178,7 @@
    	session.removeAttribute("People_searchKey_session");
    	
    %>
+  
    <!--     导入底栏jsp文件 -->
 	<div>
 		<jsp:include page="modular/bottomBar.jsp"/>

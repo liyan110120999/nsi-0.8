@@ -90,18 +90,34 @@ public class servlet extends HttpServlet {
 			request.getRequestDispatcher("list.jsp").forward(request, response);
 			
 //			普通搜索模式
-		}else{		
-//			为school模块的搜索功能服务
-			session.setAttribute("School_name",School_name);
+		}else if(whereFrom.equals("search")){		
+				
+				System.out.println("servlet.where:"+whereFrom);
+	//			为school模块的搜索功能服务
+				session.setAttribute("School_name",School_name);
+				session.setAttribute("pageNum",pageNum);
+				session.setAttribute("num_order",num_order);
+				
+				request.getRequestDispatcher("list.jsp").forward(request, response);
+	//			测试入口
+	//			request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
+		    	//判断动作类型
+		}else if(whereFrom.equals("bus")){		
+			
+			System.out.println("servlet.where:"+whereFrom);
+
 			session.setAttribute("pageNum",pageNum);
 			session.setAttribute("num_order",num_order);
-			
+		
 			request.getRequestDispatcher("list.jsp").forward(request, response);
-//			测试入口
-//			request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
+//				测试入口
+//				request.getRequestDispatcher("/school/school_list.jsp").forward(request, response);
 	    	//判断动作类型
-			}
-		}	
-	}
+		}else {
+			System.out.println("servlet:whereFrom 错误！！！");
+		}
+	
+	}	
+}
 
 
