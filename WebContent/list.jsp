@@ -601,7 +601,7 @@
 								<li class="divider">
 								</li>
 								<li>
-									 <a href="/nsi-0.8/servlet?whereFrom=MySubmit&School_properties=00">我的贡献</a>
+									 <a href="/nsi-0.8/list.jsp?whereFrom=MySubmit&School_properties=00">我的贡献</a>
 								</li>
 								<li class="divider">
 								</li>

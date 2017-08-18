@@ -2,7 +2,9 @@ package api;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -73,7 +75,38 @@ public class School_api extends HttpServlet{
 		}else if(whereFrom.equals("delete")){
 			
 		}else if(whereFrom.equals("detail")){
+		
+		}else if(whereFrom.equals("count")){
+//	    	1、获取关键字 分页参数
+//	    	2、拼装sql
+//	    	3、返回list
+//	    	4、转换json
+//	    	5、加上跨域头callback
+//	    	6、发送信息	
+			System.out.println("school api:WF=count");		
+	    	Gson gson = new Gson();   	
+	    	String School_searchKey=request.getParameter("School_searchKey");
 			
+			String sqlcount=null;
+			int countAllRS = 0;
+							
+			 sqlcount="SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like '%"+School_searchKey+"%' order by CONVERT(School_name USING gb2312)";
+			System.out.println("school：搜索语句："+sqlcount);
+			
+			
+			countAllRS=DB.count(sqlcount);
+//	    	String jsonList =gson.toJson(list);
+		
+			String back="{\"countAllRS\":\""+countAllRS+"\"}";
+
+	    	String Callback = request.getParameter("Callback");//客户端请求参数
+
+	  	    	
+	    	response.setContentType("text/html;charset=UTF-8");  
+
+	    	response.getWriter().write(Callback+"("+back+")");
+	    	System.out.println(Callback+"("+back+")");
+	    	
 		}else if(whereFrom.equals("test")){
 //	    	1、获取关键字 分页参数
 //	    	2、拼装sql
@@ -103,12 +136,23 @@ public class School_api extends HttpServlet{
 			
 			list=School_DB.Search(sql);
 			countAllRS=DB.count(sqlcount);
+//	    	String jsonList =gson.toJson(list);
+		
+//			String back="{\"name\":\"Brett\"}";
+
+			
+//			附加参数
+			Gson gson2 = new Gson(); 
+		
 	    	String jsonList =gson.toJson(list);
 
 	    	String Callback = request.getParameter("Callback");//客户端请求参数
+//	    	额外的参数
+	    	    	
 	    	response.setContentType("text/html;charset=UTF-8");  
+//	    	response.getWriter().write(Callback+"("+jsonList+")");
 	    	response.getWriter().write(Callback+"("+jsonList+")");
-	    	System.out.println(Callback+jsonList);
+	    	System.out.println(Callback+"("+jsonList+")");
 	    	
 		}else{
 			System.out.println("school_api：没收到whereFrom参数！！！");
