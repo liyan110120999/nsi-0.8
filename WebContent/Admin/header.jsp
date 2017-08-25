@@ -60,7 +60,7 @@
 					</ul>			
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							 <a href="http://47.92.84.36:8080/nsi-0.8/index.jsp" target="_blank">前台首页</a>
+							 <a href="http://47.92.84.36:80/nsi-0.8/index.jsp" target="_blank">前台首页</a>
 						</li>
 						<li>
 							 <a href="#">用户：</a>

@@ -24,8 +24,8 @@
                     </div>
                     <div class="login">
                     	<a href="#">使用说明</a>                     
-                        <a href="http://47.92.84.36:8080/nsi-0.8/User/register.jsp">注册 </a>
-                        <a href="http://47.92.84.36:8080/nsi-0.8/login.jsp">登录 </a>                      
+                        <a href="http://47.92.84.36:80/nsi-0.8/User/register.jsp">注册 </a>
+                        <a href="http://47.92.84.36:80/nsi-0.8/login.jsp">登录 </a>                      
                     </div>
                 </div>
             </div>

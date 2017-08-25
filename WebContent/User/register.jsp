@@ -301,7 +301,7 @@
 						<div class="col-md-6 column tab-pane fade" id="tab02">
 							<div class="alert alert-success">注册成功！已向您发送激活邮件，请检查邮箱<br />完成激活后您的信息需要通过审核,方可登录</div>
 							<div class="col-sm-3">
-								<button type="button" class="btn btn-primary form-control" onclick="window.location.href='http://47.92.84.36:8080/nsi-0.8/'">登 录</button>				
+								<button type="button" class="btn btn-primary form-control" onclick="window.location.href='http://47.92.84.36:80/nsi-0.8/'">登 录</button>				
 							</div>
 						</div>		
 					</div>

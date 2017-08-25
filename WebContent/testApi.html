@@ -5,44 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-<button id="getParams">获取数据</button>
+<button id="getParams">学校数据</button>
+<button id="getParams02">各地区统计信息</button>
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script>
   $('#getParams').click(function () {
-//      $(this).css('background','red')
-//       $.ajax({
-//           type: 'get',//提交方式 post 或者get
-//           url: "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&School_searchKey=天津",//提交到那里 后他的服务
-//           contentType: 'text/json,charset=utf-8',
-          
-//           dataType : "jsonp",//数据类型为jsonp  
-//           jsonp: "Callback",//服务端用于接收callback调用的function名的参数 
-          
-//           success:function(msg){
-//               alert(msg);//弹出窗口，这里的msg 参数 就是访问aaaa.action 后 后台给的参数
-// //               console.log(msg);//弹出窗口，这里的msg 参数 就是访问aaaa.action 后 后台给的参数
-// //               console.log(JSON.stringify(msg));//弹出窗口，这里的msg 参数 就是访问aaaa.action 后 后台给的参数
-// //             console.log(typeof(msg));  
-//             var obj = JSON.parse(msg);
-//       		console.log(obj)
-//             console.log(obj[1].Areas);
-//           },
-//           error:function(){
-//               ajax("提交失败的处理函数！");
-//           }
-//       });
+
 	  $.ajax({
 		    type : "get",
 		    async:false,
 
-// 		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&OnePageNum=3",
+		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&OnePageNum=3",
 		    		
-		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=count&",
+// 		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=count&",
+// 		    url : "http://127.0.0.1:8080/nsi-0.8/School_api?whereFrom=testEchart&City_searchKey=北京",		
 		    dataType : "jsonp",//数据类型为jsonp  
 		    jsonp: "Callback",//服务端用于接收callback调用的function名的参数  
 		    success : function(data){
-		        console.log(data)
-
+		        console.log(data);
+		        $("#testshow").html(JSON.stringify(data))
 		    },
 		    error:function(){
 		        alert('fail');
@@ -50,5 +31,30 @@
 		});
   })
 </script>
+
+<script>
+  $('#getParams02').click(function () {
+
+	  $.ajax({
+		    type : "get",
+		    async:false,
+
+// 		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=test&OnePageNum=3",
+		    		
+// 		    url : "http://localhost:8080/nsi-0.8/School_api?whereFrom=count&",
+		    url : "http://127.0.0.1:8080/nsi-0.8/School_api?whereFrom=testEchart&City_searchKey=北京",		
+		    dataType : "jsonp",//数据类型为jsonp  
+		    jsonp: "Callback",//服务端用于接收callback调用的function名的参数  
+		    success : function(data){
+		        console.log(data);
+		        $("#testshow").html(JSON.stringify(data))
+		    },
+		    error:function(){
+		        alert('fail');
+		    }
+		});
+  })
+</script>
+<h5 id="testshow">空</h5>
 </body>
 </html>

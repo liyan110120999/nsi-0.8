@@ -289,15 +289,6 @@
 		}
 	 	
 	 	
-// 	 	权限管理
-// 		if(session.getAttribute("Session_userMember_sign")!=null&&session.getAttribute("Session_userMember_sign")!=""){
-// 			int userMember_sign=Integer.parseInt(session.getAttribute("Session_userMember_sign").toString());
-// 			if(userMember_sign>=7)
-// 		 	{	
-
-// 			}
-// 		}
-	 	
 //     	用户密码修改
 	 	String UserPassWD01=request.getParameter("UserPassWD01");
 // 	 	String UserPassWD02=request.getParameter("UserPassWD02");
@@ -362,7 +353,7 @@
 			
 			<!-- 		搜索计数 -->
 			<sql:query dataSource="${snapshot}" var="resultCount">
-				SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
+				SELECT * from NSI_SCHOOL_data WHERE CONCAT(IFNULL(`School_name`,''),IFNULL(`Investment`,''),IFNULL(`remark`,''),IFNULL(`Areas`,''),IFNULL(`School_system`,''),IFNULL(`Course`,'')) like'%<%=School_name%>%' order by CONVERT(School_name USING gb2312);
 			</sql:query>
 		
 		
@@ -470,36 +461,36 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="" src="assets/img/header02.jpeg"/>
+						<img alt="" src="assets/img/banner01.jpg"/>
 						<div class="carousel-caption">
-							<h3>
-								新学说 学校数据库
-							</h3>
-							<p>
-								挖掘整合中国国际教育行业数据，进行深度分析报道，建立行业平台
-							</p>
+<!-- 							<h3> -->
+<!-- 								新学说 学校数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								挖掘整合中国国际教育行业数据，进行深度分析报道，建立行业平台 -->
+<!-- 							</p> -->
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="assets/img/header02.jpeg" />
+						<img alt="" src="assets/img/banner02.jpg" />
 						<div class="carousel-caption">
-							<h3>
-								新学说 人脉数据库
-							</h3>
-							<p>
-								提供全方位的行业资讯，行业研究/市场研究数据，投资建校咨询。
-							</p>
+<!-- 							<h3> -->
+<!-- 								新学说 人脉数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								提供全方位的行业资讯，行业研究/市场研究数据，投资建校咨询。 -->
+<!-- 							</p> -->
 						</div>
 					</div>
 					<div class="item">
-						<img alt="" src="assets/img/header02.jpeg" />
+						<img alt="" src="assets/img/banner03.jpg" />
 						<div class="carousel-caption">
-							<h3>
-								新学说 机构数据库
-							</h3>
-							<p>
-								为国际学校之间提供交流平台，对接国际学校所需各类资源；提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。
-							</p>
+<!-- 							<h3> -->
+<!-- 								新学说 机构数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								为国际学校之间提供交流平台，对接国际学校所需各类资源；提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。 -->
+<!-- 							</p> -->
 						</div>
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-466145" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-466145" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -526,18 +517,18 @@
 							 <a href="insert.jsp">新增</a>				 
 						</li>
 						<li>
-							 <a href="show/map_show.html">地图分布</a>
+							 <a href="show/map_show.html" target="_blank">地图分布</a>
 						</li>
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">可视化<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									 <a href="show/histogram.jsp">条形图</a>
+									 <a href="show/histogram.jsp" target="_blank">时间轴条形图</a>
 								</li>
 								<li class="divider">
 								</li>
 								<li>
-									 <a href="#">echart</a>
+									 <a href="show/EchartShow01.html" target="_blank">各省分布条形图</a>
 								</li>
 								<li class="divider">
 								</li>

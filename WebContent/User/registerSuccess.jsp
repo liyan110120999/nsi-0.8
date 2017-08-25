@@ -46,7 +46,7 @@
 						</p>
 						<br><br>
 						<p>
-							 <a class="btn btn-primary btn-large" href="http://47.92.84.36:8080/nsi-0.8/">登 录</a>
+							 <a class="btn btn-primary btn-large" href="http://47.92.84.36:80/nsi-0.8/">登 录</a>
 						</p>
 					</div>
 				</div>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script type="text/javascript" src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+	    <script src="echarts.js"></script>
+	    
+   </head>
+   <body style="height: 100%; margin: 0">
+	   	<a class="btn btn-primary" href="javascript:history.back()">返回</a>
+		<button id="getParams02" >各地区统计信息</button>
+		<button id="getParams03" style="display: none;">赋值</button>
+		<h5 id="testshow" style="display: none;">空</h5>
+		
+       <div id="container" style="height: 100%"></div>
+	   
+       <script type="text/javascript">
+			   var arr = [];
+			   function select(arr) {
+					  $.ajax({
+								type : "get",
+								async:false,
+								url : "http://127.0.0.1:8080/nsi-0.8/School_api?whereFrom=testEchart", 												
+								dataType : "jsonp",//数据类型为jsonp  
+								jsonp: "Callback",//服务端用于接收callback调用的function名的参数  
+								success : function(data){
+//									console.log(data);
+									$("#testshow").html(JSON.stringify(data))
+									var i = 0;
+									$.each(data, function(key, value){//key和value分别保存的是data集合中的键和值
+										arr[i] = value;//将data集合中的值依次放进数组中
+										i=i+1;
+									});
+								},
+								error:function(){
+									alert('fail');
+								}
+							});
+					  return arr;
+					}
+				   arr = select(arr);
+
+
+				   var Json = arr
+				   var areas = []
+				   var number = []
+
+				$('#getParams03').click(function () {
+					for(var attr in Json ){
+						areas.push(Json[attr].name)
+						number.push(Json[attr].value)
+					}
+					console.log(areas)
+					console.log(number)
+					myChart.setOption(option, true);
+				})
+
+			  $(window).load(function () {
+				  $('#getParams03').trigger('click')
+				}
+			  )
+
+			  
+			  
+		var dom = document.getElementById("container");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		var symbolSize = 20;
+			app.title = '堆叠柱状图';
+
+		option = {
+			tooltip : {
+				trigger: 'axis',
+				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			legend: {
+				data:['新学说数据库']
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis : [
+				{
+					type : 'category',
+					data : areas
+				}
+			],
+			yAxis : [
+				{
+					type : 'value'
+				}
+			],
+			
+			series : [
+
+				{
+					name:'新学说数据库',
+					type:'bar',
+					barWidth : 20,
+					stack: '学校分布',
+					data:number,
+					itemStyle:{
+						normal:{color:'#87CEFA'}
+					},
+					
+					markLine : {
+						lineStyle: {
+							normal: {
+								type: 'dashed'
+							}
+						},
+						data : [
+							[{type : 'min'}, {type : 'max'}]
+						]
+					}
+				},
+
+			]
+		};
+			myChart.setOption(option, true);
+			
+		// 处理点击事件并且跳转到相应的百度搜索页面
+		myChart.on('click', function (params) {
+			window.open('http://data.xinxueshuo.cn/nsi-0.8/servlet?whereFrom=search&School_name=' + encodeURIComponent(params.name));
+		});
+       </script>
+   </body>
+</html>

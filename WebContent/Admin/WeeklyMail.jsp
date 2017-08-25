@@ -143,13 +143,13 @@
 <!-- 		预览图片 -->
 <!-- 	临时改变图片地址 -->
 
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>1.jpg" class="img-thumbnail">
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>2.jpg" class="img-thumbnail">
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>3.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>1.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>2.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>3.jpg" class="img-thumbnail">
 		<br>
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>4.jpg" class="img-thumbnail">
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>5.jpg" class="img-thumbnail">
-		<img src="http://47.92.84.36:8080/upImage/upMailImg/upload/mail<%=MailNum%>6.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>4.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>5.jpg" class="img-thumbnail">
+		<img src="http://47.92.84.36:80/upImage/upMailImg/upload/mail<%=MailNum%>6.jpg" class="img-thumbnail">
 		
 		
 		<h5>图片尺寸：宽*高：120*170；格式：.jpg</h5>期刊号：<%=MailNum%>
