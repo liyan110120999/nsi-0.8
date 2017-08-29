@@ -282,17 +282,8 @@
         	<a href="javascript:void(0)" class="list-group-item text-center">其他</a>
           </div>
         </div><!--/.sidebar-offcanvas-->
-		
-<!-- 		<div class="noprint" style="background-color:#ffd;float:left; height:400px;width:200px;margin-left:5%;border:1px solid #E2E7E8;padding: 10px"> -->
-<!-- 			<div style="background-color:#fdf;text-align: left;padding-left:5px;">工具栏</div> -->
-<!-- 			<div style="text-align: center;padding-top: 10px;"> -->
-<!-- 				<button type="button" class="btn btn-primary" onclick="SubmitAlter()">修改</button> -->
-<!-- 				<button type="button" class="btn btn-danger" onclick="ConfirmDelete()">删除</button> -->
-<!-- 				<button type="button" class="btn btn-primary" onclick="javascript:window.print()">打印</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-		
-		
+
+			
 </div>	
 		
 	<div style="clear:both;">

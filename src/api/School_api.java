@@ -1,6 +1,7 @@
 package api;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -44,12 +45,80 @@ public class School_api extends HttpServlet{
 //	    	6、发送信息	
 		if(whereFrom.equals("insert")){
 			
+//			待测试
 		}else if(whereFrom.equals("delete")){
+			System.out.println("school api:WF=delete");
 			
+	    	Gson gson = new Gson();   	
+	    	String School_name=request.getParameter("School_name");
+	    			    	
+	    	String sql="DELETE FROM nsi_school_data WHERE School_name ='"+School_name+"';";
+	    	System.out.println(sql);
+	    	
+			DB.Delete(sql);	
+//			成功
+	    	String back="{msg:1}";
+
+	    	String Callback = request.getParameter("Callback");//客户端请求参数	  	    	
+	    	response.setContentType("text/html;charset=UTF-8");  
+	    	response.getWriter().write(Callback+"("+back+")");
+	    	System.out.println(Callback+"("+back+")");
+	    	
 		}else if(whereFrom.equals("alter")){
+//			旧校名
+			String alter_old_Schoolname=request.getParameter("alter_old_Schoolname");
+			
+			String School_name=request.getParameter("School_name");
+			String School_properties=request.getParameter("School_properties");
+	// 		修改用途 和 省市两级联动
+			String Areas=request.getParameter("Areas");
+//			String Areas01=request.getParameter("Areas01");
+//			String Areas02=request.getParameter("Areas02");
+			
+			String Founded_time=request.getParameter("Founded_time");
+			String School_system=request.getParameter("School_system");
+			String Course=request.getParameter("Course");
+			String President=request.getParameter("President");
+			String President_country=request.getParameter("President_country");
+			String Teacher_number=request.getParameter("Teacher_number");
+			String Foreign_teacher_num=request.getParameter("Foreign_teacher_num");
+			String Teacher_salary=request.getParameter("Teacher_salary");
+			String Num_students=request.getParameter("Num_students");
+			String Graduating_stu_num=request.getParameter("Graduating_stu_num");
+			String Extra_curricular_edu=request.getParameter("Extra_curricular_edu");
+			String Covered_area=request.getParameter("Covered_area");
+			String Built_area=request.getParameter("Built_area");
+			String Tuition=request.getParameter("Tuition");
+			String website=request.getParameter("website");	
+			String load_people=request.getParameter("load_people");
+//			String load_time=request.getParameter("load_time");
+			String Investment=request.getParameter("Investment");
+			String remark=request.getParameter("remark");
+//			当前时间
+			java.util.Date currentTime = new java.util.Date(); 
+	    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    	String SubmitDate = formatter.format(currentTime);
+			// 				标记位
+			Gson gson = new Gson();  
+			List<People_model> list = new ArrayList<People_model>();
+//			修改操作	
+			String sql="UPDATE NSI_SCHOOL_data SET School_name='"+School_name+"',School_properties='"+School_properties+"',Areas='"+Areas+"',Founded_time='"+Founded_time+"',School_system='"+School_system+"',Course='"+Course+"',President='"+President+"',President_country='"+President_country+"',Teacher_number='"+Teacher_number+"',Foreign_teacher_num='"+Foreign_teacher_num+"'"
+					+" ,Teacher_salary ='"+Teacher_salary+"',Num_students='"+Num_students+"',Graduating_stu_num='"+Graduating_stu_num+"',Extra_curricular_edu='"+Extra_curricular_edu+"',Covered_area='"+Covered_area+"',Built_area='"+Built_area+"' "
+					+" ,Tuition= '"+Tuition+"',website='"+website+"',load_people='"+load_people+"',load_time='"+SubmitDate+"',Investment='"+Investment+"',remark='"+remark+"' "
+					+" WHERE School_name ='"+alter_old_Schoolname+"'";
+	
+			list=DB.alter(sql);
+
+	    	String jsonList =gson.toJson(list);
+
+	    	String Callback = request.getParameter("Callback");//客户端请求参数
+	    	response.setContentType("text/html;charset=UTF-8");  
+	    	response.getWriter().write(Callback+"("+jsonList+")");
+	    	System.out.println(Callback+jsonList);
+
 			
 		}else if(whereFrom.equals("search")){
-			System.out.println("school api:WF=test");
+			System.out.println("school api:WF=search");
 			
 	    	Gson gson = new Gson();   	
 
@@ -306,18 +375,19 @@ public class School_api extends HttpServlet{
 			
 			
 ///////////////////////////////////////////////////////////////////////////////////	///////////////////////////////////////////////////////////////////////////////////				
-//	    	传入Id 返回list值
+//	    	传入Id schoolname 返回list值
 		}else if(whereFrom.equals("detail")){
 			System.out.println("school api:WF=detail");		
 	    	Gson gson = new Gson();   	
-	    	String School_Id=request.getParameter("School_Id");
+	    	String School_Name=request.getParameter("School_Name");
 	    	String sql=null;		
 
 			
 			List<School_model> list = new ArrayList<School_model>();			
-			 sql="SELECT * from NSI_SCHOOL_data WHERE"
-			 		+ "Id="+School_Id+"order by CONVERT(School_name USING gb2312) limit 0,1";
-			System.out.println("school：detail语句："+sql);
+			 sql="SELECT * from NSI_SCHOOL_data WHERE "
+			 		+ "School_name='"+School_Name+"' order by CONVERT(School_name USING gb2312) limit 0,1";
+			 
+			System.out.println("school：detail语句："+School_Name+sql);
 			
 			list=School_DB.Search(sql);
 
