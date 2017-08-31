@@ -197,37 +197,37 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item">
-						<img alt="" src="/nsi-0.8/assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 学校数据库
-							</h3>
-							<p>
-								<b>挖掘整合中国国际教育行业数据，进行深度分析报道，建立行业平台</b>
-							</p>
-						</div>
+						<img alt="" src="/nsi-0.8/assets/img/banner01.jpg" />
+<!-- 						<div class="carousel-caption"> -->
+<!-- 							<h3> -->
+<!-- 								新学说 学校数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								<b>挖掘整合中国国际教育行业数据，进行深度分析报道，建立行业平台</b> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
 					</div>
 					<div class="item">
-						<img alt="" src="/nsi-0.8/assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 人员数据库
-							</h3>
-							<p>
-								<b>提供全方位的行业资讯，行业研究/市场研究数据，投资建校咨询。</b>
-							</p>
-						</div>
+						<img alt="" src="/nsi-0.8/assets/img/banner02.jpg" />
+<!-- 						<div class="carousel-caption"> -->
+<!-- 							<h3> -->
+<!-- 								新学说 人员数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								<b>提供全方位的行业资讯，行业研究/市场研究数据，投资建校咨询。</b> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
 					</div>
 					<div class="item active">
-						<img alt="" src="/nsi-0.8/assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 机构数据库
-							</h3>
-							<p>
-								<b>为国际学校之间提供交流平台，对接国际学校所需各类资源；提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。</b>
-							</p>
-						</div>
+						<img alt="" src="/nsi-0.8/assets/img/banner03.jpg" />
+<!-- 						<div class="carousel-caption"> -->
+<!-- 							<h3> -->
+<!-- 								新学说 机构数据库 -->
+<!-- 							</h3> -->
+<!-- 							<p> -->
+<!-- 								<b>为国际学校之间提供交流平台，对接国际学校所需各类资源；提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。</b> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-466145" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-466145" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>

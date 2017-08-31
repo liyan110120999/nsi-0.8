@@ -49,7 +49,7 @@
 	Class.forName("com.mysql.jdbc.Driver");  
 	//获取数据库连接  
 	Connection conn = DriverManager.getConnection(  
-	    "jdbc:mysql://localhost:3306/NSI_DATABASE","root","123456");  
+	    "jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true","root","123456");  
 	//创建Statement  
 	Statement stmt = conn.createStatement();  
 	//执行查询  

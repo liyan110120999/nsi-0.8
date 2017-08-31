@@ -321,7 +321,7 @@
 			}		
     %>
 	<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/NSI_DATABASE"
+     url="jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true"
      user="root"  password="123456"/>
 <!--      用户信息模块 -->
 		<sql:query dataSource="${snapshot}" var="resultUser">			

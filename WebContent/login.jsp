@@ -11,7 +11,8 @@
 	    <link href="assets/css/style.css" rel="stylesheet" />
 		  <!--     	自定义css -->
 	    <link href="assets/css/MyCss.css" rel="stylesheet" />
-		<script src="assets/js/jquery-1.11.1.js"></script>
+<!-- 		<script src="assets/js/jquery-1.11.1.js"></script> -->
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>		
 	    <!-- BOOTSTRAP SCRIPTS  -->
 	    <script src="assets/js/bootstrap.js"></script>
 	    <!-- CUSTOM SCRIPTS  -->
@@ -116,37 +117,16 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="" src="assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 学校数据库
-							</h3>
-							<p>
-								挖掘整合中国国际教育行业数据，进行深度分析报道，建立行业平台
-							</p>
-						</div>
+						<img alt="" src="assets/img/banner01.jpg" />
+					
 					</div>
 					<div class="item">
-						<img alt="" src="assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 人脉数据库
-							</h3>
-							<p>
-								提供全方位的行业资讯，行业研究/市场研究数据，投资建校咨询。
-							</p>
-						</div>
+						<img alt="" src="assets/img/banner02.jpg" />
+						
 					</div>
 					<div class="item">
-						<img alt="" src="assets/img/header02.jpeg" />
-						<div class="carousel-caption">
-							<h3>
-								新学说 机构数据库
-							</h3>
-							<p>
-								为国际学校之间提供交流平台，对接国际学校所需各类资源；提供专业的运营管理咨询，市场拓展和品牌管理等咨询服务。
-							</p>
-						</div>
+						<img alt="" src="assets/img/banner03.jpg" />
+						
 					</div>
 				</div> 
 				<a class="left carousel-control" href="#carousel-466145" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-466145" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -208,8 +188,7 @@
 					</div> 
 <!-- 						type 不能为submit ,会重复提交表单 （js） -->
 						<button type="button" class="btn btn-primary form-control" onclick="fcheck()">登 录</button>	
-						
-															
+																	
 				</form>
 				<div style="float:right;padding-right:20px;">
 					<a href="/nsi-0.8/User/register.jsp">注 册</a>
@@ -229,8 +208,7 @@
    	<!--     导入底栏jsp文件 -->
 	<div><jsp:include page="modular/bottomBar.jsp"/>
 	</div>
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
+ 
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>

@@ -24,10 +24,9 @@
 		    <script src="/nsi-0.8/assets/js/custom.js"></script>
 		    
 		   <script src="/nsi-0.8/assets/js/user.js"></script>
-<!-- 		   文件上传 -->
 
 		
-		<title>新增数据</title>
+		<title>新学说数据系统-新增人员数据</title>
 
 </head>
 
@@ -171,9 +170,10 @@
 		                 <div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label"> </label>
 							<div class="col-sm-5">
-	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('个人会员;')" value="个人会员" />
-	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业普通会员;')" value="企业普通会员" />
-	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业高级会员;')" value="企业高级会员" />	                    
+							  <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('注册会员;')" value="注册会员" />
+                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('个人会员;')" value="个人会员" />
+                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业普通会员;')" value="企业普通会员" />
+                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业高级会员;')" value="企业高级会员" />	                    
 							</div>
 		                  </div>	              
 					</div>	

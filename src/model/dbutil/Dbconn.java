@@ -14,7 +14,7 @@ public class Dbconn {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/nsi_database","root","123456");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/nsi_database?useSSL=true","root","123456");
 		} catch (ClassNotFoundException e) {
 			System.out.println("登录用户数据库异常");
 			e.printStackTrace();

@@ -5,27 +5,26 @@ pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date.*" import="java.text.SimpleDateFormat" %>
 <!DOCTYPE>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8"> 
- 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>修改</title>
-
-<link href="assets/css/bootstrap.css" rel="stylesheet" />
-				<link href="/nsi-0.8/assets/css/bootstrap.css" rel="stylesheet" />
-			     <!-- FONTAWESOME STYLE CSS -->
-			    <link href="/nsi-0.8/assets/css/font-awesome.css" rel="stylesheet" />
-			    <!-- CUSTOM STYLE CSS -->
-			    <link href="/nsi-0.8/assets/css/style.css" rel="stylesheet" />
-				<script src="/nsi-0.8/assets/js/jquery-1.11.1.js"></script>
-			    <!-- BOOTSTRAP SCRIPTS  -->
-			    <script src="/nsi-0.8/assets/js/bootstrap.js"></script>
-			    <!-- CUSTOM SCRIPTS  -->
-			    <script src="/nsi-0.8/assets/js/custom.js"></script>
-			    
-			   <script src="/nsi-0.8/assets/js/user.js"></script>	
-			   
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8"> 
+	 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<title>修改</title>
+		
+			<link href="assets/css/bootstrap.css" rel="stylesheet" />
+			<link href="/nsi-0.8/assets/css/bootstrap.css" rel="stylesheet" />
+		     <!-- FONTAWESOME STYLE CSS -->
+		    <link href="/nsi-0.8/assets/css/font-awesome.css" rel="stylesheet" />
+		    <!-- CUSTOM STYLE CSS -->
+		    <link href="/nsi-0.8/assets/css/style.css" rel="stylesheet" />
+			<script src="/nsi-0.8/assets/js/jquery-1.11.1.js"></script>
+		    <!-- BOOTSTRAP SCRIPTS  -->
+		    <script src="/nsi-0.8/assets/js/bootstrap.js"></script>
+		    <!-- CUSTOM SCRIPTS  -->
+		    <script src="/nsi-0.8/assets/js/custom.js"></script>
+		    
+		   <script src="/nsi-0.8/assets/js/user.js"></script>					   
+	</head>
 	<style>
 		body{background-color:#c7d0d5}
 	</style>
@@ -113,28 +112,27 @@ pageEncoding="UTF-8"%>
 		<%
 		    //   获取session用户		     		
 		String username ="空";
-		if(session.getAttribute("Session_user")==null){
-			//	 登录超时,跳转到login
-			response.sendRedirect("/nsi-0.8/login.jsp");
-		}else{
-			username = session.getAttribute("Session_user").toString();
-		}	
+			if(session.getAttribute("Session_user")==null){
+				//	 登录超时,跳转到login
+				response.sendRedirect("/nsi-0.8/login.jsp");
+			}else{
+				username = session.getAttribute("Session_user").toString();
+			}	
 			//   获取当前时间
 		java.util.Date currentTime = new java.util.Date(); 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String SubmitDate = formatter.format(currentTime);					
 	
 		List<People_model> list = (List<People_model>)request.getAttribute("list");
-		if(list == null || list.size() < 1){
-			out.print("没有数据！");
-		}else{
-			People_model people=list.get(0);
+			if(list == null || list.size() < 1){
+				out.print("没有数据！");
+			}else{
+				People_model people=list.get(0);
 
 	%>	
 		
 			<form class="form-horizontal" role="form" action="/nsi-0.8/People_servlet" name="myform" method="post">
-				
-				
+	
 				<div class="form-group">
 					 <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
 					<div class="col-sm-5">
@@ -153,6 +151,7 @@ pageEncoding="UTF-8"%>
 		                 <div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label"> </label>
 							<div class="col-sm-5">
+								  <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('注册会员;')" value="注册会员" />
 	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('个人会员;')" value="个人会员" />
 	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业普通会员;')" value="企业普通会员" />
 	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert03('企业高级会员;')" value="企业高级会员" />	                    
@@ -186,12 +185,12 @@ pageEncoding="UTF-8"%>
 		                 <div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label"> </label>
 							<div class="col-sm-5">
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('校长;')" value="校长" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('副校长;')" value="副校长" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('招生总监;')" value="招生总监" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('助理;')" value="助理" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('投资人;')" value="投资人" />
-		                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('运营;')" value="运营" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('校长;')" value="校长" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('副校长;')" value="副校长" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('招生总监;')" value="招生总监" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('助理;')" value="助理" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('投资人;')" value="投资人" />
+	                              <input type="button" class="btn btn-default" style="cursor:hand" onclick="javascript:Insert04('运营;')" value="运营" />
 							</div>
 		                  </div>	              
 					</div>	
@@ -251,15 +250,14 @@ pageEncoding="UTF-8"%>
 			<br>
 			<!-- 	删除按钮 -->
 			<form class="form-horizontal" role="form" action="People_servlet" id="deleteForm" name="myform02" method="post">
-					<div class="form-group">
-						<div class="col-sm-offset-6 col-sm-10 ">	
-							<!-- 隐式表单标记位 -->
-							<input type="hidden" name="whereFrom" value="delete">
-							<input type="hidden" name="delete_people_id" value='<%=people.getPeople_id()%>'>
-							<input type="button" class="btn btn-danger" onclick="ConfirmDelete()" value="删除本条记录" />		
-
-						</div>
+				<div class="form-group">
+					<div class="col-sm-offset-6 col-sm-10 ">	
+						<!-- 隐式表单标记位 -->
+						<input type="hidden" name="whereFrom" value="delete">
+						<input type="hidden" name="delete_people_id" value='<%=people.getPeople_id()%>'>
+						<input type="button" class="btn btn-danger" onclick="ConfirmDelete()" value="删除本条记录" />		
 					</div>
+				</div>
 			</form>		
 		<%}%>
 			

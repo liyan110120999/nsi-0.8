@@ -49,13 +49,13 @@ public class Institution_servlet extends HttpServlet{
 	
 //			选项搜索
 			if(searchMenu.equals("教育")){				
-				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+(pageNumX+OnePageNum)+"";	
+				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+OnePageNum+"";	
 				 sqlcount="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%' ";
 			}else if(searchMenu.equals("投资")){
-				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+(pageNumX+OnePageNum)+"";	
+				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+OnePageNum+"";	
 				 sqlcount="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%' ";
 			}else {
-				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+(pageNumX+OnePageNum)+"";	
+				 sql="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%'limit "+pageNumX+","+OnePageNum+"";	
 				 sqlcount="select * from nsi_Institution_data where CONCAT(IFNULL(`Name`,''),IFNULL(`CEO`,''),IFNULL(`Service`,''),IFNULL(`Remark`,'')) like '%"+Institution_searchKey+"%' ";
 			}
 	
