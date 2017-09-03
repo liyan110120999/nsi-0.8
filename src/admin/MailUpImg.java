@@ -90,10 +90,7 @@ import javax.servlet.http.HttpServletResponse;
 //	        	忽略警告或错误信息
 //	            @SuppressWarnings("unchecked")
 	            List<FileItem> formItems = upload.parseRequest(request);
-	 
-//            	String MailNum = prop.getProperty("MailNum"); // 获取prop期刊号
-//				System.out.println("MailNum的值---------："+MailNum);
-				
+	 				
 	            if (formItems != null && formItems.size() > 0) {
 	                // 迭代表单数据
 	            	int i=1;
@@ -111,14 +108,10 @@ import javax.servlet.http.HttpServletResponse;
 	    					
 //	                    	注意：mail001代表图片的资源名，前两位数代表期刊号。每次发送需 期刊号+1，来解决：浏览器图片缓存问题。i代表图片的次序
 	                        String filePath = uploadPath + File.separator +"mail"+MailNum+i+".jpg";
-	                        File storeFile = new File(filePath);                        
-//	                        //	                        上传图片地址至数据库
-//	                        String sql="UPDATE nsi_people_data SET People_ImgUrl='/upImage/upPeopleImg/upload/"+people_id+".jpg' WHERE People_id='"+people_id+"' ";    			
-//	        				DB.alter(sql);
-	                       
+	                        File storeFile = new File(filePath);                                               
 	                        // 在控制台输出文件的上传路径                     
-	                        System.out.println("图片上传地址AAA："+filePath);
-	                        System.out.println("MailNum的值222222");
+	                        System.out.println("图片上传地址："+filePath);
+	                        System.out.println("MailNum的值222222"+MailNum);
 	          
 	                        // 保存文件到硬盘
 	                        item.write(storeFile);

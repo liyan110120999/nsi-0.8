@@ -1,6 +1,8 @@
 package api;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.mail.MessagingException;
@@ -17,6 +19,8 @@ import entity.User;
 import model.Model;
 import people.DB;
 import user.Mail;
+import user.RandomCode;
+import user.User_model;
 
 @WebServlet("/User_api")
 public class User_api extends HttpServlet{
@@ -80,7 +84,92 @@ public class User_api extends HttpServlet{
 			    	response.setContentType("text/html;charset=UTF-8");  
 			    	response.getWriter().write(Callback+"("+back+")");
 			    	System.out.println(Callback+"("+back+")");
-			    	
+//			    新用户注册
+				}else if(whereFrom.equals("register")){
+					String Email=request.getParameter("Email");
+					String Name=request.getParameter("Name");
+					String company=request.getParameter("company");
+					String position=request.getParameter("position");
+					String Passwd01=request.getParameter("Passwd01");
+					String User_phone=request.getParameter("phone");
+								
+					// 获取时间
+					java.util.Date currentTime = new java.util.Date(); 
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+					String User_loadTime = formatter.format(currentTime);
+					
+					int msg=-2;
+//					发送邮件
+					if(Email!=null){
+						User_model user=new User_model();
+						
+						user.setName(Email);
+						
+						String code = RandomCode.getRandomCode();
+			//			set			
+						System.out.println(Email+code);
+						try {
+							//发送
+							System.out.println("user.get的邮箱地址："+user.getName());
+							Mail.sendMail(user.getName(), code);										
+						} catch (MessagingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}			
+//						录入数据库  ，"-1"为用户状态标志位
+						String sql="INSERT INTO nsi_user (UserName,Password,Member_sign,User_TureName,User_Organization,User_position,User_phone,User_registerCode,Load_time)"
+									+ "VALUES ('"+Email+"','"+Passwd01+"','-1','"+Name+"','"+company+"','"+position+"','"+User_phone+"','"+code+"','"+User_loadTime+"')";
+						DB.Insert(sql);
+					}
+					msg=1;
+					
+					Gson gson = new Gson();   					
+					String back="{\"msg\":\""+msg+"\"}";
+
+			    	String Callback = request.getParameter("Callback");//客户端请求参数	  	    	
+			    	response.setContentType("text/html;charset=UTF-8");  
+			    	response.getWriter().write(Callback+"("+back+")");
+			    	System.out.println(Callback+"("+back+")");
+			    
+			    		    	
+////					验证邮箱激活码
+//				}else if(whereFrom.equals("registerCode")){
+//					String registerCode=request.getParameter("registerCode");
+//					String UserMail=request.getParameter("UserMail");
+//					
+//					System.out.println("register.java:收到邮箱链接"+registerCode+UserMail);
+//					
+////					修改状态码
+//					String sql="UPDATE nsi_user SET Member_sign='0' WHERE UserName='"+UserMail+"' ";
+//					DB.alter(sql);
+//					
+//					request.getRequestDispatcher("/nsi-0.8/User/registerSuccess.jsp");
+//					response.sendRedirect("/nsi-0.8/User/registerSuccess.jsp");
+////					跳转到激活成功界面
+//			    	检查邮箱是否注册过
+				}else if(whereFrom.equals("checkMail")){
+					String checkMail=request.getParameter("checkMail");
+					String sql="SELECT * FROM nsi_user WHERE UserName='"+checkMail+"' ";
+					System.out.println("检查邮箱是否注册过："+checkMail+sql);
+					int a=DB.count(sql);
+					System.out.println("结果数："+a);
+					int msg=-2;
+					if(a<1){
+						msg=1;
+					}else{
+						msg=-1;
+					}
+					
+					String back="{\"msg\":\""+msg+"\"}";
+					
+			    	String Callback = request.getParameter("Callback");//客户端请求参数	  	    	
+			    	response.setContentType("text/html;charset=UTF-8");  
+			    	response.getWriter().write(Callback+"("+back+")");
+			    	System.out.println(Callback+"("+back+")");
+		    	
 //				忘记密码
 			    }else if(whereFrom.equals("forgetPW")){
 					String mail = request.getParameter("mail");
