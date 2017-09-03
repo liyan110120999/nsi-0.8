@@ -15,16 +15,11 @@ import people.DB;
 	public class register extends HttpServlet {
 		public static final long serialVersionUID = 2L;
 
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-		    	this.doPost(request,response);
-		    
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {			
+		    	this.doPost(request,response);	    
 		}
 		public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-			
-//			String whereFrom=null;		
-//			whereFrom = request.getParameter("whereFrom");
-//			
+						
 			String Email=request.getParameter("Email");
 			String Name=request.getParameter("Name");
 			String company=request.getParameter("company");
@@ -48,9 +43,6 @@ import people.DB;
 					//发送
 					System.out.println("user.get的邮箱地址："+user.getName());
 					Mail.sendMail(user.getName(), code);
-					
-//					smtp远程发送 -----------------------------------------------------------------------------
-//					MailSMTP.sendSmtpMail();
 										
 				} catch (MessagingException e) {
 					// TODO Auto-generated catch block

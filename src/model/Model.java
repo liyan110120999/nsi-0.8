@@ -134,4 +134,20 @@ public class Model {
         System.out.println("Model 用户cookie校验为："+CookieVerify);
     return CookieVerify;
 	}
+	
+//	判断邮箱是否存在
+	public int UserExistence(String username) {
+//		1、用户存不存在？
+		User user = null; 
+		int CookieVerify= -3; 
+		String sql = "select * from nsi_user where UserName = '"+username+"'";
+		int aa=DB.count(sql);
+		if (aa>=1) {
+				 CookieVerify=1;
+		}else {
+			CookieVerify=-1;
+		}
+        System.out.println("Model 用户邮箱是否存在："+CookieVerify);
+    return CookieVerify;
+	}
 }
