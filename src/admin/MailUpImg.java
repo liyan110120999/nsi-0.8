@@ -88,13 +88,16 @@ import javax.servlet.http.HttpServletResponse;
 	        try {
 	            // 解析请求的内容提取文件数据
 //	        	忽略警告或错误信息
-	            @SuppressWarnings("unchecked")
+//	            @SuppressWarnings("unchecked")
 	            List<FileItem> formItems = upload.parseRequest(request);
 	 
+//            	String MailNum = prop.getProperty("MailNum"); // 获取prop期刊号
+//				System.out.println("MailNum的值---------："+MailNum);
+				
 	            if (formItems != null && formItems.size() > 0) {
 	                // 迭代表单数据
-
 	            	int i=1;
+					
 	                for (FileItem item : formItems) {
 	                	
 	                    // 处理不在表单中的字段
@@ -112,9 +115,10 @@ import javax.servlet.http.HttpServletResponse;
 //	                        //	                        上传图片地址至数据库
 //	                        String sql="UPDATE nsi_people_data SET People_ImgUrl='/upImage/upPeopleImg/upload/"+people_id+".jpg' WHERE People_id='"+people_id+"' ";    			
 //	        				DB.alter(sql);
-	                        
+	                       
 	                        // 在控制台输出文件的上传路径                     
-	                        System.out.println("图片上传地址："+filePath);
+	                        System.out.println("图片上传地址AAA："+filePath);
+	                        System.out.println("MailNum的值222222");
 	          
 	                        // 保存文件到硬盘
 	                        item.write(storeFile);
@@ -124,8 +128,8 @@ import javax.servlet.http.HttpServletResponse;
 	                    i=i+1;
 	                }
 	            }
-	       System.out.println("mailUpImg.java:跳出if formitem");
-	       System.out.println("mailUpImg.java:开始执行");
+			       System.out.println("mailUpImg.java:跳出if formitem");
+			       System.out.println("mailUpImg.java:开始执行");
 	        } catch (Exception ex) {
 	            request.setAttribute("message",
 	                    "错误信息: " + ex.getMessage());
