@@ -62,4 +62,33 @@ public class School_DB {
 		}
 		return list;
 	}
+	
+	
+	public static List<School_model> alter(String sql)
+	{
+		List<School_model> list = new ArrayList<School_model>();
+		try
+		{	
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/NSI_DATABASE?useSSL=true";
+			String username = "root";
+			String password = "123456";
+			int i=-1;
+			Connection conn = DriverManager.getConnection(url,username,password);
+			Statement stmt = conn.createStatement();
+			i=stmt.executeUpdate(sql);
+			
+			System.out.println("school_DB.java:修改：修改sql已执行,影响行数："+i);	
+            //关闭结果集
+           
+            stmt.close();
+            conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("school_DB.java:修改：修改sql异常");	
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

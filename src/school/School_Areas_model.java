@@ -1,5 +1,6 @@
 package school;
 
+//用来 产生chart的城市数据
 public class School_Areas_model {
 	private String name;
 	private int value;

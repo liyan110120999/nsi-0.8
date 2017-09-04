@@ -1,6 +1,7 @@
 package school;
 
 public class School_model {
+	private int School_id;
 	private String School_name;
 	private String School_properties;
 	private String Areas;
@@ -24,8 +25,28 @@ public class School_model {
 	private String Investment;
 	private String remark;
 	
+//	0904 Add DB
+	private String Operation_State;
+	private String EnglishName;
+	private String DataSources;
+	private String img01;
+	private String Entrance_Situation;
+	private String MediaCommend;
+	private String Hardware;
+	private String School_logo;
+	private String BatchInput_Sign;
+	private String VerifySign;
+	private String Recent_Modifier;
+
 	
 	
+	
+	public int getSchool_id() {
+		return School_id;
+	}
+	public void setSchool_id(int school_id) {
+		this.School_id = school_id;
+	}
 	public String getSchool_name() {
 		return School_name;
 	}
@@ -158,6 +179,74 @@ public class School_model {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
+//	0904 add DB
+	public String getOperation_State() {
+		return Operation_State;
+	}
+	public void setOperation_State(String operation_State) {
+		this.Operation_State = operation_State;
+	}
+	public String getEnglishName() {
+		return EnglishName;
+	}
+	public void setEnglishName(String englishName) {
+		this.EnglishName = englishName;
+	}
+	public String getDataSources() {
+		return DataSources;
+	}
+	public void setDataSources(String dataSources) {
+		this.DataSources = dataSources;
+	}
+	public String getImg01() {
+		return img01;
+	}
+	public void setImg01(String img01) {
+		this.img01 = img01;
+	}
+	public String getEntrance_Situation() {
+		return Entrance_Situation;
+	}
+	public void setEntrance_Situation(String entrance_Situation) {
+		this.Entrance_Situation = entrance_Situation;
+	}
+	public String getMediaCommend() {
+		return MediaCommend;
+	}
+	public void setMediaCommend(String mediaCommend) {
+		this.MediaCommend = mediaCommend;
+	}
+	public String getHardware() {
+		return Hardware;
+	}
+	public void setHardware(String hardware) {
+		this.Hardware = hardware;
+	}
+	public String getSchool_logo() {
+		return School_logo;
+	}
+	public void setSchool_logo(String school_logo) {
+		this.School_logo = school_logo;
+	}
+	public String getBatchInput_Sign() {
+		return BatchInput_Sign;
+	}
+	public void setBatchInput_Sign(String batchInput_Sign) {
+		this.BatchInput_Sign = batchInput_Sign;
+	}
+	public String getVerifySign() {
+		return VerifySign;
+	}
+	public void setVerifySign(String verifySign) {
+		this.VerifySign = verifySign;
+	}
+	public String getRecent_Modifier() {
+		return Recent_Modifier;
+	}
+	public void setRecent_Modifier(String recent_Modifier) {
+		this.Recent_Modifier = recent_Modifier;
+	}
+	
+	
 	
 }

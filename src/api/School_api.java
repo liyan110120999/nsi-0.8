@@ -21,9 +21,9 @@ import com.google.gson.Gson;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import people.DB;
-import people.People_model;
 import school.School_Areas_model;
 import school.School_DB;
+
 import school.School_model;
 
 @WebServlet("/School_api")
@@ -51,7 +51,7 @@ public class School_api extends HttpServlet{
 //			String Areas=request.getParameter("Areas");
 			String Areas01=request.getParameter("Areas01");
 			String Areas02=request.getParameter("Areas02");
-			
+		
 			String Founded_time=request.getParameter("Founded_time");
 			String School_system=request.getParameter("School_system");
 			String Course=request.getParameter("Course");
@@ -75,17 +75,17 @@ public class School_api extends HttpServlet{
 			java.util.Date currentTime = new java.util.Date(); 
 	    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	    	String SubmitDate = formatter.format(currentTime);
-			// 				标记位
-			Gson gson = new Gson();  
 
 //			新增操作	
+//	    	1、获取会员等级参数
+//	    	2、需不需要审核？
+//	    	3、执行SQL
 			String sql="INSERT INTO NSI_SCHOOL_data (School_name,School_properties,Areas,Founded_time,School_system,Course,President,President_country,Teacher_number,Foreign_teacher_num,Teacher_salary,Num_students,Graduating_stu_num,Extra_curricular_edu,Covered_area,Built_area,Tuition,website,load_people,load_time,Investment,remark) "
 					+ "VALUES ('"+School_name+"','"+School_properties+"','"+Areas01+Areas02+"','"+Founded_time+"','"+School_system+"','"+Course+"','"+President+"','"+President_country+"','"+Teacher_number+"','"+Foreign_teacher_num+"','"+Teacher_salary+"','"+Num_students+"','"+Graduating_stu_num+"','"+Extra_curricular_edu+"','"+Covered_area+"','"+Built_area+"','"+Tuition+"','"+website+"','"+load_people+"','"+SubmitDate+"','"+Investment+"','"+remark+"')";
 
 			DB.Insert(sql);
 			
 			String back="{msg:1}";
-
 	    	String Callback = request.getParameter("Callback");//客户端请求参数	  	    	
 	    	response.setContentType("text/html;charset=UTF-8");  
 	    	response.getWriter().write(Callback+"("+back+")");
@@ -111,7 +111,7 @@ public class School_api extends HttpServlet{
 	    	response.getWriter().write(Callback+"("+back+")");
 	    	System.out.println(Callback+"("+back+")");
 	    	
-	    	
+//	    	waiting for test
 		}else if(whereFrom.equals("alter")){
 			System.out.println("school api:WF=====alter");
 //			旧校名
@@ -148,14 +148,14 @@ public class School_api extends HttpServlet{
 	    	String SubmitDate = formatter.format(currentTime);
 
 			Gson gson = new Gson();  
-			List<People_model> list = new ArrayList<People_model>();
+//			????--------------------------------------------------------------------------
+			List<School_model> list = new ArrayList<School_model>();
 //			修改操作	
 			String sql="UPDATE NSI_SCHOOL_data SET School_name='"+School_name+"',School_properties='"+School_properties+"',Areas='"+Areas+"',Founded_time='"+Founded_time+"',School_system='"+School_system+"',Course='"+Course+"',President='"+President+"',President_country='"+President_country+"',Teacher_number='"+Teacher_number+"',Foreign_teacher_num='"+Foreign_teacher_num+"'"
 					+" ,Teacher_salary ='"+Teacher_salary+"',Num_students='"+Num_students+"',Graduating_stu_num='"+Graduating_stu_num+"',Extra_curricular_edu='"+Extra_curricular_edu+"',Covered_area='"+Covered_area+"',Built_area='"+Built_area+"' "
 					+" ,Tuition= '"+Tuition+"',website='"+website+"',load_people='"+load_people+"',load_time='"+SubmitDate+"',Investment='"+Investment+"',remark='"+remark+"' "
 					+" WHERE School_name ='"+alter_old_Schoolname+"'";	
-			list=DB.alter(sql);
-			
+			list=School_DB.alter(sql);	
 	    	String jsonList =gson.toJson(list);
 	    	String Callback = request.getParameter("Callback");//客户端请求参数
 	    	response.setContentType("text/html;charset=UTF-8");  
@@ -399,7 +399,7 @@ public class School_api extends HttpServlet{
 	    	response.getWriter().write(Callback+"("+back+")");
 	    	System.out.println(Callback+"("+back+")");
 	    	
-//	    	测试echart数据
+//	    	测试echart数据 省份学校数量查询
 		}else if(whereFrom.equals("testEchart")){	
 			
 			System.out.println("school api:WF======testEchart");		
@@ -448,7 +448,8 @@ public class School_api extends HttpServlet{
 	    	response.getWriter().write(Callback+"("+jsonList+")");
 	    	System.out.println(Callback+"("+jsonList+")");
 	    	
-			
+				
+	    	
 		}else if(whereFrom.equals("test")){
 
 			System.out.println("school api:WF======test");		
