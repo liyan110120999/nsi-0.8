@@ -102,8 +102,9 @@
 	rs.close();	
 	stmt.close();	
 	conn.close();	
-%>	
-
+%>
+	
+<caption><h3>学校logo图片审核</h3></caption>
 
 
 </body>
